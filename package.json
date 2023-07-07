@@ -1,10 +1,19 @@
 {
-	"scripts": {
-		"ol:dev": "vitepress dev online",
-		"ol:build": "vitepress build online",
-		"ol:preview": "vitepress preview online"
-	},
-	"devDependencies": {
-		"vitepress": "1.0.0-beta.5"
-	}
+    "name": "You-Dont-Know-JS-zh-CN",
+    "version": "1.0.0",
+    "packageManager": "pnpm@8.6.3",
+    "private": true,
+    "author": "liunian@2077tech.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN"
+    },
+    "scripts": {
+        "ol:dev": "vitepress dev online",
+        "ol:build": "vitepress build online",
+        "ol:preview": "vitepress preview online"
+    },
+    "devDependencies": {
+        "vitepress": "1.0.0-beta.5"
+    }
 }
