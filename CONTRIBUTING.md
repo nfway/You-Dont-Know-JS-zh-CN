@@ -1,37 +1,30 @@
-# Contributing
+# You-Dont-Know-JS-zh-CN 项目贡献指南
 
-Please feel free to contribute to the quality of this content by submitting PR's for improvements to code snippets, explanations, etc. If there's any doubt or if you think that a word/phrase is used confusingly, **before submitting a PR, open an issue to ask about it.**
+如果你愿意为 [You-Dont-Know-JS-zh-CN](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN) 项目贡献代码或提供建议，请阅读以下内容。
 
-However, if you choose to contribute content (not just typo corrections) to this repo, you agree that you're giving me a non-exclusive license to use that content for the book, as I (and my publisher) deem appropriate. You probably guessed that already, but I just wanted to be extra clear on that.
+如果你**不熟悉**开源项目，请参阅[开源项目礼节](https://developer.mozilla.org/zh-CN/docs/MDN/Community/Open_source_etiquette)。
 
-## Reading Experience (Chapter/Section links, etc)
+## Issue 规范
 
-I understand that reading one long .md file, with no relative cross links to other sections/etc, is not the preferred reading experience for most of you. As such, it's totally reasonable to want to file an issue/PR to add those kinds of features.
+-   issue 可用于提出问题、讨论等任何与项目有关的内容，但请遵守[开源项目礼节](https://developer.mozilla.org/zh-CN/docs/MDN/Community/Open_source_etiquette)。
 
-This topic has been brought up many times, and I've considered it. For now, I **do not** accept these kinds of changes into the repo.
+-   在提交 issue 之前，请搜索相关内容是否已被提出。
 
-The main purpose of my book repos is to track and manage the content for the purposes of publication (paid-for ebooks and print books). I do this in the open because I also care about providing free and early access to the content, to make sure there is no paywall barrier to learning.
+-   如果有必要，可以提供截图或录屏，这能够更直观地重现问题。
 
-As such, this repo **is not optimized for your reading experience.**
+## Pull Request 规范
 
-The intended **best reading experience** are the published books (either ebook or print), so I encourage you to purchase them for that purpose.
+-   请先 fork 一份到自己的项目下并在 `2ed-zh-CN` 分支下工作！
+-   commit 信息最好使用英文并且简单明了的描述做了什么，因为提交最终会合并到[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)中。
 
-## Editions
+-   执行 `npm run build` 后可以正确打包文件。
+-   提交 PR 前请 rebase，确保 commit 记录的整洁。
+-   确保 PR 是提交到 `2ed-zh-CN` 分支，而不是 `main` 分支。
+-   如果是修复 bug，请在 PR 中给出描述信息或关联 issue。
+-   合并代码需要至少一名维护人员参与：review 并 approve 后即可合并。
 
-The current edition (*work in progress*) of the books is the 2nd edition. While these 2nd edition books are in progress, contributions are OK, but **there's no need to jump the gun early** while I'm still working on stuff. That's what "work in progress" means. :)
+## 最后
 
-| NOTE: |
-| :--- |
-| **ALSO**, please note that while a book is in progress, the previous 1st edition text may be included at the bottom of each file, and marked as such. Please ignore this text, as contributions there are not relevant. |
+无论你的 PR 提交给本项目还是[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，请同时遵守原版[贡献指南](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/CONTRIBUTING.md)。
 
-I **am not accepting any contributions** for 1st edition books.
-
-## Typos?
-
-Please don't worry about minor text typos. These will almost certainly be caught during the editing process.
-
-If you're going to submit a PR for typo fixes, please be measured in doing so by collecting several small changes into a single PR (in separate commits). Or, **just don't even worry about them for now,** because we'll get to them later. I promise.
-
-## Search First!
-
-Also, if you have any questions or concerns, please make sure to search the issues (both open and closed!) first, to keep the churn of issues to a minimum. I want to keep my focus on writing these books as much as possible.
+如果你的 PR 目标是[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，我会不定时的去 review，如果长时间未响应请提醒我(@liunnn1994)。

@@ -1,5 +1,7 @@
 # 你不知道的 JavaScript (丛书) - 第二版
 
+> 本仓库为《你不知道的 JavaScript (丛书) - 第二版》社区中文版，如果您有任何问题欢迎提交 [Issue](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/issues) 给我。同时欢迎社区的 PR，不过在您行动之前，请确保查看了[如何贡献](#贡献)。
+
 这是一个深入研究 JavaScript 语言核心机制的系列图书。这是该系列图书的**第二版**：
 
 <a href="https://leanpub.com/ydkjsy-get-started"><img src="get-started/images/cover.png" width="75"></a>&nbsp;&nbsp;
@@ -13,12 +15,12 @@
 
 我建议按照这个顺序阅读**第二版**书籍：
 
-* [入门](get-started/README.md) | [在 Leanpub 上购买](https://leanpub.com/ydkjsy-get-started) | [在亚马逊上购买](https://www.amazon.com/dp/B084BNMN7T)
-* [作用域与闭包](scope-closures/README.md) | [在 Leanpub 上购买](https://leanpub.com/ydkjsy-scope-closures) | [在亚马逊上购买](https://www.amazon.com/dp/B08634PZ3N)
-* [对象与类](objects-classes/README.md) （稳定版草稿）
-* [类型与语法](types-grammar/README.md) （正在起草）
-* 同步与异步 （尚未开始）
-* ES.Next 和未来 （尚未开始）
+-   [入门](get-started/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-get-started) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B084BNMN7T)
+-   [作用域与闭包（等待翻译）](scope-closures/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-scope-closures) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B08634PZ3N)
+-   [对象与类（等待翻译）](objects-classes/README.md) （稳定版草稿）
+-   [类型与语法（等待翻译）](types-grammar/README.md) （正在起草）
+-   同步与异步 （尚未开始）
+-   ES.Next 和未来 （尚未开始）
 
 如果你正在寻找以前的**第一版**书籍， [可以在这里找到](https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/README.md)。
 
@@ -28,17 +30,25 @@
 
 本版书籍是通过 [GetiPub](https://geti.pub) 出版公司自行出版的。出版的书籍将通过正常的图书零售渠道进行销售。
 
-如果你想为这项工作（或我的其他开源软件工作）提供资金支持，除了购买已出版的书籍外，请考虑这些选项：
+如果你想为这项工作（或**[原作者](https://github.com/getify)**的其他开源软件工作）提供资金支持，除了购买已出版的书籍外，请考虑这些选项：
 
-* [Github 赞助](https://github.com/users/getify/sponsorship)
-* [Patreon](https://www.patreon.com/getify)
-* [Paypal 贝宝](https://www.paypal.me/getify)
+-   [Github 赞助](https://github.com/users/getify/sponsorship)
+-   [Patreon](https://www.patreon.com/getify)
+-   [Paypal 贝宝](https://www.paypal.me/getify)
+
+### 赞助
+
+如果你想为**本书的中文社区或译者**提供资金支持，请考虑这些选项：
+
+![微信](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/wechat.jpg)
+
+![支付宝](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/alipay.jpg)
 
 ## 贡献
 
-请随时通过提交代码片段、解释等方面的 PR 来提高本内容的质量。虽然我们欢迎对错字的修正，但它们很可能会在正常的编辑/出版过程中被发现，**所以请不要现在就担心它们。**
+请随时通过提交代码片段、解释等方面的 PR 来提高本内容的质量。中文社区版欢迎包含但不限于对错字的修正、语义的修改/讨论等贡献。
 
-当然，我们**非常感谢**你对这项工作的任何贡献。
+我们**非常感谢**你对这个项目的任何贡献。
 
 但**请在**提交 PR 之前仔细阅读[贡献指南](CONTRIBUTING.md)。
 
@@ -56,7 +66,7 @@ Frontend Masters 是面向前端软件开发的顶级专家培训材料的黄金
 
 我想对 Marc Grabanski 和整个 Frontend Masters 团队表示热烈而深切的感谢，不仅因为他们在视频培训平台上的出色工作，还因为他们对我和《你不知道的 JavaScript》这本书的坚定支持!
 
-----
+---
 
 ## 许可 & 版权
 
