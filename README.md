@@ -40,9 +40,12 @@
 
 如果你想为**本书的中文社区或译者**提供资金支持，请考虑这些选项：
 
-![微信](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/wechat.jpg)
-
-![支付宝](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/alipay.jpg)
+-   [爱发电](https://afdian.net/a/YDKJSY/plan)
+-   赞赏码
+<div>    
+    <img src="https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/wechat.jpg" title="微信" width="30%">
+    <img src="https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/alipay.jpg" title="支付宝" width="30%">
+</div>
 
 ## 贡献
 
