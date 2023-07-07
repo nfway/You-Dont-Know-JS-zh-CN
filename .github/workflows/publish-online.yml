@@ -1,0 +1,74 @@
+name: Publish Online
+
+on:
+    pull_request:
+        types:
+            - closed
+        branches:
+            - main
+        paths:
+            - "es-next-beyond/**"
+            - "get-started/**"
+            - "objects-classes/**"
+            - "scope-closures/**"
+            - "sync-async/**"
+            - "types-grammar/**"
+    push:
+        branches:
+            - main
+        paths:
+            - "es-next-beyond/**"
+            - "get-started/**"
+            - "objects-classes/**"
+            - "scope-closures/**"
+            - "sync-async/**"
+            - "types-grammar/**"
+    workflow_dispatch:
+        inputs:
+        deployNotes:
+            description: "手动触发"
+            required: true
+            type: boolean
+
+jobs:
+    deploy-docs:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.pull_request.merged == true }} && ${{ github.ref == 'refs/heads/main' }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.event.workflow_run.head_sha }}
+                  persist-credentials: false
+
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+
+            - name: Get pnpm store directory
+              id: pnpm-cache
+              run: |
+                  echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+                  echo "pnpm_cache_dir=$(pnpm store path)" >> $env:GITHUB_OUTPUT
+
+            - uses: actions/cache@v3
+              name: Setup pnpm cache
+              with:
+              path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+              key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+              restore-keys: |
+                  ${{ runner.os }}-pnpm-store-
+
+            - name: Install dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Build
+              run: pnpm run ol:build
+
+            - name: Start Netlify Build
+              run: curl -X POST -d '{}' ${{ secrets.NETLIFY_BUILD_HOOKS }}
