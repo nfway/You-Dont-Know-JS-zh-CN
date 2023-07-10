@@ -20,7 +20,7 @@
 
 ## Pull Request 规范
 
-> 为了避免不必要的噪声通知*(原作者并不会处理汉化相关 PR)*，强烈建议所有 PR 均指定给此仓库**而非**[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，我回定期合并回[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)。
+> 为了避免不必要的<ins title="原作者不懂中文，并不会处理汉化相关 PR"><i>噪声通知</i></ins>，强烈建议所有 PR 均指定给此仓库**而非**[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，我回定期合并回[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)。
 
 -   请先 fork 一份到自己的项目下并在 `2ed-zh-CN` 分支下工作！
 -   commit 信息最好使用英文并且简单明了的描述做了什么，因为提交最终会合并到[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)中。
