@@ -1,4 +1,4 @@
-# 你不知道的 JavaScript (丛书) - 第二版
+# 你并不了解 JavaScript (丛书) - 第二版
 
 这是一个深入研究 JavaScript 语言核心机制的系列图书。这是该系列图书的**第二版**：
 
@@ -54,7 +54,7 @@ Frontend Masters 是面向前端软件开发的顶级专家培训材料的黄金
 
 **注意：** 我的所有[课程](https://frontendmasters.com/kyle-simpson)都是通过 Frontend Masters 独家授课。如果你喜欢这本书的内容，请查看我的视频培训课程。
 
-我想对 Marc Grabanski 和整个 Frontend Masters 团队表示热烈而深切的感谢，不仅因为他们在视频培训平台上的出色工作，还因为他们对我和《你不知道的 JavaScript》这本书的坚定支持!
+我想对 Marc Grabanski 和整个 Frontend Masters 团队表示热烈而深切的感谢，不仅因为他们在视频培训平台上的出色工作，还因为他们对我和《你并不了解 JavaScript》这本书的坚定支持!
 
 ----
 
