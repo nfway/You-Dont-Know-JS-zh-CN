@@ -1,6 +1,6 @@
 # 你并不了解 JavaScript：入门 - 第二版
 
-<img src="images/cover.png" width="300">
+<img src="./images/cover.png" width="300">
 
 ---
 
