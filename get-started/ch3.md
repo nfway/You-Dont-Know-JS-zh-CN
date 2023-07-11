@@ -382,7 +382,7 @@ otherHomework.topic; // "JS"
 图 4 展示了三个对象（`otherHomework`、 `homework` 和 `Object.prototype`）是如何在一个原型链中被连接起来：
 
 <figure>
-    <img src="images/fig4.png" width="200" alt="Prototype chain with 3 objects" align="center">
+    <img src="./images/fig4.png" width="200" alt="Prototype chain with 3 objects" align="center">
     <figcaption><em>图 4：原型链中的对象</em></figcaption>
     <br><br>
 </figure>
@@ -415,7 +415,7 @@ homework.topic;
 图 5 展示了创建 `otherHomework.topic` 属性的赋值之后的对象/属性：
 
 <figure>
-    <img src="images/fig5.png" width="200" alt="3 objects linked, with shadowed property" align="center">
+    <img src="./images/fig5.png" width="200" alt="3 objects linked, with shadowed property" align="center">
     <figcaption><em>图 5: 'topic' 的属性遮蔽</em></figcaption>
     <br><br>
 </figure>
@@ -453,7 +453,7 @@ mathHomework.study();
 两个对象 `jsHomework` 和 `mathHomework` 各自的原型链接到单一的 `homework` 对象上，然后共有了 `study()` 函数。 `jsHomework` 和 `mathHomework` 各自被赋予自己的 `topic` 属性（见图 6）。
 
 <figure>
-    <img src="images/fig6.png" width="495" alt="4 objects prototype linked" align="center">
+    <img src="./images/fig6.png" width="495" alt="4 objects prototype linked" align="center">
     <figcaption><em>图 6：两个对象链接到一个共同的父对象上</em></figcaption>
     <br><br>
 </figure>
