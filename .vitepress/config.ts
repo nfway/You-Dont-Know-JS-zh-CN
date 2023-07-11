@@ -5,6 +5,14 @@ export default defineConfig({
     title: "你并不了解 JavaScript",
     description: "你并不了解 JavaScript",
     lang: "zh-CN",
+    srcExclude: [
+        "es-next-beyond/**/*",
+        "objects-classes/**/*",
+        "scope-closures/**/*",
+        "sync-async/**/*",
+        "types-grammar/**/*",
+    ],
+    ignoreDeadLinks: true,
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
