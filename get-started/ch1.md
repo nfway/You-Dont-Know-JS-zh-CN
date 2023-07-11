@@ -313,7 +313,7 @@ if (!Promise.prototype.finally) {
 从历史上看，脚本语言或解释语言的执行方式一般是自上而下、逐行执行的；在开始执行之前，通常没有对程序进行初步的处理（见图 1）。
 
 <figure>
-    <img src="images/fig1.png" width="650" alt="Interpreting a script to execute it" align="center">
+    <img src="./images/fig1.png" width="650" alt="Interpreting a script to execute it" align="center">
     <figcaption><em>图1：解释 型/脚本的执行</em></figcaption>
     <br><br>
 </figure>
@@ -323,7 +323,7 @@ if (!Promise.prototype.finally) {
 如图 2 所示，与那些在执行之前确实要经过一个处理步骤（通常称为解析）的语言进行比较：
 
 <figure>
-    <img src="images/fig2.png" width="650" alt="Parsing, compiling, and executing a program" align="center">
+    <img src="./images/fig2.png" width="650" alt="Parsing, compiling, and executing a program" align="center">
     <figcaption><em>图 2: 解析 + 编译 + 执行</em></figcaption>
     <br><br>
 </figure>
@@ -358,7 +358,7 @@ JS 源代码在执行前被解析。该规范要求如此，因为它要求在�
 为了更直观地了解这些步骤：
 
 <figure>
-    <img src="images/fig3.png" width="650" alt="Steps of JS compilation and execution" align="center">
+    <img src="./images/fig3.png" width="650" alt="Steps of JS compilation and execution" align="center">
     <figcaption><em>图3：解析、编译和执行 JS</em></figcaption>
     <br><br>
 </figure>

@@ -4,8 +4,8 @@
 
 这是一个深入研究 JavaScript 语言核心机制的系列图书。这是该系列图书的**第二版**：
 
-<a href="https://leanpub.com/ydkjsy-get-started"><img src="get-started/images/cover.png" width="75"></a>&nbsp;&nbsp;
-<a href="https://leanpub.com/ydkjsy-scope-closures"><img src="scope-closures/images/cover.png" width="75"></a>&nbsp;&nbsp;...
+<a href="https://leanpub.com/ydkjsy-get-started"><img src="./get-started/images/cover.png" width="75"></a>&nbsp;&nbsp;
+<a href="https://leanpub.com/ydkjsy-scope-closures"><img src="./scope-closures/images/cover.png" width="75"></a>&nbsp;&nbsp;...
 
 **想了解更多关于这套书背后的动机和观点，请查看[序言](preface.md)。**
 
