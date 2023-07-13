@@ -30,7 +30,7 @@
 
 本版书籍是通过 [GetiPub](https://geti.pub) 出版公司自行出版的。出版的书籍将通过正常的图书零售渠道进行销售。
 
-如果你想为这项工作（或**[原作者](https://github.com/getify)**的其他开源软件工作）提供资金支持，除了购买已出版的书籍外，请考虑这些选项：
+如果你想为这项工作（或[**原作者**](https://github.com/getify)的其他开源软件工作）提供资金支持，除了购买已出版的书籍外，请考虑这些选项：
 
 -   [Github 赞助](https://github.com/users/getify/sponsorship)
 -   [Patreon](https://www.patreon.com/getify)
