@@ -81,6 +81,4 @@ JS 的每一部分都是有用的。有些部分比其他部分更有用。有�
 
 这些书的目的是为你在 JavaScript 的漫游中提供一个指导方向，让你从目前对 JavaScript 语言的理解中走出来，走向更深入的理解。你对 JS 的理解越深，你提出的问题就越多，你需要探索的东西就越多！这正是我感到兴奋的地方！
 
-I'm so glad you're embarking on this journey, and I am so honored you would consider and consult these books along the way. It's time to start *getting to know JS*.
-
-我很高兴您踏上这段旅程，我也很荣幸您能一路上考虑和参考这些书籍。是时候开始*了解 JS* 了。
+我很高兴您踏上这段旅程，我也很荣幸您能一路上考虑和参考这些书籍。是时候*开始了解 JS* 了。
