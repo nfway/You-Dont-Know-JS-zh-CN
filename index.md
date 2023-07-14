@@ -4,15 +4,18 @@ layout: home
 
 hero:
     name: "你并不了解"
-    text: "JavaScript"
+    text: "JavaScript（社区版）"
     tagline: "又名：你不知道的 JavaScript - 第二版"
     actions:
         - theme: brand
           text: 开始阅读
           link: /get-started/README
         - theme: alt
-          text: GitHub
+          text: GitHub（中文）
           link: https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN
+        - theme: alt
+          text: GitHub（原版）
+          link: https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed
 
 features:
     - title: 流行
@@ -22,7 +25,7 @@ features:
     - title: 开源
       details: 不论是英文原版还是中文版本均在 GitHub 上完全开源。中文版还贴心的为您准备了在线阅读版本。
       link: https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN
-      linkText: 中文版
+      linkText: 社区中文版仓库
     - title: 离线阅读
       details: 如果您由于网络原因无法在线阅读，可以在 release 中下载后进行离线阅读。（即将到来）
       link: https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/releases
