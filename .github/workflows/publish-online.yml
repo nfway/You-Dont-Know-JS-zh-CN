@@ -24,12 +24,6 @@ on:
             - "scope-closures/**"
             - "sync-async/**"
             - "types-grammar/**"
-    workflow_dispatch:
-        inputs:
-        deployNotes:
-            description: "手动触发"
-            required: true
-            type: boolean
 
 jobs:
     deploy-docs:

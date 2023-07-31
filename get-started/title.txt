@@ -1,0 +1,7 @@
+---
+title: 你并不了解 JavaScript：入门 - 第二版
+author: Kyle Simpson
+translator: Nian Liu
+rights:  Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Unported License
+language: zh-CN
+...
