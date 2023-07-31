@@ -25,9 +25,9 @@
 -   请先 fork 一份到自己的项目下并在 `2ed-zh-CN` 分支下工作！
 -   commit 信息最好使用英文并且简单明了的描述做了什么，因为提交最终会合并到[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)中。
 
--   执行 `npm run build` 后可以正确打包文件**(仅 main 分支)**。
+-   执行 `npm run build` 后可以正确打包文件 **(仅 main 分支)**。
 -   执行 `npx prettier --write 你的文件路径` 保持 markdown 格式统一。
--   提交 PR 前请 rebase，确保 commit 记录的整洁。
+-   提交 PR 前请 squash，确保 commit 记录的整洁。
 -   确保 PR 是提交到 `2ed-zh-CN` 分支，而不是 `main` 分支。
 -   如果是修复 bug，请在 PR 中给出描述信息或关联 issue。
 -   合并代码需要至少一人参与 review 并由维护人员 approve 后即可合并。
