@@ -6,9 +6,9 @@
 
 ## 分支
 
-- main: 项目的主分支，用于发布、打包等，不会合并至[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，除非你明确知道你在做什么，否则**不要**给此分支提交 PR。
-- 2ed-zh-CN: 用于翻译的分支，此分支会合并到[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)中，所有汉化相关的内容请提交到此分支，**不要**提交任何其它分支的内容。
-- 2nd-ed: [原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)的 fork，此分支与[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)保持一致，**不要**在此分支进行任何修改。
+-   main: 项目的主分支，用于发布、打包等，不会合并至[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，除非你明确知道你在做什么，否则**不要**给此分支提交 PR。
+-   2ed-zh-CN: 用于翻译的分支，此分支会合并到[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)中，所有汉化相关的内容请提交到此分支，**不要**提交任何其它分支的内容。
+-   2nd-ed: [原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)的 fork，此分支与[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)保持一致，**不要**在此分支进行任何修改。
 
 ## Issue 规范
 

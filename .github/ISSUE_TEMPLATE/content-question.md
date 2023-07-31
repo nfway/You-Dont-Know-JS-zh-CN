@@ -1,22 +1,20 @@
 ---
-name: Content Question
-about: Ask a question about something you read in the books?
-labels:
+name: 中文版相关
+about: 错别字、语义、翻译错误等任何中文版的问题。
+---
+
+**是的，我已经阅读了[贡献指南](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/CONTRIBUTING.md)**。
 
 ---
 
-**Yes, I promise I've read the [Contributions Guidelines](https://github.com/getify/You-Dont-Know-JS/blob/master/CONTRIBUTING.md)** (please feel free to remove this line).
+[ ] 我已经搜索过这个问题。
 
-----
+**版本：**
 
-**Please type "I already searched for this issue":**
+**书名：**
 
-**Edition:** (1st or 2nd)
+**章节：**
 
-**Book Title:**
+**章节标题：**
 
-**Chapter:**
-
-**Section Title:**
-
-**Question:**
+**主题：**

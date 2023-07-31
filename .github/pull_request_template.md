@@ -1,0 +1,3 @@
+-   [ ] 确保您遵循贡献指南：([中文](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/CONTRIBUTING.md)）。
+-   [ ] 确保将提交合并到 `2ed-zh-CN` 分支。
+-   [ ] 添加一些描述以及相关问题/需求/讨论链接。
