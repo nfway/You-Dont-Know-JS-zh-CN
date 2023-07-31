@@ -9,6 +9,8 @@
 
 **想了解更多关于这套书背后的动机和观点，请查看[序言](preface.md)。**
 
+如果想查看中文版的翻译进度，[可以在这里找到](https://github.com/users/liunnn1994/projects/1)。
+
 如果你正在寻找以前的**第一版**书籍， [可以在这里找到](https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/README.md)。
 
 ## 书名
