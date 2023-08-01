@@ -8,7 +8,7 @@ on:
     types: [completed]
 
 jobs:
-  deploy-docs:
+  deploy-release:
     runs-on: ubuntu-latest
 
     permissions:
@@ -50,7 +50,7 @@ jobs:
         run: |
           pnpm run generate-ol
           pnpm run generate-pdf
-          echo 'VERSION=$(node -p "require('./package.json').version")' >> $GITHUB_OUTPUT
+          echo "VERSION=v$(node -p 'require("./package.json").version')" >> $GITHUB_OUTPUT
 
       - name: Release
         uses: softprops/action-gh-release@v1
