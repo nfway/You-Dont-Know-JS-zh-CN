@@ -16,9 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-          persist-credentials: false
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -53,20 +50,21 @@ jobs:
         run: |
           pnpm run generate-ol
           pnpm run generate-pdf
-          version=$(node -p "require('./package.json').version")
-          echo 'version=$version' >> "$GITHUB_OUTPUT"
+          echo 'VERSION=$(node -p "require('./package.json').version")' >> $GITHUB_OUTPUT
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          name: ${{ steps.build.outputs.version }}
-          tag_name: ${{ steps.build.outputs.version }}
+          name: ${{ steps.build.outputs.VERSION }}
+          tag_name: ${{ steps.build.outputs.VERSION }}
+          body: ${{ steps.build.outputs.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             ./.vitepress/dist/pdf/*.pdf
 
       - name: Commit and push
         uses: stefanzweifel/git-auto-commit-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          commit_message: Released ${{ steps.build.outputs.version }}
-          branch: main
+          commit_message: Released ${{ steps.build.outputs.VERSION }}
