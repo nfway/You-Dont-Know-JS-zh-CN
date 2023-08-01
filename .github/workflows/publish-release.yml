@@ -1,0 +1,72 @@
+name: Publish Release
+
+on:
+  workflow_run:
+    branches:
+      - main
+    workflows: ["Publish Online"]
+    types: [completed]
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Replace npmrc
+        run: cp -f .github.npmrc .npmrc
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $env:GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build
+        id: build
+        run: |
+          pnpm run generate-ol
+          pnpm run generate-pdf
+          version=$(node -p "require('./package.json').version")
+          echo 'version=$version' >> "$GITHUB_OUTPUT"
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ steps.build.outputs.version }}
+          tag_name: ${{ steps.build.outputs.version }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            ./.vitepress/dist/pdf/*.pdf
+
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Released ${{ steps.build.outputs.version }}
+          branch: main

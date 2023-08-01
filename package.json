@@ -1,20 +1,28 @@
 {
-    "name": "You-Dont-Know-JS-zh-CN",
-    "version": "1.0.0",
-    "packageManager": "pnpm@8.6.3",
-    "private": true,
-    "author": "liunian@2077tech.com",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN.git"
-    },
-    "scripts": {
-        "ol:dev": "vitepress dev",
-        "ol:build": "vitepress build",
-        "ol:preview": "vitepress preview"
-    },
-    "devDependencies": {
-        "prettier": "^3.0.0",
-        "vitepress": "1.0.0-beta.5"
-    }
+  "name": "you-dont-know-js-zh-cn",
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.6.11",
+  "private": true,
+  "author": "liunian <liunian@2077tech.com> (https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN.git"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "vitepress dev",
+    "preview": "vitepress preview --port 4173",
+    "generate-ol": "vitepress build",
+    "generate-pdf": "node ./scripts/html2pdf.cjs"
+  },
+  "devDependencies": {
+    "pdf-merger-js": "^4.3.0",
+    "prettier": "^3.0.0",
+    "puppeteer": "^20.9.0",
+    "vitepress": "1.0.0-beta.5"
+  },
+  "engines": {
+    "pnpm": ">=8.6.11",
+    "node": ">=18.0.0"
+  }
 }
