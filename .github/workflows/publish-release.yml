@@ -89,4 +89,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           file_pattern: "package.json"
-          commit_message: Released ${{ steps.build.outputs.VERSION }}
+          commit_message: "chore(release): ${{ steps.build.outputs.VERSION }} [skip ci]"
