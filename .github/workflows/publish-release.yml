@@ -12,6 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install Dependencies
+        uses: ConorMacBride/install-package@v1
+        with:
+          apt: fontconfig fonts-wqy-zenhei
+
+      - name: Chinese font list
+        run: |
+          fc-list :lang=zh
+
       - uses: actions/checkout@v3
 
       - uses: actions-cool/check-user-permission@v2
