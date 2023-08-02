@@ -15,11 +15,6 @@ jobs:
       contents: write
 
     steps:
-      - name: Chinese support
-        uses: ConorMacBride/install-package@v1
-        with:
-          apt: language-pack-zh*
-
       - uses: actions/checkout@v3
 
       - name: Setup node
@@ -48,6 +43,10 @@ jobs:
 
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
+
+      - name: Vitepress custom theme
+        run: |
+          cp -a scripts/vitepress-theme/ .vitepress/theme
 
       - name: Build
         id: build
