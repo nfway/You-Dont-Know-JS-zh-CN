@@ -13,13 +13,13 @@ jobs:
 
     steps:
       - name: Install Dependencies
-        uses: ConorMacBride/install-package@v1
-        with:
-          apt: fontconfig fonts-wqy-zenhei
-
-      - name: Chinese font list
         run: |
-          fc-list :lang=zh
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+          sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable fontconfig fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 --no-install-recommends
 
       - uses: actions/checkout@v3
 
