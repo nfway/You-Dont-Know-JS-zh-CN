@@ -78,6 +78,7 @@ async function main() {
         async ({ isFirstPage, pdfStyle, localhost, olUrl, version }) => {
           const pattern = /\s/g;
           const bookName = "你并不了解";
+          const timeZone = "Asia/Shanghai";
 
           const titleDom = document.querySelector(`h1[id*="${bookName}"]`);
           if (isFirstPage) {
@@ -86,7 +87,10 @@ async function main() {
             });
             const blockquote = document.createElement("blockquote");
             const p = document.createElement("p");
-            p.innerText = `版本：v${version} 构建时间：${new Date().toLocaleString()}`;
+            p.innerText = `版本：v${version} 构建时间：${new Date().toLocaleString(
+              "zh-CN",
+              { timeZone },
+            )} ${timeZone}`;
             blockquote.appendChild(p);
             titleDom.parentElement.insertBefore(
               blockquote,
