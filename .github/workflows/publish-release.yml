@@ -64,7 +64,7 @@ jobs:
 
       - name: Vitepress custom theme
         run: |
-          cp -a scripts/vitepress-theme/ .vitepress/theme
+          cp -a scripts/vitepress-theme/* .vitepress/theme
 
       - name: Build
         id: build
