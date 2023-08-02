@@ -11,11 +11,21 @@ jobs:
   deploy-release:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-
     steps:
       - uses: actions/checkout@v3
+
+      - uses: actions-cool/check-user-permission@v2
+        id: checkUser
+        with:
+          require: "write"
+
+      - uses: actions/cache@v3
+        name: Setup puppeteer cache
+        with:
+          path: ~/.cache/puppeteer
+          key: ${{ runner.os }}-puppeteer
+          restore-keys: |
+            ${{ runner.os }}-puppeteer
 
       - name: Setup node
         uses: actions/setup-node@v3
