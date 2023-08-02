@@ -146,7 +146,7 @@ async function main() {
     if (!existsSync(pdfDir)) {
       mkdirSync(pdfDir);
     }
-    writeFileSync(join(pdfDir, `${dirName}.pdf`), mergedPdfBuffer);
+    writeFileSync(join(pdfDir, `${dirName}-v${version}.pdf`), mergedPdfBuffer);
   }
 
   await browser.close();
