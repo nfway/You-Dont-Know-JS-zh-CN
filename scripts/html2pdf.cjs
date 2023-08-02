@@ -69,9 +69,13 @@ async function main() {
     for (const file of files) {
       console.log(`正在处理 ${file} 的 PDF buffer`);
       const page = await browser.newPage();
-      await page.goto(`http://127.0.0.1:${PREVIEW_PORT}/${dirName}/${file}`);
+      await page.goto(`http://127.0.0.1:${PREVIEW_PORT}/${dirName}/${file}`, {
+        waitUntil: "networkidle0",
+      });
+
+      await waitNextFrame(page);
       await page.evaluate(
-        ({ isFirstPage, pdfStyle, localhost, olUrl, version }) => {
+        async ({ isFirstPage, pdfStyle, localhost, olUrl, version }) => {
           const pattern = /\s/g;
           const bookName = "你并不了解";
 
@@ -112,6 +116,7 @@ async function main() {
           version,
         },
       );
+      await waitNextFrame(page);
       const pdfBuf = await page.pdf({
         // 页面缩放比例
         scale: 1,
@@ -164,6 +169,17 @@ async function sleep(ms) {
     setTimeout(() => {
       resolve();
     }, ms);
+  });
+}
+
+function waitNextFrame(page) {
+  return page.evaluate(async () => {
+    await new Promise((resolve) => {
+      requestAnimationFrame(() => {
+        // 模拟 networkidle0
+        setTimeout(resolve, 500);
+      });
+    });
   });
 }
 
