@@ -138,12 +138,12 @@ alert("Hello, JS!");
 
 但我只是列举一些在不同的 JS 控制台环境中，在不同的时间点上出现的怪异行为的例子，以加强我关于在使用时不要假设本地 JS 行为的观点:
 
--   在顶层"全局范围"中的 "var" 或 "function" 声明是否实际创建了一个真正的全局变量（以及镜像的 "window" 属性，反之亦然！）。
--   "全局范围"中的多个 `let` 和 `const` 声明会发生什么。
--   独占一行的 `"use strict";` (输入后按回车键 <kbd>Enter</kbd>)是否会为控制台会话的其余部分启用严格模式，就像在 .js 文件的第一行上一样，以及您是否可以在“第一行”之外使用 `"use strict";` 并且仍然可以为该会话启用严格模式。
--   非严格模式的 `this` 默认绑定对函数调用的作用，以及使用的 "全局对象"是否会包含预期的全局变量。
--   变量提升（见第二章，_作用域与闭包_）是如何工作的。
--   ....
+- 在顶层"全局范围"中的 "var" 或 "function" 声明是否实际创建了一个真正的全局变量（以及镜像的 "window" 属性，反之亦然！）。
+- "全局范围"中的多个 `let` 和 `const` 声明会发生什么。
+- 独占一行的 `"use strict";` (输入后按回车键 <kbd>Enter</kbd>)是否会为控制台会话的其余部分启用严格模式，就像在 .js 文件的第一行上一样，以及您是否可以在“第一行”之外使用 `"use strict";` 并且仍然可以为该会话启用严格模式。
+- 非严格模式的 `this` 默认绑定对函数调用的作用，以及使用的 "全局对象"是否会包含预期的全局变量。
+- 变量提升（见第二章，_作用域与闭包_）是如何工作的。
+- ....
 
 开发者控制台并不试图假装是一个 JS 编译器，它处理你输入的代码与 JS 引擎处理 .js 文件的方式完全相同。它只是想让你轻松地快速输入几行代码并立即看到结果。这些是完全不同的用例，因此，期望一个工具能同样处理这两种情况是不合理的。
 
@@ -157,11 +157,11 @@ alert("Hello, JS!");
 
 典型的范式级代码类别包括面向过程、面向对象(OO/classes)和函数式(FP)：
 
--   过程风格以自上而下的方式组织代码，通过一组预先确定的操作进行线性进展，通常收集在一起的相关单元称为过程。
+- 过程风格以自上而下的方式组织代码，通过一组预先确定的操作进行线性进展，通常收集在一起的相关单元称为过程。
 
--   对象风格通过将逻辑和数据收集在一起，形成称为类的单元来组织代码。
+- 对象风格通过将逻辑和数据收集在一起，形成称为类的单元来组织代码。
 
--   式风格将代码组织成函数（相对于程序的纯计算），并将这些函数的自应性作为值。
+- 式风格将代码组织成函数（相对于程序的纯计算），并将这些函数的自应性作为值。
 
 范式既没有对错。它们是指导和塑造程序员如何处理问题和解决方案的方向，以及他们如何结构和维护他们的代码。
 
@@ -215,11 +215,11 @@ JavaScript 的最基本的原则之一是保持*向后兼容性*。许多人对�
 
 ```js
 if (something) {
-    let x = 3;
-    console.log(x);
+  let x = 3;
+  console.log(x);
 } else {
-    let x = 4;
-    console.log(x);
+  let x = 4;
+  console.log(x);
 }
 ```
 
@@ -228,11 +228,11 @@ if (something) {
 ```js
 var x$0, x$1;
 if (something) {
-    x$0 = 3;
-    console.log(x$0);
+  x$0 = 3;
+  console.log(x$0);
 } else {
-    x$1 = 4;
-    console.log(x$1);
+  x$1 = 4;
+  console.log(x$1);
 }
 ```
 
@@ -261,8 +261,8 @@ var pr = getSomeRecords();
 startSpinner();
 
 pr.then(renderRecords) // 如果成功则渲染
-    .catch(showError) // 如果失败显示错误
-    .finally(hideSpinner); // 总是隐藏加载界面
+  .catch(showError) // 如果失败显示错误
+  .finally(hideSpinner); // 总是隐藏加载界面
 ```
 
 这段代码使用了 ES2019，即 promise 原型上的 `finally(..)` 方法。如果在 ES2019 之前的环境中使用此代码，则 `finally(..)` 方法将不存在，并且会发生错误。
@@ -271,20 +271,20 @@ pr.then(renderRecords) // 如果成功则渲染
 
 ```js
 if (!Promise.prototype.finally) {
-    Promise.prototype.finally = function f(fn) {
-        return this.then(
-            function t(v) {
-                return Promise.resolve(fn()).then(function t() {
-                    return v;
-                });
-            },
-            function c(e) {
-                return Promise.resolve(fn()).then(function t() {
-                    throw e;
-                });
-            },
-        );
-    };
+  Promise.prototype.finally = function f(fn) {
+    return this.then(
+      function t(v) {
+        return Promise.resolve(fn()).then(function t() {
+          return v;
+        });
+      },
+      function c(e) {
+        return Promise.resolve(fn()).then(function t() {
+          throw e;
+        });
+      },
+    );
+  };
 }
 ```
 
@@ -426,10 +426,10 @@ WASM 的最初动机显然是潜在的性能改进。虽然这仍然是一个重
 
 ```js
 function someOperations() {
-    // 空格和注释在这里都可以
-    "use strict";
+  // 空格和注释在这里都可以
+  "use strict";
 
-    // 这里的所有代码将在严格模式下运行
+  // 这里的所有代码将在严格模式下运行
 }
 ```
 

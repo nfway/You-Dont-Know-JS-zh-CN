@@ -44,9 +44,9 @@ console.log(yourName);
 
 ```js
 var myAddress = {
-    street: "123 JS Blvd",
-    city: "Austin",
-    state: "TX",
+  street: "123 JS Blvd",
+  city: "Austin",
+  state: "TX",
 };
 
 var yourAddress = myAddress;
@@ -68,12 +68,12 @@ console.log(yourAddress.street);
 
 ```js
 var awesomeFunction = function (coolThings) {
-    // ..
-    return amazingStuff;
+  // ..
+  return amazingStuff;
 };
 ```
 
-这里的函数表达式被称为_匿名函数表达式_，因为它在 `function` 关键字和 `(..)` 参数列表之间没有名称标识。这一点让很多 JS 开发者感到困惑，因为从 ES6 开始，JS 对匿名函数进行了"名称推断"：
+这里的函数表达式被称为*匿名函数表达式*，因为它在 `function` 关键字和 `(..)` 参数列表之间没有名称标识。这一点让很多 JS 开发者感到困惑，因为从 ES6 开始，JS 对匿名函数进行了"名称推断"：
 
 ```js
 awesomeFunction.name;
@@ -92,15 +92,15 @@ awesomeFunction.name;
 // let awesomeFunction = ..
 // const awesomeFunction = ..
 var awesomeFunction = function someName(coolThings) {
-    // ..
-    return amazingStuff;
+  // ..
+  return amazingStuff;
 };
 
 awesomeFunction.name;
 // "someName"
 ```
 
-这个函数表达式是一个_命名的函数表达式_，因为标识符 `someName` 在编译时直接与函数表达式相关联；与标识符 `awesomeFunction` 的关联直到运行时才发生在该语句中。这两个标识符不一定要匹配；有时让它们不同是有意义的，其他时候让它们相同是更好的。
+这个函数表达式是一个*命名的函数表达式*，因为标识符 `someName` 在编译时直接与函数表达式相关联；与标识符 `awesomeFunction` 的关联直到运行时才发生在该语句中。这两个标识符不一定要匹配；有时让它们不同是有意义的，其他时候让它们相同是更好的。
 
 还要注意的是，在为 `name` 属性指定 _name_ 时，显式函数名，即标识符 `someName`，具有优先权。
 
@@ -108,7 +108,7 @@ awesomeFunction.name;
 
 在我看来，如果一个函数存在于你的程序中，它就有一个目的；否则，就把它去掉！如果它有目的，它就有一个描述目的的自然名称！如果它有一个目的，它就有一个自然的名字来描述这个目的。
 
-如果一个函数有一个名字，你这个代码作者应该在代码中包含这个名字，这样读者就不必通过阅读和心理执行该函数的源代码来推断这个名字。即使是像 `x * 2` 这样的微不足道的函数，也必须通过阅读来推断出一个像 "double" 或 "multBy2" 这样的名字；当你只需花一秒钟来命名该函数为 "double" 或 "multBy2" _一次_时，这种短暂的额外的脑力劳动是不必要的，这样可以节省读者今后每次阅读时的重复脑力劳动。
+如果一个函数有一个名字，你这个代码作者应该在代码中包含这个名字，这样读者就不必通过阅读和心理执行该函数的源代码来推断这个名字。即使是像 `x * 2` 这样的微不足道的函数，也必须通过阅读来推断出一个像 "double" 或 "multBy2" 这样的名字；当你只需花一秒钟来命名该函数为 "double" 或 "multBy2" *一次*时，这种短暂的额外的脑力劳动是不必要的，这样可以节省读者今后每次阅读时的重复脑力劳动。
 
 遗憾的是，在某些方面，截至 2020 年初，JS 中还有许多其他的函数定义形式（也许将来会有更多！）。
 
@@ -194,12 +194,12 @@ var EntirelyDifferent = {
 var x = 1;
 
 if (x) {
-    // 会运行！
+  // 会运行！
 }
 
 while (x) {
-    // 只会运行一次！
-    x = false;
+  // 只会运行一次！
+  x = false;
 }
 ```
 
@@ -209,12 +209,12 @@ while (x) {
 var x = 1;
 
 if (x == true) {
-    // 会运行！
+  // 会运行！
 }
 
 while (x == true) {
-    // 只会运行一次！
-    x = false;
+  // 只会运行一次！
+  x = false;
 }
 ```
 
@@ -224,11 +224,11 @@ while (x == true) {
 var x = "hello";
 
 if (x) {
-    // 会运行！
+  // 会运行！
 }
 
 if (x == true) {
-    // 不会运行 :(
+  // 不会运行 :(
 }
 ```
 
@@ -238,13 +238,13 @@ if (x == true) {
 var x = "hello";
 
 if (Boolean(x) == true) {
-    // 会运行！
+  // 会运行！
 }
 
 // 这与以下情况相同：
 
 if (Boolean(x) === true) {
-    // 会运行！
+  // 会运行！
 }
 ```
 
@@ -258,17 +258,17 @@ if (Boolean(x) === true) {
 
 另一种建立这种原型连接的方式是 ES6 的 `class`（见第二章，"类"）的优雅的前身（说实话，很丑），被称为原型类(prototypal classes)。
 
-| TIP:                                                         |
-| :----------------------------------------------------------- |
+| TIP:                                                                                                      |
+| :-------------------------------------------------------------------------------------------------------- |
 | 提示:虽然这种风格的代码在现在的 JS 中很不常见，但在求职面试中还是相当普遍，被问到这种问题还是令人费解的！ |
 
 让我们首先回顾一下 `Object.create(..)` 的编码风格：
 
 ```js
 var Classroom = {
-    welcome() {
-        console.log("Welcome, students!");
-    },
+  welcome() {
+    console.log("Welcome, students!");
+  },
 };
 
 var mathClass = Object.create(Classroom);
@@ -283,11 +283,11 @@ mathClass.welcome();
 
 ```js
 function Classroom() {
-    // ..
+  // ..
 }
 
 Classroom.prototype.welcome = function hello() {
-    console.log("Welcome, students!");
+  console.log("Welcome, students!");
 };
 
 var mathClass = new Classroom();
@@ -296,9 +296,9 @@ mathClass.welcome();
 // Welcome, students!
 ```
 
-所有的函数都默认在一个名为 `prototype` 的属性处引用一个空对象。尽管命名很混乱，但这并**不是**函数的_原型_（函数的原型被链接到这里），而是通过调用函数的 `new` 来构建其他对象时要链接的原型对象。
+所有的函数都默认在一个名为 `prototype` 的属性处引用一个空对象。尽管命名很混乱，但这并**不是**函数的*原型*（函数的原型被链接到这里），而是通过调用函数的 `new` 来构建其他对象时要链接的原型对象。
 
-我们在那个空对象（称为 `Classroom.prototype`）上添加一个 `welcome` 属性，指向 `hello()`  函数。
+我们在那个空对象（称为 `Classroom.prototype`）上添加一个 `welcome` 属性，指向 `hello()` 函数。
 
 然后 `new Classroom()` 创建一个新的对象（分配给 `mathClass`），并将其原型链接到现有的 `Classroom.prototype` 对象。
 
@@ -308,13 +308,13 @@ mathClass.welcome();
 
 ```js
 class Classroom {
-    constructor() {
-        // ..
-    }
+  constructor() {
+    // ..
+  }
 
-    welcome() {
-        console.log("Welcome, students!");
-    }
+  welcome() {
+    console.log("Welcome, students!");
+  }
 }
 
 var mathClass = new Classroom();

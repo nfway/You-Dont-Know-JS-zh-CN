@@ -80,7 +80,7 @@ console.log(`Am I confusing you by omitting interpolation?`);
 
 ```js
 while (false) {
-    console.log(3.141592);
+  console.log(3.141592);
 }
 ```
 
@@ -105,7 +105,7 @@ console.log(`My name is ${names[1]}.`);
 
 ```js
 while (value != undefined) {
-    console.log("Still got something!");
+  console.log("Still got something!");
 }
 ```
 
@@ -147,10 +147,10 @@ JS 的数组可以保存任何类型的值，无论是原始的还是对象的�
 
 ```js
 var me = {
-    first: "Kyle",
-    last: "Simpson",
-    age: 39,
-    specialties: ["JS", "Table Tennis"],
+  first: "Kyle",
+  last: "Simpson",
+  age: 39,
+  specialties: ["JS", "Table Tennis"],
 };
 
 console.log(`My name is ${me.first}.`);
@@ -211,9 +211,9 @@ let age;
 var adult = true;
 
 if (adult) {
-    var myName = "Kyle";
-    let age = 39;
-    console.log("Shhh, this is a secret!");
+  var myName = "Kyle";
+  let age = 39;
+  console.log("Shhh, this is a secret!");
 }
 
 console.log(myName);
@@ -242,8 +242,8 @@ const myBirthday = true;
 let age = 39;
 
 if (myBirthday) {
-    age = age + 1; // OK!
-    myBirthday = false; // Error!
+  age = age + 1; // OK!
+  myBirthday = false; // Error!
 }
 ```
 
@@ -268,7 +268,7 @@ actors = []; // Error!
 
 ```js
 function hello(myName) {
-    console.log(`Hello, ${myName}.`);
+  console.log(`Hello, ${myName}.`);
 }
 
 hello("Kyle");
@@ -281,9 +281,9 @@ hello("Kyle");
 
 ```js
 try {
-    someError();
+  someError();
 } catch (err) {
-    console.log(err);
+  console.log(err);
 }
 ```
 
@@ -299,8 +299,8 @@ try {
 
 ```js
 function awesomeFunction(coolThings) {
-    // ..
-    return amazingStuff;
+  // ..
+  return amazingStuff;
 }
 ```
 
@@ -312,8 +312,8 @@ function awesomeFunction(coolThings) {
 // let awesomeFunction = ..
 // const awesomeFunction = ..
 var awesomeFunction = function (coolThings) {
-    // ..
-    return amazingStuff;
+  // ..
+  return amazingStuff;
 };
 ```
 
@@ -325,7 +325,7 @@ JS 函数可以接收参数输入：
 
 ```js
 function greeting(myName) {
-    console.log(`Hello, ${myName}!`);
+  console.log(`Hello, ${myName}!`);
 }
 
 greeting("Kyle"); // Hello, Kyle!
@@ -337,7 +337,7 @@ greeting("Kyle"); // Hello, Kyle!
 
 ```js
 function greeting(myName) {
-    return `Hello, ${myName}!`;
+  return `Hello, ${myName}!`;
 }
 
 var msg = greeting("Kyle");
@@ -351,15 +351,15 @@ console.log(msg); // Hello, Kyle!
 
 ```js
 var whatToSay = {
-    greeting() {
-        console.log("Hello!");
-    },
-    question() {
-        console.log("What's your name?");
-    },
-    answer() {
-        console.log("My name is Kyle.");
-    },
+  greeting() {
+    console.log("Hello!");
+  },
+  question() {
+    console.log("What's your name?");
+  },
+  answer() {
+    console.log("My name is Kyle.");
+  },
 };
 
 whatToSay.greeting();
@@ -500,7 +500,7 @@ JS 不提供对象值的结构平等比较机制，只提供引用身份比较�
 ```js
 var arr = ["1", "10", "100", "1000"];
 for (let i = 0; i < arr.length && arr[i] < 500; i++) {
-    // will run 3 times
+  // will run 3 times
 }
 ```
 
@@ -539,30 +539,30 @@ x < y; // true, watch out!
 
 ```js
 class Page {
-    constructor(text) {
-        this.text = text;
-    }
+  constructor(text) {
+    this.text = text;
+  }
 
-    print() {
-        console.log(this.text);
-    }
+  print() {
+    console.log(this.text);
+  }
 }
 
 class Notebook {
-    constructor() {
-        this.pages = [];
-    }
+  constructor() {
+    this.pages = [];
+  }
 
-    addPage(text) {
-        var page = new Page(text);
-        this.pages.push(page);
-    }
+  addPage(text) {
+    var page = new Page(text);
+    this.pages.push(page);
+  }
 
-    print() {
-        for (let page of this.pages) {
-            page.print();
-        }
+  print() {
+    for (let page of this.pages) {
+      page.print();
     }
+  }
 }
 
 var mathNotes = new Notebook();
@@ -591,19 +591,19 @@ mathNotes.print();
 
 ```js
 class Publication {
-    constructor(title, author, pubDate) {
-        this.title = title;
-        this.author = author;
-        this.pubDate = pubDate;
-    }
+  constructor(title, author, pubDate) {
+    this.title = title;
+    this.author = author;
+    this.pubDate = pubDate;
+  }
 
-    print() {
-        console.log(`
+  print() {
+    console.log(`
             Title: ${this.title}
             By: ${this.author}
             ${this.pubDate}
         `);
-    }
+  }
 }
 ```
 
@@ -613,31 +613,31 @@ class Publication {
 
 ```js
 class Book extends Publication {
-    constructor(bookDetails) {
-        super(bookDetails.title, bookDetails.author, bookDetails.publishedOn);
-        this.publisher = bookDetails.publisher;
-        this.ISBN = bookDetails.ISBN;
-    }
+  constructor(bookDetails) {
+    super(bookDetails.title, bookDetails.author, bookDetails.publishedOn);
+    this.publisher = bookDetails.publisher;
+    this.ISBN = bookDetails.ISBN;
+  }
 
-    print() {
-        super.print();
-        console.log(`
+  print() {
+    super.print();
+    console.log(`
             Publisher: ${this.publisher}
             ISBN: ${this.ISBN}
         `);
-    }
+  }
 }
 
 class BlogPost extends Publication {
-    constructor(title, author, pubDate, URL) {
-        super(title, author, pubDate);
-        this.URL = URL;
-    }
+  constructor(title, author, pubDate, URL) {
+    super(title, author, pubDate);
+    this.URL = URL;
+  }
 
-    print() {
-        super.print();
-        console.log(this.URL);
-    }
+  print() {
+    super.print();
+    console.log(this.URL);
+  }
 }
 ```
 
@@ -647,11 +647,11 @@ class BlogPost extends Publication {
 
 ```js
 var YDKJS = new Book({
-    title: "You Don't Know JS",
-    author: "Kyle Simpson",
-    publishedOn: "June 2014",
-    publisher: "O'Reilly",
-    ISBN: "123456-789",
+  title: "You Don't Know JS",
+  author: "Kyle Simpson",
+  publishedOn: "June 2014",
+  publisher: "O'Reilly",
+  ISBN: "123456-789",
 });
 
 YDKJS.print();
@@ -662,10 +662,10 @@ YDKJS.print();
 // ISBN: 123456-789
 
 var forAgainstLet = new BlogPost(
-    "For and against let",
-    "Kyle Simpson",
-    "October 27, 2014",
-    "https://davidwalsh.name/for-and-against-let"
+  "For and against let",
+  "Kyle Simpson",
+  "October 27, 2014",
+  "https://davidwalsh.name/for-and-against-let",
 );
 
 forAgainstLet.print();
@@ -699,50 +699,50 @@ _classic module_ 的主要标志是一个外部函数（至少运行一次），
 
 ```js
 function Publication(title, author, pubDate) {
-    var publicAPI = {
-        print() {
-            console.log(`
+  var publicAPI = {
+    print() {
+      console.log(`
                 Title: ${title}
                 By: ${author}
                 ${pubDate}
             `);
-        },
-    };
+    },
+  };
 
-    return publicAPI;
+  return publicAPI;
 }
 
 function Book(bookDetails) {
-    var pub = Publication(
-        bookDetails.title,
-        bookDetails.author,
-        bookDetails.publishedOn
-    );
+  var pub = Publication(
+    bookDetails.title,
+    bookDetails.author,
+    bookDetails.publishedOn,
+  );
 
-    var publicAPI = {
-        print() {
-            pub.print();
-            console.log(`
+  var publicAPI = {
+    print() {
+      pub.print();
+      console.log(`
                 Publisher: ${bookDetails.publisher}
                 ISBN: ${bookDetails.ISBN}
             `);
-        },
-    };
+    },
+  };
 
-    return publicAPI;
+  return publicAPI;
 }
 
 function BlogPost(title, author, pubDate, URL) {
-    var pub = Publication(title, author, pubDate);
+  var pub = Publication(title, author, pubDate);
 
-    var publicAPI = {
-        print() {
-            pub.print();
-            console.log(URL);
-        },
-    };
+  var publicAPI = {
+    print() {
+      pub.print();
+      console.log(URL);
+    },
+  };
 
-    return publicAPI;
+  return publicAPI;
 }
 ```
 
@@ -758,11 +758,11 @@ function BlogPost(title, author, pubDate, URL) {
 
 ```js
 var YDKJS = Book({
-    title: "You Don't Know JS",
-    author: "Kyle Simpson",
-    publishedOn: "June 2014",
-    publisher: "O'Reilly",
-    ISBN: "123456-789",
+  title: "You Don't Know JS",
+  author: "Kyle Simpson",
+  publishedOn: "June 2014",
+  publisher: "O'Reilly",
+  ISBN: "123456-789",
 });
 
 YDKJS.print();
@@ -773,10 +773,10 @@ YDKJS.print();
 // ISBN: 123456-789
 
 var forAgainstLet = BlogPost(
-    "For and against let",
-    "Kyle Simpson",
-    "October 27, 2014",
-    "https://davidwalsh.name/for-and-against-let"
+  "For and against let",
+  "Kyle Simpson",
+  "October 27, 2014",
+  "https://davidwalsh.name/for-and-against-let",
 );
 
 forAgainstLet.print();
@@ -806,7 +806,7 @@ ES 模块 (ESM)，在 ES6 中被引入 JS 语言，其目的是为了与刚才�
 
 ```js
 function printDetails(title, author, pubDate) {
-    console.log(`
+  console.log(`
         Title: ${title}
         By: ${author}
         ${pubDate}
@@ -814,13 +814,13 @@ function printDetails(title, author, pubDate) {
 }
 
 export function create(title, author, pubDate) {
-    var publicAPI = {
-        print() {
-            printDetails(title, author, pubDate);
-        },
-    };
+  var publicAPI = {
+    print() {
+      printDetails(title, author, pubDate);
+    },
+  };
 
-    return publicAPI;
+  return publicAPI;
 }
 ```
 
@@ -830,20 +830,20 @@ export function create(title, author, pubDate) {
 import { create as createPub } from "publication.js";
 
 function printDetails(pub, URL) {
-    pub.print();
-    console.log(URL);
+  pub.print();
+  console.log(URL);
 }
 
 export function create(title, author, pubDate, URL) {
-    var pub = createPub(title, author, pubDate);
+  var pub = createPub(title, author, pubDate);
 
-    var publicAPI = {
-        print() {
-            printDetails(pub, URL);
-        },
-    };
+  var publicAPI = {
+    print() {
+      printDetails(pub, URL);
+    },
+  };
 
-    return publicAPI;
+  return publicAPI;
 }
 ```
 
@@ -853,10 +853,10 @@ export function create(title, author, pubDate, URL) {
 import { create as newBlogPost } from "blogpost.js";
 
 var forAgainstLet = newBlogPost(
-    "For and against let",
-    "Kyle Simpson",
-    "October 27, 2014",
-    "https://davidwalsh.name/for-and-against-let"
+  "For and against let",
+  "Kyle Simpson",
+  "October 27, 2014",
+  "https://davidwalsh.name/for-and-against-let",
 );
 
 forAgainstLet.print();

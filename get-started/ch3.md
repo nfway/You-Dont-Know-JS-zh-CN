@@ -90,7 +90,7 @@ ES6 将 JS 中的基本数据结构/集合类型定义为 iterables。这包括�
 var arr = [10, 20, 30];
 
 for (let val of arr) {
-    console.log(`Array value: ${val}`);
+  console.log(`Array value: ${val}`);
 }
 // Array value: 10
 // Array value: 20
@@ -126,9 +126,9 @@ buttonNames.set(btn1, "Button 1");
 buttonNames.set(btn2, "Button 2");
 
 for (let [btn, btnName] of buttonNames) {
-    btn.addEventListener("click", function onClick() {
-        console.log(`Clicked ${btnName}`);
-    });
+  btn.addEventListener("click", function onClick() {
+    console.log(`Clicked ${btnName}`);
+  });
 }
 ```
 
@@ -138,7 +138,7 @@ JS 中每个内置的迭代器都暴露了一个默认的迭代，这可能与�
 
 ```js
 for (let btnName of buttonNames.values()) {
-    console.log(btnName);
+  console.log(btnName);
 }
 // Button 1
 // Button 2
@@ -150,7 +150,7 @@ for (let btnName of buttonNames.values()) {
 var arr = [10, 20, 30];
 
 for (let [idx, val] of arr.entries()) {
-    console.log(`[${idx}]: ${val}`);
+  console.log(`[${idx}]: ${val}`);
 }
 // [0]: 10
 // [1]: 20
@@ -183,9 +183,9 @@ for (let [idx, val] of arr.entries()) {
 
 ```js
 function greeting(msg) {
-    return function who(name) {
-        console.log(`${msg}, ${name}!`);
-    };
+  return function who(name) {
+    console.log(`${msg}, ${name}!`);
+  };
 }
 
 var hello = greeting("Hello");
@@ -209,11 +209,11 @@ howdy("Grant");
 
 ```js
 function counter(step = 1) {
-    var count = 0;
-    return function increaseCount() {
-        count = count + step;
-        return count;
-    };
+  var count = 0;
+  return function increaseCount() {
+    count = count + step;
+    return count;
+  };
 }
 
 var incBy1 = counter(1);
@@ -235,9 +235,9 @@ incBy3(); // 9
 
 ```js
 function getSomeData(url) {
-    ajax(url, function onResponse(resp) {
-        console.log(`Response (from ${url}): ${resp}`);
-    });
+  ajax(url, function onResponse(resp) {
+    console.log(`Response (from ${url}): ${resp}`);
+  });
 }
 
 getSomeData("https://some.url/wherever");
@@ -250,9 +250,9 @@ getSomeData("https://some.url/wherever");
 
 ```js
 for (let [idx, btn] of buttons.entries()) {
-    btn.addEventListener("click", function onClick() {
-        console.log(`Clicked on button (${idx})!`);
-    });
+  btn.addEventListener("click", function onClick() {
+    console.log(`Clicked on button (${idx})!`);
+  });
 }
 ```
 
@@ -280,9 +280,9 @@ JS 最强大的机制之一也是最被误解的机制之一：`this` 关键字�
 
 ```js
 function classroom(teacher) {
-    return function study() {
-        console.log(`${teacher} says to study ${this.topic}`);
-    };
+  return function study() {
+    console.log(`${teacher} says to study ${this.topic}`);
+  };
 }
 var assignment = classroom("Kyle");
 ```
@@ -308,8 +308,8 @@ assignment();
 
 ```js
 var homework = {
-    topic: "JS",
-    assignment: assignment,
+  topic: "JS",
+  assignment: assignment,
 };
 
 homework.assignment();
@@ -322,7 +322,7 @@ homework.assignment();
 
 ```js
 var otherHomework = {
-    topic: "Math",
+  topic: "Math",
 };
 
 assignment.call(otherHomework);
@@ -349,7 +349,7 @@ assignment.call(otherHomework);
 
 ```js
 var homework = {
-    topic: "JS",
+  topic: "JS",
 };
 ```
 
@@ -369,7 +369,7 @@ homework.toString(); // [object Object]
 
 ```js
 var homework = {
-    topic: "JS",
+  topic: "JS",
 };
 
 var otherHomework = Object.create(homework);
@@ -434,9 +434,9 @@ homework.topic;
 
 ```js
 var homework = {
-    study() {
-        console.log(`Please study ${this.topic}`);
-    },
+  study() {
+    console.log(`Please study ${this.topic}`);
+  },
 };
 
 var jsHomework = Object.create(homework);
