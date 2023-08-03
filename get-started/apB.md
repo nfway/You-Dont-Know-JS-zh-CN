@@ -15,7 +15,7 @@ const dayStart = "07:30";
 const dayEnd = "17:45";
 
 function scheduleMeeting(startTime, durationMinutes) {
-    // ..TODO..
+  // ..TODO..
 }
 
 scheduleMeeting("7:00", 15); // false
@@ -37,7 +37,7 @@ scheduleMeeting("18:00", 15); // false
 
 ```js
 function range(start, end) {
-    // ..TODO..
+  // ..TODO..
 }
 
 range(3, 3); // [3]
@@ -70,39 +70,38 @@ start4(6); // [4,5,6]
 
 ```js
 function randMax(max) {
-    return Math.trunc(1e9 * Math.random()) % max;
+  return Math.trunc(1e9 * Math.random()) % max;
 }
 
 var reel = {
-    symbols: ["♠", "♥", "♦", "♣", "☺", "★", "☾", "☀"],
-    spin() {
-        if (this.position == null) {
-            this.position = randMax(this.symbols.length - 1);
-        }
-        this.position =
-            (this.position + 100 + randMax(100)) % this.symbols.length;
-    },
-    display() {
-        if (this.position == null) {
-            this.position = randMax(this.symbols.length - 1);
-        }
-        return this.symbols[this.position];
-    },
+  symbols: ["♠", "♥", "♦", "♣", "☺", "★", "☾", "☀"],
+  spin() {
+    if (this.position == null) {
+      this.position = randMax(this.symbols.length - 1);
+    }
+    this.position = (this.position + 100 + randMax(100)) % this.symbols.length;
+  },
+  display() {
+    if (this.position == null) {
+      this.position = randMax(this.symbols.length - 1);
+    }
+    return this.symbols[this.position];
+  },
 };
 
 var slotMachine = {
-    reels: [
-        // this slot machine needs 3 separate reels
-        // hint: Object.create(..)
-    ],
-    spin() {
-        this.reels.forEach(function spinReel(reel) {
-            reel.spin();
-        });
-    },
-    display() {
-        // TODO
-    },
+  reels: [
+    // this slot machine needs 3 separate reels
+    // hint: Object.create(..)
+  ],
+  spin() {
+    this.reels.forEach(function spinReel(reel) {
+      reel.spin();
+    });
+  },
+  display() {
+    // TODO
+  },
 };
 
 slotMachine.spin();
@@ -122,9 +121,9 @@ slotMachine.display();
 
 提示：
 
--   使用 `%` 运算符来计算 `position`，因为你在 reel 上循环访问符号。
--   使用 `Object.create(..)` 来创建一个对象并将其原型链接到另一个对象。一旦链接，对象在方法调用过程中共享 `this` 上下文。
--   你可以使用另一个临时对象（再次使用 `Object.create(..)`），它有自己的 `position`，而不是直接修改 reel 对象来显示三个位置中的每一个。
+- 使用 `%` 运算符来计算 `position`，因为你在 reel 上循环访问符号。
+- 使用 `Object.create(..)` 来创建一个对象并将其原型链接到另一个对象。一旦链接，对象在方法调用过程中共享 `this` 上下文。
+- 你可以使用另一个临时对象（再次使用 `Object.create(..)`），它有自己的 `position`，而不是直接修改 reel 对象来显示三个位置中的每一个。
 
 一旦你有了可以使用的代码，请将你的解决方案与本附录末尾"建议的解决方案"中的代码进行比较。
 
@@ -139,43 +138,43 @@ const dayStart = "07:30";
 const dayEnd = "17:45";
 
 function scheduleMeeting(startTime, durationMinutes) {
-    var [, meetingStartHour, meetingStartMinutes] =
-        startTime.match(/^(\d{1,2}):(\d{2})$/) || [];
+  var [, meetingStartHour, meetingStartMinutes] =
+    startTime.match(/^(\d{1,2}):(\d{2})$/) || [];
 
-    durationMinutes = Number(durationMinutes);
+  durationMinutes = Number(durationMinutes);
 
-    if (
-        typeof meetingStartHour == "string" &&
-        typeof meetingStartMinutes == "string"
-    ) {
-        let durationHours = Math.floor(durationMinutes / 60);
-        durationMinutes = durationMinutes - durationHours * 60;
-        let meetingEndHour = Number(meetingStartHour) + durationHours;
-        let meetingEndMinutes = Number(meetingStartMinutes) + durationMinutes;
+  if (
+    typeof meetingStartHour == "string" &&
+    typeof meetingStartMinutes == "string"
+  ) {
+    let durationHours = Math.floor(durationMinutes / 60);
+    durationMinutes = durationMinutes - durationHours * 60;
+    let meetingEndHour = Number(meetingStartHour) + durationHours;
+    let meetingEndMinutes = Number(meetingStartMinutes) + durationMinutes;
 
-        if (meetingEndMinutes >= 60) {
-            meetingEndHour = meetingEndHour + 1;
-            meetingEndMinutes = meetingEndMinutes - 60;
-        }
-
-        // re-compose fully-qualified time strings
-        // (to make comparison easier)
-        let meetingStart = `${meetingStartHour.padStart(
-            2,
-            "0"
-        )}:${meetingStartMinutes.padStart(2, "0")}`;
-        let meetingEnd = `${String(meetingEndHour).padStart(2, "0")}:${String(
-            meetingEndMinutes
-        ).padStart(2, "0")}`;
-
-        // NOTE: since expressions are all strings,
-        // comparisons here are alphabetic, but it's
-        // safe here since they're fully qualified
-        // time strings (ie, "07:15" < "07:30")
-        return meetingStart >= dayStart && meetingEnd <= dayEnd;
+    if (meetingEndMinutes >= 60) {
+      meetingEndHour = meetingEndHour + 1;
+      meetingEndMinutes = meetingEndMinutes - 60;
     }
 
-    return false;
+    // re-compose fully-qualified time strings
+    // (to make comparison easier)
+    let meetingStart = `${meetingStartHour.padStart(
+      2,
+      "0",
+    )}:${meetingStartMinutes.padStart(2, "0")}`;
+    let meetingEnd = `${String(meetingEndHour).padStart(2, "0")}:${String(
+      meetingEndMinutes,
+    ).padStart(2, "0")}`;
+
+    // NOTE: since expressions are all strings,
+    // comparisons here are alphabetic, but it's
+    // safe here since they're fully qualified
+    // time strings (ie, "07:15" < "07:30")
+    return meetingStart >= dayStart && meetingEnd <= dayEnd;
+  }
+
+  return false;
 }
 
 scheduleMeeting("7:00", 15); // false
@@ -193,26 +192,26 @@ scheduleMeeting("18:00", 15); // false
 
 ```js
 function range(start, end) {
-    start = Number(start) || 0;
+  start = Number(start) || 0;
 
-    if (end === undefined) {
-        return function getEnd(end) {
-            return getRange(start, end);
-        };
-    } else {
-        end = Number(end) || 0;
-        return getRange(start, end);
+  if (end === undefined) {
+    return function getEnd(end) {
+      return getRange(start, end);
+    };
+  } else {
+    end = Number(end) || 0;
+    return getRange(start, end);
+  }
+
+  // **********************
+
+  function getRange(start, end) {
+    var ret = [];
+    for (let i = start; i <= end; i++) {
+      ret.push(i);
     }
-
-    // **********************
-
-    function getRange(start, end) {
-        var ret = [];
-        for (let i = start; i <= end; i++) {
-            ret.push(i);
-        }
-        return ret;
-    }
+    return ret;
+  }
 }
 
 range(3, 3); // [3]
@@ -235,50 +234,48 @@ start4(6); // [4,5,6]
 
 ```js
 function randMax(max) {
-    return Math.trunc(1e9 * Math.random()) % max;
+  return Math.trunc(1e9 * Math.random()) % max;
 }
 
 var reel = {
-    symbols: ["♠", "♥", "♦", "♣", "☺", "★", "☾", "☀"],
-    spin() {
-        if (this.position == null) {
-            this.position = randMax(this.symbols.length - 1);
-        }
-        this.position =
-            (this.position + 100 + randMax(100)) % this.symbols.length;
-    },
-    display() {
-        if (this.position == null) {
-            this.position = randMax(this.symbols.length - 1);
-        }
-        return this.symbols[this.position];
-    },
+  symbols: ["♠", "♥", "♦", "♣", "☺", "★", "☾", "☀"],
+  spin() {
+    if (this.position == null) {
+      this.position = randMax(this.symbols.length - 1);
+    }
+    this.position = (this.position + 100 + randMax(100)) % this.symbols.length;
+  },
+  display() {
+    if (this.position == null) {
+      this.position = randMax(this.symbols.length - 1);
+    }
+    return this.symbols[this.position];
+  },
 };
 
 var slotMachine = {
-    reels: [Object.create(reel), Object.create(reel), Object.create(reel)],
-    spin() {
-        this.reels.forEach(function spinReel(reel) {
-            reel.spin();
-        });
-    },
-    display() {
-        var lines = [];
+  reels: [Object.create(reel), Object.create(reel), Object.create(reel)],
+  spin() {
+    this.reels.forEach(function spinReel(reel) {
+      reel.spin();
+    });
+  },
+  display() {
+    var lines = [];
 
-        // display all 3 lines on the slot machine
-        for (let linePos = -1; linePos <= 1; linePos++) {
-            let line = this.reels.map(function getSlot(reel) {
-                var slot = Object.create(reel);
-                slot.position =
-                    (reel.symbols.length + reel.position + linePos) %
-                    reel.symbols.length;
-                return slot.display();
-            });
-            lines.push(line.join(" | "));
-        }
+    // display all 3 lines on the slot machine
+    for (let linePos = -1; linePos <= 1; linePos++) {
+      let line = this.reels.map(function getSlot(reel) {
+        var slot = Object.create(reel);
+        slot.position =
+          (reel.symbols.length + reel.position + linePos) % reel.symbols.length;
+        return slot.display();
+      });
+      lines.push(line.join(" | "));
+    }
 
-        return lines.join("\n");
-    },
+    return lines.join("\n");
+  },
 };
 
 slotMachine.spin();
