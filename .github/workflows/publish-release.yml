@@ -81,6 +81,7 @@ jobs:
           tag_name: ${{ steps.build.outputs.VERSION }}
           body: ${{ steps.build.outputs.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: ${{ contains(steps.build.outputs.PRERELEASE,'true') }}
           files: |
             ./.vitepress/dist/pdf/*.pdf
 
@@ -91,4 +92,3 @@ jobs:
         with:
           file_pattern: "package.json"
           commit_message: "chore(release): ${{ steps.build.outputs.VERSION }} [skip ci]"
-          prerelease: ${{ steps.build.outputs.PRERELEASE }}
