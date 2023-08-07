@@ -72,6 +72,7 @@ jobs:
           pnpm run generate-ol
           pnpm run generate-pdf
           echo "VERSION=v$(node -p 'require("./package.json").version')" >> $GITHUB_OUTPUT
+          echo "PRERELEASE=$(node -p 'require("./package.json").version.indexOf("-")>-1')" >> $GITHUB_OUTPUT
 
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -90,3 +91,4 @@ jobs:
         with:
           file_pattern: "package.json"
           commit_message: "chore(release): ${{ steps.build.outputs.VERSION }} [skip ci]"
+          prerelease: ${{ steps.build.outputs.PRERELEASE }}

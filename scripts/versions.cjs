@@ -10,10 +10,12 @@ const DEFAULT_VERSION = "1.0.0";
 
 module.exports = async function generateAndSaveNewVersion() {
   let newVersion;
-  if (pkgJson.version === "0.0.0") {
+  const [numericIdentifiers, nonNumericIdentifiers] =
+    pkgJson.version.split("-");
+  if (numericIdentifiers === "0.0.0") {
     newVersion = DEFAULT_VERSION;
   } else {
-    const [major, minor, patch] = pkgJson.version.split(".").map(Number);
+    const [major, minor, patch] = numericIdentifiers.split(".").map(Number);
 
     let nextPatch = patch + 1;
     let nextMinor = minor;
@@ -30,7 +32,9 @@ module.exports = async function generateAndSaveNewVersion() {
     }
     newVersion = `${nextMajor}.${nextMinor}.${nextPatch}`;
   }
-
+  if (nonNumericIdentifiers) {
+    newVersion += `-${nonNumericIdentifiers}`;
+  }
   pkgJson.version = newVersion;
 
   writeFileSync(
