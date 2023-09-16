@@ -41,7 +41,7 @@ jobs:
           node-version: 18
 
       - name: Replace npmrc
-        run: cp -f .github.npmrc .npmrc
+        run: cp -f .npmrc.github .npmrc
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -90,5 +90,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file_pattern: "package.json"
+          file_pattern: "package.json .npmrc :GITHUB_OUTPUT"
           commit_message: "chore(release): ${{ steps.build.outputs.VERSION }} [skip ci]"
