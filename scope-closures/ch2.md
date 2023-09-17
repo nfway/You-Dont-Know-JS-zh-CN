@@ -293,7 +293,7 @@ console.log(nextStudent);
 
 ### 建立在隐喻之上
 
-​ 为了使嵌套的作用域解析可视化，我更喜欢另一个比喻 —  — 办公楼，如图 3 所示：
+​ 为了使嵌套的作用域解析可视化，我更喜欢另一个比喻 — — 办公楼，如图 3 所示：
 
 <figure>
     <img src="images/fig3.png" width="250" alt="Scope &quot;Building&quot;" align="center">
