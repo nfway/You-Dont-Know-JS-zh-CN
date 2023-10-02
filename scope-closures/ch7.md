@@ -357,7 +357,7 @@ say("Kyle");
 
 事实上，全局作用域变量本质上是无法（可观测）闭包的，因为它们总是可以从任何地方访问。在作用域链的任何部分，只要不是全局作用域的后代，就不能调用任何函数。
 
-思考：
+想想看：
 
 ```js
 var students = [
@@ -443,7 +443,7 @@ greetStudent("Kyle");
 
 这对构建高效、高性能的程序有着重要影响。闭包可能会意外地阻止一个变量的 GC，会导致内存使用时间过长。这就是为什么当不再需要函数引用（以及它们的闭包）时，必须将其丢弃的原因。
 
-思考：
+想想看：
 
 ```js
 function manageBtnClickEvents(btn) {
@@ -809,7 +809,7 @@ function setupButtonHandler(btn) {
 
 在继续学习之前，请花一些时间*用自己的话*重述一下这个总结，解释一下什么是闭包，为什么它对你的程序有帮助。本书正文的最后一章将在闭包的基础上使用模块模式。
 
-[^ 假如一棵树在森林里倒下]: 假如一棵树在森林里倒下， <https://zh.wikipedia.org/wiki/%E5%81%87%E5%A6%82%E4%B8%80%E6%A3%B5%E6%A8%B9%E5%9C%A8%E6%A3%AE%E6%9E%97%E8%A3%A1%E5%80%92%E4%B8%8B>， 2022 年 10 月 29 日。
-[^ 头等函数]: 头等函数，<https://zh.wikipedia.org/wiki/%E5%A4%B4%E7%AD%89%E5%87%BD%E6%95%B0>，2023 年 8 月 21 日。
-[^ 偏函数]: Partial application，<https://en.wikipedia.org/wiki/Partial_application>， 2023 年 6 月 28 日。
-[^ 柯里化]: 柯里化，<https://zh.wikipedia.org/zh-hans/%E6%9F%AF%E9%87%8C%E5%8C%96>， 2021 年 9 月 1 日。
+[^ 假如一棵树在森林里倒下]: _假如一棵树在森林里倒下_， <https://zh.wikipedia.org/wiki/%E5%81%87%E5%A6%82%E4%B8%80%E6%A3%B5%E6%A8%B9%E5%9C%A8%E6%A3%AE%E6%9E%97%E8%A3%A1%E5%80%92%E4%B8%8B>， 2022 年 10 月 29 日。
+[^ 头等函数]: _头等函数_，<https://zh.wikipedia.org/wiki/%E5%A4%B4%E7%AD%89%E5%87%BD%E6%95%B0>，2023 年 8 月 21 日。
+[^ 偏函数]: _Partial application_，<https://en.wikipedia.org/wiki/Partial_application>， 2023 年 6 月 28 日。
+[^ 柯里化]: _柯里化_，<https://zh.wikipedia.org/zh-hans/%E6%9F%AF%E9%87%8C%E5%8C%96>， 2021 年 9 月 1 日。
