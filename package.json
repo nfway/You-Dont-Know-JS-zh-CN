@@ -1,7 +1,7 @@
 {
     "name": "you-dont-know-js-zh-cn",
     "version": "1.0.1-beta",
-    "packageManager": "pnpm@8.7.5",
+    "packageManager": "pnpm@8.8.0",
     "private": true,
     "author": "liunian <liunian@2077tech.com> (https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN)",
     "repository": {
@@ -20,7 +20,7 @@
         "pdf-merger-js": "^4.3.0",
         "prettier": "^3.0.3",
         "puppeteer": "^20.9.0",
-        "taze": "^0.11.2",
+        "taze": "^0.11.3",
         "vitepress": "1.0.0-beta.5"
     },
     "engines": {
