@@ -6,6 +6,7 @@
 
 ## 分支
 
+-   1ed-zh-CN: 在本仓库中没有 `1ed-zh-CN` 分支，对于第一版的修复内容可直接提交给原作者[仓库](https://github.com/getify/You-Dont-Know-JS/tree/1st-ed)，但需要注意的是，由于第一版非本人翻译，故分支**仅接受**错别字与格式错误的修复，如对翻译有异议可提交给第一版译者的[仓库](https://github.com/JoeHetfield/You-Dont-Know-JS)或直接购买已出版的书籍。
 -   main: 项目的主分支，用于发布、打包等，不会合并至[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，除非你明确知道你在做什么，否则**不要**给此分支提交 PR。
 -   2ed-zh-CN: 用于翻译的分支，此分支会合并到[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)中，所有汉化相关的内容请提交到此分支，**不要**提交任何其它分支的内容。
 -   2nd-ed: [原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)的 fork，此分支与[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)保持一致，**不要**在此分支进行任何修改。
@@ -20,7 +21,7 @@
 
 ## Pull Request 规范
 
-> 为了避免不必要的<ins title="原作者不懂中文，并不会处理汉化相关 PR"><i>噪声通知</i></ins>，强烈建议所有 PR 均指定给此仓库**而非**[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，我回定期合并回[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)。
+> 为了避免不必要的<ins title="原作者不懂中文，并不会处理汉化相关 PR"><i>噪声通知</i></ins>，强烈建议所有中文 PR 均提交给此仓库**而非**[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)，我回定期合并回[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)。
 
 -   请先 fork 一份到自己的项目下并在 `2ed-zh-CN` 分支下工作！
 -   commit 信息最好使用英文并且简单明了的描述做了什么，因为提交最终会合并到[原始项目](https://github.com/getify/You-Dont-Know-JS/tree/2ed-zh-CN)中。
