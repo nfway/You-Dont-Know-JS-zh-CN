@@ -136,7 +136,7 @@ add42To(9); // 51
 图 4 描述了函数实例和作用域链接：
 
 <figure>
-    <img src="images/fig4.png" width="400" alt="通过闭包与作用域相连的函数实例" align="center">
+    <img src="./images/fig4.png" width="400" alt="通过闭包与作用域相连的函数实例" align="center">
     <figcaption><em>图 4：可视化闭包</em></figcaption>
     <br><br>
 </figure>
@@ -649,7 +649,7 @@ add42To(9); // 51
 我们目前的观点认为，无论函数在哪里被传递和调用，闭包都会保留一个回到原始作用域的隐藏链接，以方便访问被闭包的变量。为方便起见，我们在此重复图 4，以说明这一概念：
 
 <figure>
-    <img src="images/fig4.png" width="400" alt="通过闭包与作用域相连的函数实例" align="center">
+    <img src="./images/fig4.png" width="400" alt="通过闭包与作用域相连的函数实例" align="center">
     <figcaption><em>图 4（重复）：可视化闭包</em></figcaption>
     <br><br>
 </figure>
@@ -663,7 +663,7 @@ add42To(9); // 51
 *发送*到红色(1) 作用域的只是对本地函数实例的**引用**，而不是函数实例本身。图 5 描述了分别由红色(1) `addTo10` 和 `addTo42` 引用指向的保持原位的内部函数实例：
 
 <figure>
-    <img src="images/fig5.png" width="400" alt="通过闭包在作用域内引用链接的函数实例" align="center">
+    <img src="./images/fig5.png" width="400" alt="通过闭包在作用域内引用链接的函数实例" align="center">
     <figcaption><em>图 5：闭包可视化（备选方案）</em></figcaption>
     <br><br>
 </figure>

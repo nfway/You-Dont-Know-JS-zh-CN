@@ -33,7 +33,7 @@ JS 函数本身就是[头等公民](https://developer.mozilla.org/zh-CN/docs/Glo
 解释执行的任务与编译类似，都是将程序转化为机器可理解的指令。但处理模式不同。与一次性编译程序不同，解释程序是逐行转换源代码；每一行或每一条语句都要先执行，然后才立即处理下一行源代码。
 
 <figure>
-    <img src="images/fig1.png" width="650" alt="Code Compilation and Code Interpretation" align="center">
+    <img src="./images/fig1.png" width="650" alt="Code Compilation and Code Interpretation" align="center">
     <figcaption><em>图 1：编译代码与解释代码</em></figcaption>
     <br><br>
 </figure>

@@ -1,6 +1,6 @@
 # 你并不了解 JavaScript：作用域与闭包 - 第二版
 
-<img src="images/cover.png" width="300">
+<img src="./images/cover.png" width="300">
 
 ---
 

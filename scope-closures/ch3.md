@@ -11,7 +11,7 @@
 为了重温我们正在运行的示例的上下文，让我们回顾一下第 2 章图 2 中嵌套作用域泡泡的彩色编码图示：
 
 <figure>
-    <img src="images/fig2.png" width="500" alt="Colored Scope Bubbles" align="center">
+    <img src="./images/fig2.png" width="500" alt="Colored Scope Bubbles" align="center">
     <figcaption><em>图 2（第 2 章）： 彩色作用域泡泡</em></figcaption>
     <br><br>
 </figure>

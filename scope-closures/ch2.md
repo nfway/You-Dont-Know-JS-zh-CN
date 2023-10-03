@@ -51,7 +51,7 @@ console.log(nextStudent); // Suzy
 图 2 通过在每个作用域周围绘制彩色泡泡（又称水桶），帮助直观显示范围的边界：
 
 <figure>
-    <img src="images/fig2.png" width="500" alt="Colored Scope Bubbles" align="center">
+    <img src="./images/fig2.png" width="500" alt="Colored Scope Bubbles" align="center">
     <figcaption><em>图 2：彩色作用域泡泡</em></figcaption>
 </figure>
 
@@ -296,7 +296,7 @@ console.log(nextStudent);
 ​ 为了使嵌套的作用域解析可视化，我更喜欢另一个比喻 — — 办公楼，如图 3 所示：
 
 <figure>
-    <img src="images/fig3.png" width="250" alt="Scope &quot;Building&quot;" align="center">
+    <img src="./images/fig3.png" width="250" alt="Scope &quot;Building&quot;" align="center">
     <figcaption><em>图 3：作用域”建筑“</em></figcaption>
     <br><br>
 </figure>

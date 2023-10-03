@@ -13,7 +13,7 @@
 还记得第 2 章中的图 2 吗？
 
 <figure>
-    <img src="images/fig2.png" width="300" alt="彩色作用域气泡" align="center">
+    <img src="./images/fig2.png" width="300" alt="彩色作用域气泡" align="center">
     <figcaption><em>图 2（第 2 章）： 彩色作用域气泡</em></figcaption>
     <br><br>
 </figure>
@@ -636,5 +636,5 @@ useCalc(calc, "51="); // 51
 [^MathJSisPrime]:
     _Math.js: isPrime(..)_, https://github.com/josdejong/mathjs/blob/develop/src/function/utils/isPrime.js, 3 March 2020.
     [^ LRU]: _LRU_, <https://baike.baidu.com/item/LRU>, 2021 年 05 月 06 日
-    [^ 帕金森琐碎定律]: _帕金森琐碎定律_，<https://zh.wikipedia.org/zh-cn/%E5%B8%95%E9%87%91%E6%A3%AE%E7%91%A3%E7%A2%8E%E5%AE%9A%E7%90%86>, 2022 年 06月 24 日
-    [^ 埃拉托斯特尼筛法]: _埃拉托斯特尼筛法_，<https://zh.wikipedia.org/zh-cn/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95>, 2023 年 09月 27 日
+    [^ 帕金森琐碎定律]: _帕金森琐碎定律_，<https://zh.wikipedia.org/zh-cn/%E5%B8%95%E9%87%91%E6%A3%AE%E7%91%A3%E7%A2%8E%E5%AE%9A%E7%90%86>, 2022 年 06 月 24 日
+    [^ 埃拉托斯特尼筛法]: _埃拉托斯特尼筛法_，<https://zh.wikipedia.org/zh-cn/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95>, 2023 年 09 月 27 日
