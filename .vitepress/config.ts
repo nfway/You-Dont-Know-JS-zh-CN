@@ -8,7 +8,6 @@ export default defineConfig({
   srcExclude: [
     "es-next-beyond/**/*",
     "objects-classes/**/*",
-    "scope-closures/**/*",
     "sync-async/**/*",
     "types-grammar/**/*",
   ],
@@ -44,6 +43,39 @@ export default defineConfig({
           {
             text: "附录 B：温故而知新",
             link: "/get-started/apB",
+          },
+        ],
+      },
+      {
+        text: "作用域与闭包",
+        link: "/scope-closures/README",
+        items: [
+          {
+            text: "前言 (由 Sarah Drasner 撰写)",
+            link: "/scope-closures/foreword",
+          },
+          { text: "序", link: "/preface" },
+          {
+            text: "第一章：什么是作用域？",
+            link: "/scope-closures/ch1",
+          },
+          { text: "第二章：图解作用域词法", link: "/scope-closures/ch2" },
+          { text: "第三章：作用域链", link: "/scope-closures/ch3" },
+          { text: "第四章：全局作用域", link: "/scope-closures/ch4" },
+          {
+            text: "第五章：（并不）神秘的变量生命周期",
+            link: "/scope-closures/ch5",
+          },
+          { text: "第六章：限制作用域的过度暴露", link: "/scope-closures/ch6" },
+          { text: "第七章：闭包的使用", link: "/scope-closures/ch7" },
+          { text: "第八章：模块化模式", link: "/scope-closures/ch8" },
+          {
+            text: "附录 A：欲穷千里目，更上一层楼",
+            link: "/scope-closures/apA",
+          },
+          {
+            text: "附录 B：练习",
+            link: "/scope-closures/apB",
           },
         ],
       },
