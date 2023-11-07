@@ -1,3 +1,4 @@
+import footnote from "markdown-it-footnote";
 import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
@@ -94,6 +95,11 @@ export default defineConfig({
     footer: {
       message: `此作品是根据<a target="_blank" style="color: var(--vp-c-brand)" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">署名-非商业性使用-禁止演绎 4.0 国际</a>授权。`,
       copyright: `© 2019-2022 <a target="_blank" style="color: var(--vp-c-brand)" href="https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed#license--copyright">Kyle Simpson 版权所有</a>。`,
+    },
+  },
+  markdown: {
+    config: (md) => {
+      md.use(footnote);
     },
   },
 });
