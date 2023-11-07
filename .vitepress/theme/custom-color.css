@@ -1,10 +1,11 @@
 :root {
-  --vp-c-green: #f7ba1e;
-  --vp-c-green-light: #f9cc45;
-  --vp-c-green-lighter: #fadc6d;
-  --vp-c-green-dark: #cc9213;
-  --vp-c-green-darker: #cc9213;
-  --vp-c-green-dimm-1: rgba(247, 186, 30, 0.05);
-  --vp-c-green-dimm-2: rgba(247, 186, 30, 0.2);
-  --vp-c-green-dimm-3: rgba(247, 186, 30, 0.5);
+  --vp-c-brand-1: #f7ba1e;
+  --vp-c-brand-2: #f9cc45;
+  --vp-c-brand-3: #fadc6d;
+}
+.vp-doc p {
+  text-indent: 2em;
+}
+.footnote-item p {
+  text-indent: initial;
 }
