@@ -4,7 +4,8 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "你并不了解 JavaScript（社区版）",
-  description: "你并不了解 JavaScript",
+  description:
+    "你并不了解 JavaScript,你不知道的 JavaScript,第二版,中文版,社区版,免费版",
   lang: "zh-CN",
   srcExclude: [
     "es-next-beyond/**/*",
