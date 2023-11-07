@@ -90,5 +90,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file_pattern: "package.json .npmrc :GITHUB_OUTPUT"
+          file_pattern: "package.json"
           commit_message: "chore(release): ${{ steps.build.outputs.VERSION }} [skip ci]"
