@@ -1,6 +1,6 @@
 {
   "name": "you-dont-know-js-zh-cn",
-  "version": "1.0.2-beta",
+  "version": "1.0.3-beta",
   "type": "module",
   "packageManager": "pnpm@8.10.2",
   "private": true,
