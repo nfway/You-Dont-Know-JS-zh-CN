@@ -6,6 +6,9 @@
 .vp-doc p {
   text-indent: 2em;
 }
+.vp-doc :not(div) p {
+  text-indent: initial;
+}
 .footnote-item p {
   text-indent: initial;
 }
