@@ -167,7 +167,7 @@ function scheduleMeeting(startTime, durationMinutes) {
       meetingEndMinutes,
     ).padStart(2, "0")}`;
 
-    // NOTE: since expressions are all strings,
+    // 注意： since expressions are all strings,
     // comparisons here are alphabetic, but it's
     // safe here since they're fully qualified
     // time strings (ie, "07:15" < "07:30")
