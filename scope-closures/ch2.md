@@ -24,22 +24,22 @@
 // outer/global scope: 红色
 
 var students = [
-  { id: 14, name: "Kyle" },
-  { id: 73, name: "Suzy" },
-  { id: 112, name: "Frank" },
-  { id: 6, name: "Sarah" },
+    { id: 14, name: "Kyle" },
+    { id: 73, name: "Suzy" },
+    { id: 112, name: "Frank" },
+    { id: 6, name: "Sarah" },
 ];
 
 function getStudentName(studentID) {
-  // function scope: 蓝色
+    // function scope: 蓝色
 
-  for (let student of students) {
-    // loop scope: 绿色
+    for (let student of students) {
+        // loop scope: 绿色
 
-    if (student.id == studentID) {
-      return student.name;
+        if (student.id == studentID) {
+            return student.name;
+        }
     }
-  }
 }
 
 var nextStudent = getStudentName(73);
@@ -89,9 +89,9 @@ console.log(nextStudent); // Suzy
 
 从弹珠和水桶（还有泡泡！）中获得的主要启示：
 
-- 变量是在特定作用域中声明的，可以将其视为来自匹配颜色桶的彩色弹珠。
-- 任何变量引用，如果出现在它被声明的作用域中，或出现在任何更深的嵌套作用域中，都会被标记为相同颜色的弹珠 — 除非中间的作用域"遮蔽"了变量声明；请参阅第 3 章中的"遮蔽"。
-- 在编译过程中，会确定颜色桶及其包含的弹珠。在代码执行过程中，这些信息将用于变量（弹珠颜色）的 "查找"。
+-   变量是在特定作用域中声明的，可以将其视为来自匹配颜色桶的彩色弹珠。
+-   任何变量引用，如果出现在它被声明的作用域中，或出现在任何更深的嵌套作用域中，都会被标记为相同颜色的弹珠 — 除非中间的作用域"遮蔽"了变量声明；请参阅第 3 章中的"遮蔽"。
+-   在编译过程中，会确定颜色桶及其包含的弹珠。在代码执行过程中，这些信息将用于变量（弹珠颜色）的 "查找"。
 
 ## 朋友之间的对话
 
@@ -99,28 +99,28 @@ console.log(nextStudent); // Suzy
 
 现在让我们来认识一下 JS 引擎的成员，他们在处理我们的程序时会进行对话：
 
-- _引擎_：负责从头到尾编译和执行 JavaScript 程序。
-- _编译器_：*引擎*的朋友之一；处理所有解析和代码生成的脏活累活（见上一节）。
-- _作用域管理器_：*引擎*的另一个朋友；收集并维护所有已声明变量/标识符的查找列表，并执行一系列规则，规定当前执行代码如何访问这些变量/标识符。
+-   _引擎_：负责从头到尾编译和执行 JavaScript 程序。
+-   _编译器_：*引擎*的朋友之一；处理所有解析和代码生成的脏活累活（见上一节）。
+-   _作用域管理器_：*引擎*的另一个朋友；收集并维护所有已声明变量/标识符的查找列表，并执行一系列规则，规定当前执行代码如何访问这些变量/标识符。
 
-  要想*完全理解* JavaScript 的工作原理，你需要开始像*引擎*（和朋友们）那样思考，提出他们提出的问题，并同样回答他们的问题。
+    要想*完全理解* JavaScript 的工作原理，你需要开始像*引擎*（和朋友们）那样思考，提出他们提出的问题，并同样回答他们的问题。
 
-  为了探讨这些对话，请再次回顾我们正在运行的程序示例：
+    为了探讨这些对话，请再次回顾我们正在运行的程序示例：
 
 ```js
 var students = [
-  { id: 14, name: "Kyle" },
-  { id: 73, name: "Suzy" },
-  { id: 112, name: "Frank" },
-  { id: 6, name: "Sarah" },
+    { id: 14, name: "Kyle" },
+    { id: 73, name: "Suzy" },
+    { id: 112, name: "Frank" },
+    { id: 6, name: "Sarah" },
 ];
 
 function getStudentName(studentID) {
-  for (let student of students) {
-    if (student.id == studentID) {
-      return student.name;
+    for (let student of students) {
+        if (student.id == studentID) {
+            return student.name;
+        }
     }
-  }
 }
 
 var nextStudent = getStudentName(73);
@@ -261,8 +261,8 @@ typeof doesntExist; // "undefined"
 
 ```js
 function getStudentName() {
-  // 赋值给未声明的变量 :(
-  nextStudent = "Suzy";
+    // 赋值给未声明的变量 :(
+    nextStudent = "Suzy";
 }
 
 getStudentName();

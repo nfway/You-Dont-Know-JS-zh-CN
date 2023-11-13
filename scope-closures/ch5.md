@@ -19,7 +19,7 @@ greeting();
 // Hello!
 
 function greeting() {
-  console.log("Hello!");
+    console.log("Hello!");
 }
 ```
 
@@ -48,7 +48,7 @@ greeting();
 // TypeError
 
 var greeting = function greeting() {
-  console.log("Hello!");
+    console.log("Hello!");
 };
 ```
 
@@ -82,8 +82,8 @@ var greeting = "Howdy!";
 
 这其中有两个必要的说明：
 
-- 标识符被提升，
-- **并**从作用域的顶部自动初始化为`undefined`值。
+-   标识符被提升，
+-   **并**从作用域的顶部自动初始化为`undefined`值。
 
 | 注意：                                                                                                                                                                                                      |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,7 +110,7 @@ greeting();
 // Hello Suzy!
 
 function greeting() {
-  console.log(`Hello ${studentName}!`);
+    console.log(`Hello ${studentName}!`);
 }
 var studentName;
 ```
@@ -119,7 +119,7 @@ var studentName;
 
 ```js
 function greeting() {
-  console.log(`Hello ${studentName}!`);
+    console.log(`Hello ${studentName}!`);
 }
 var studentName;
 
@@ -205,7 +205,7 @@ console.log(studentName); // undefined <--- 看！？
 var greeting;
 
 function greeting() {
-  console.log("Hello!");
+    console.log("Hello!");
 }
 
 // 基本上是无意义的
@@ -306,10 +306,10 @@ const studentName = "Suzy";
 ```js
 var keepGoing = true;
 while (keepGoing) {
-  let value = Math.random();
-  if (value > 0.5) {
-    keepGoing = false;
-  }
+    let value = Math.random();
+    if (value > 0.5) {
+        keepGoing = false;
+    }
 }
 ```
 
@@ -322,10 +322,10 @@ while (keepGoing) {
 ```js
 var keepGoing = true;
 while (keepGoing) {
-  var value = Math.random();
-  if (value > 0.5) {
-    keepGoing = false;
-  }
+    var value = Math.random();
+    if (value > 0.5) {
+        keepGoing = false;
+    }
 }
 ```
 
@@ -339,8 +339,8 @@ while (keepGoing) {
 
 ```js
 for (let i = 0; i < 3; i++) {
-  let value = i * 10;
-  console.log(`${i}: ${value}`);
+    let value = i * 10;
+    console.log(`${i}: ${value}`);
 }
 // 0: 0
 // 1: 10
@@ -353,19 +353,19 @@ for (let i = 0; i < 3; i++) {
 
 ```js
 {
-  // 用于说明的虚构变量
-  let $$i = 0;
+    // 用于说明的虚构变量
+    let $$i = 0;
 
-  for (; /* nothing */ $$i < 3; $$i++) {
-    // 这是我们实际循环的 `i`!
-    let i = $$i;
+    for (; /* nothing */ $$i < 3; $$i++) {
+        // 这是我们实际循环的 `i`!
+        let i = $$i;
 
-    let value = i * 10;
-    console.log(`${i}: ${value}`);
-  }
-  // 0: 0
-  // 1: 10
-  // 2: 20
+        let value = i * 10;
+        console.log(`${i}: ${value}`);
+    }
+    // 0: 0
+    // 1: 10
+    // 2: 20
 }
 ```
 
@@ -375,11 +375,11 @@ for (let i = 0; i < 3; i++) {
 
 ```js
 for (let index in students) {
-  // 这么做没问题
+    // 这么做没问题
 }
 
 for (let student of students) {
-  // 俺也一样
+    // 俺也一样
 }
 ```
 
@@ -390,11 +390,11 @@ for (let student of students) {
 ```js
 var keepGoing = true;
 while (keepGoing) {
-  // 哦，一个闪亮的常数！
-  const value = Math.random();
-  if (value > 0.5) {
-    keepGoing = false;
-  }
+    // 哦，一个闪亮的常数！
+    const value = Math.random();
+    if (value > 0.5) {
+        keepGoing = false;
+    }
 }
 ```
 
@@ -404,11 +404,11 @@ while (keepGoing) {
 
 ```js
 for (const index in students) {
-  // 这么做没问题
+    // 这么做没问题
 }
 
 for (const student of students) {
-  // 同样没问题
+    // 同样没问题
 }
 ```
 
@@ -416,8 +416,8 @@ for (const student of students) {
 
 ```js
 for (const i = 0; i < 3; i++) {
-  // 哎呀，这样做会失败的
-  // 第一次迭代后出现类型错误
+    // 哎呀，这样做会失败的
+    // 第一次迭代后出现类型错误
 }
 ```
 
@@ -427,14 +427,14 @@ for (const i = 0; i < 3; i++) {
 
 ```js
 {
-  // 用于说明的虚构变量
-  const $$i = 0;
+    // 用于说明的虚构变量
+    const $$i = 0;
 
-  for (; $$i < 3; $$i++) {
-    //  这是我们实际循环的 `i`！
-    const i = $$i;
-    // ..
-  }
+    for (; $$i < 3; $$i++) {
+        //  这是我们实际循环的 `i`！
+        const i = $$i;
+        // ..
+    }
 }
 ```
 
@@ -452,8 +452,8 @@ for (const i = 0; i < 3; i++) {
 var keepGoing = true;
 
 for (const i = 0; keepGoing /* 这什么也没有 */; ) {
-  keepGoing = Math.random() > 0.5;
-  // ..
+    keepGoing = Math.random() > 0.5;
+    // ..
 }
 ```
 
@@ -542,7 +542,7 @@ askQuestion();
 let studentName = "Suzy";
 
 function askQuestion() {
-  console.log(`${studentName}, do you know?`);
+    console.log(`${studentName}, do you know?`);
 }
 ```
 
@@ -558,15 +558,15 @@ function askQuestion() {
 var studentName = "Kyle";
 
 {
-  console.log(studentName);
-  // ???
+    console.log(studentName);
+    // ???
 
-  // ..
+    // ..
 
-  let studentName = "Suzy";
+    let studentName = "Suzy";
 
-  console.log(studentName);
-  // Suzy
+    console.log(studentName);
+    // Suzy
 }
 ```
 

@@ -47,19 +47,19 @@
 ```js
 // namespace, not module
 var Utils = {
-  cancelEvt(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
-    evt.stopImmediatePropagation();
-  },
-  wait(ms) {
-    return new Promise(function c(res) {
-      setTimeout(res, ms);
-    });
-  },
-  isValidEmail(email) {
-    return /[^@]+@[^@.]+\.[^@.]+/.test(email);
-  },
+    cancelEvt(evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        evt.stopImmediatePropagation();
+    },
+    wait(ms) {
+        return new Promise(function c(res) {
+            setTimeout(res, ms);
+        });
+    },
+    isValidEmail(email) {
+        return /[^@]+@[^@.]+\.[^@.]+/.test(email);
+    },
 };
 ```
 
@@ -74,16 +74,16 @@ var Utils = {
 ```js
 // 数据结构，而不是模块
 var Student = {
-  records: [
-    { id: 14, name: "Kyle", grade: 86 },
-    { id: 73, name: "Suzy", grade: 87 },
-    { id: 112, name: "Frank", grade: 75 },
-    { id: 6, name: "Sarah", grade: 91 },
-  ],
-  getName(studentID) {
-    var student = this.records.find((student) => student.id == studentID);
-    return student.name;
-  },
+    records: [
+        { id: 14, name: "Kyle", grade: 86 },
+        { id: 73, name: "Suzy", grade: 87 },
+        { id: 112, name: "Frank", grade: 75 },
+        { id: 6, name: "Sarah", grade: 91 },
+    ],
+    getName(studentID) {
+        var student = this.records.find((student) => student.id == studentID);
+        return student.name;
+    },
 };
 
 Student.getName(73);
@@ -102,25 +102,25 @@ Student.getName(73);
 
 ```js
 var Student = (function defineStudent() {
-  var records = [
-    { id: 14, name: "Kyle", grade: 86 },
-    { id: 73, name: "Suzy", grade: 87 },
-    { id: 112, name: "Frank", grade: 75 },
-    { id: 6, name: "Sarah", grade: 91 },
-  ];
+    var records = [
+        { id: 14, name: "Kyle", grade: 86 },
+        { id: 73, name: "Suzy", grade: 87 },
+        { id: 112, name: "Frank", grade: 75 },
+        { id: 6, name: "Sarah", grade: 91 },
+    ];
 
-  var publicAPI = {
-    getName,
-  };
+    var publicAPI = {
+        getName,
+    };
 
-  return publicAPI;
+    return publicAPI;
 
-  // ************************
+    // ************************
 
-  function getName(studentID) {
-    var student = records.find((student) => student.id == studentID);
-    return student.name;
-  }
+    function getName(studentID) {
+        var student = records.find((student) => student.id == studentID);
+        return student.name;
+    }
 })();
 
 Student.getName(73); // Suzy
@@ -153,25 +153,25 @@ Student.getName(73); // Suzy
 ```js
 // 工厂函数，而不是单例 IIFE
 function defineStudent() {
-  var records = [
-    { id: 14, name: "Kyle", grade: 86 },
-    { id: 73, name: "Suzy", grade: 87 },
-    { id: 112, name: "Frank", grade: 75 },
-    { id: 6, name: "Sarah", grade: 91 },
-  ];
+    var records = [
+        { id: 14, name: "Kyle", grade: 86 },
+        { id: 73, name: "Suzy", grade: 87 },
+        { id: 112, name: "Frank", grade: 75 },
+        { id: 6, name: "Sarah", grade: 91 },
+    ];
 
-  var publicAPI = {
-    getName,
-  };
+    var publicAPI = {
+        getName,
+    };
 
-  return publicAPI;
+    return publicAPI;
 
-  // ************************
+    // ************************
 
-  function getName(studentID) {
-    var student = records.find((student) => student.id == studentID);
-    return student.name;
-  }
+    function getName(studentID) {
+        var student = records.find((student) => student.id == studentID);
+        return student.name;
+    }
 }
 
 var fullTime = defineStudent();
@@ -186,9 +186,9 @@ fullTime.getName(73); // Suzy
 
 因此，为了澄清什么是传统模块：
 
-- 必须有一个外部作用域，通常是至少运行一次的模块工厂函数。
-- 模块的内部作用域必须至少有一条代表模块状态的隐藏信息。
-- 模块必须在其公共 API 中返回至少一个函数的引用，该函数对隐藏的模块状态具有闭包（以便实际保留该状态）。
+-   必须有一个外部作用域，通常是至少运行一次的模块工厂函数。
+-   模块的内部作用域必须至少有一条代表模块状态的隐藏信息。
+-   模块必须在其公共 API 中返回至少一个函数的引用，该函数对隐藏的模块状态具有闭包（以便实际保留该状态）。
 
 我们将在附录 A 中详细介绍这种传统模块方法的其他变体。
 
@@ -204,15 +204,15 @@ module.exports.getName = getName;
 // ************************
 
 var records = [
-  { id: 14, name: "Kyle", grade: 86 },
-  { id: 73, name: "Suzy", grade: 87 },
-  { id: 112, name: "Frank", grade: 75 },
-  { id: 6, name: "Sarah", grade: 91 },
+    { id: 14, name: "Kyle", grade: 86 },
+    { id: 73, name: "Suzy", grade: 87 },
+    { id: 112, name: "Frank", grade: 75 },
+    { id: 6, name: "Sarah", grade: 91 },
 ];
 
 function getName(studentID) {
-  var student = records.find((student) => student.id == studentID);
-  return student.name;
+    var student = records.find((student) => student.id == studentID);
+    return student.name;
 }
 ```
 
@@ -227,7 +227,7 @@ function getName(studentID) {
 ```js
 // 为 API 定义新对象
 module.exports = {
-  // ..exports..
+    // ..exports..
 };
 ```
 
@@ -235,7 +235,7 @@ module.exports = {
 
 ```js
 Object.assign(module.exports, {
-  // .. exports ..
+    // .. exports ..
 });
 ```
 
@@ -282,15 +282,15 @@ export { getName };
 // ************************
 
 var records = [
-  { id: 14, name: "Kyle", grade: 86 },
-  { id: 73, name: "Suzy", grade: 87 },
-  { id: 112, name: "Frank", grade: 75 },
-  { id: 6, name: "Sarah", grade: 91 },
+    { id: 14, name: "Kyle", grade: 86 },
+    { id: 73, name: "Suzy", grade: 87 },
+    { id: 112, name: "Frank", grade: 75 },
+    { id: 6, name: "Sarah", grade: 91 },
 ];
 
 function getName(studentID) {
-  var student = records.find((student) => student.id == studentID);
-  return student.name;
+    var student = records.find((student) => student.id == studentID);
+    return student.name;
 }
 ```
 
@@ -300,7 +300,7 @@ function getName(studentID) {
 
 ```js
 export function getName(studentID) {
-  // ..
+    // ..
 }
 ```
 
@@ -310,7 +310,7 @@ export function getName(studentID) {
 
 ```js
 export default function getName(studentID) {
-  // ..
+    // ..
 }
 ```
 

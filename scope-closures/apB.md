@@ -20,17 +20,17 @@
 
 本练习要求你编写一个包含嵌套函数和块作用域的程序（任何程序！），并满足这些限制条件：
 
-- 如果将所有作用域（包括全局作用域！）都染成不同的颜色，则至少需要六种颜色。请务必添加代码注释，为每个作用域标注其颜色。
+-   如果将所有作用域（包括全局作用域！）都染成不同的颜色，则至少需要六种颜色。请务必添加代码注释，为每个作用域标注其颜色。
 
-  附加题：识别代码可能具有的任何隐式作用域。
+    附加题：识别代码可能具有的任何隐式作用域。
 
-- 每个作用域至少有一个标识符。
+-   每个作用域至少有一个标识符。
 
-- 包含至少两个函数作用域和至少两个块作用域。
+-   包含至少两个函数作用域和至少两个块作用域。
 
-- 至少有一个外部作用域变量必须被嵌套作用域变量所遮蔽（见第 3 章）。
+-   至少有一个外部作用域变量必须被嵌套作用域变量所遮蔽（见第 3 章）。
 
-- 至少有一个变量引用必须解析到作用域链中至少高两级的变量声明。
+-   至少有一个变量引用必须解析到作用域链中至少高两级的变量声明。
 
 | 贴士：                                                                                                                    |
 | :------------------------------------------------------------------------------------------------------------------------ |
@@ -56,19 +56,19 @@ factorize(12); // [ 3, 2, 2 ] --> 3*2*2=12
 
 ```js
 function isPrime(v) {
-  if (v <= 3) {
-    return v > 1;
-  }
-  if (v % 2 == 0 || v % 3 == 0) {
-    return false;
-  }
-  var vSqrt = Math.sqrt(v);
-  for (let i = 5; i <= vSqrt; i += 6) {
-    if (v % i == 0 || v % (i + 2) == 0) {
-      return false;
+    if (v <= 3) {
+        return v > 1;
     }
-  }
-  return true;
+    if (v % 2 == 0 || v % 3 == 0) {
+        return false;
+    }
+    var vSqrt = Math.sqrt(v);
+    for (let i = 5; i <= vSqrt; i += 6) {
+        if (v % i == 0 || v % (i + 2) == 0) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 
@@ -76,14 +76,14 @@ function isPrime(v) {
 
 ```js
 function factorize(v) {
-  if (!isPrime(v)) {
-    let i = Math.floor(Math.sqrt(v));
-    while (v % i != 0) {
-      i--;
+    if (!isPrime(v)) {
+        let i = Math.floor(Math.sqrt(v));
+        while (v % i != 0) {
+            i--;
+        }
+        return [...factorize(i), ...factorize(v / i)];
     }
-    return [...factorize(i), ...factorize(v / i)];
-  }
-  return [v];
+    return [v];
 }
 ```
 
@@ -123,7 +123,7 @@ function factorize(v) {
 
 ```js
 function toggle(/* .. */) {
-  // ..
+    // ..
 }
 
 var hello = toggle("hello");
@@ -153,7 +153,7 @@ speed(); // "slow"
 
 ```js
 function calculator() {
-  // ..
+    // ..
 }
 
 var calc = calculator();
@@ -188,10 +188,10 @@ calc("="); // 0
 
 ```js
 function useCalc(calc, keys) {
-  return [...keys].reduce(function showDisplay(display, key) {
-    var ret = String(calc(key));
-    return display + (ret != "" && key == "=" ? "=" : "") + ret;
-  }, "");
+    return [...keys].reduce(function showDisplay(display, key) {
+        var ret = String(calc(key));
+        return display + (ret != "" && key == "=" ? "=" : "") + ret;
+    }, "");
 }
 
 useCalc(calc, "4+3="); // 4+3=7
@@ -209,36 +209,36 @@ useCalc(calc, "51="); // 51
 
 ```js
 function formatTotal(display) {
-  if (Number.isFinite(display)) {
-    // 将显示限制为最大11个字符
-    let maxDigits = 11;
-    // 为 "e+" 符号保留空间?
-    if (Math.abs(display) > 99999999999) {
-      maxDigits -= 6;
-    }
-    // 为 "-" 预留位置?
-    if (display < 0) {
-      maxDigits--;
-    }
+    if (Number.isFinite(display)) {
+        // 将显示限制为最大11个字符
+        let maxDigits = 11;
+        // 为 "e+" 符号保留空间?
+        if (Math.abs(display) > 99999999999) {
+            maxDigits -= 6;
+        }
+        // 为 "-" 预留位置?
+        if (display < 0) {
+            maxDigits--;
+        }
 
-    // 整数？
-    if (Number.isInteger(display)) {
-      display = display.toPrecision(maxDigits).replace(/\.0+$/, "");
+        // 整数？
+        if (Number.isInteger(display)) {
+            display = display.toPrecision(maxDigits).replace(/\.0+$/, "");
+        }
+        // 小数
+        else {
+            // 为 "." 预留空间
+            maxDigits--;
+            // 为前导 "0" 预留空间？
+            if (Math.abs(display) >= 0 && Math.abs(display) < 1) {
+                maxDigits--;
+            }
+            display = display.toPrecision(maxDigits).replace(/0+$/, "");
+        }
+    } else {
+        display = "ERR";
     }
-    // 小数
-    else {
-      // 为 "." 预留空间
-      maxDigits--;
-      // 为前导 "0" 预留空间？
-      if (Math.abs(display) >= 0 && Math.abs(display) < 1) {
-        maxDigits--;
-      }
-      display = display.toPrecision(maxDigits).replace(/0+$/, "");
-    }
-  } else {
-    display = "ERR";
-  }
-  return display;
+    return display;
 }
 ```
 
@@ -258,12 +258,12 @@ function formatTotal(display) {
 
 公共 API 应包括以下方法：
 
-- `number(..)`(输入："按下"的字符/数字）
-- `plus()`
-- `minus()`
-- `mult()`
-- `div()`
-- `eq()`
+-   `number(..)`(输入："按下"的字符/数字）
+-   `plus()`
+-   `minus()`
+-   `mult()`
+-   `div()`
+-   `eq()`
 
 使用方法如下：
 
@@ -283,19 +283,19 @@ calc.eq(); // 75
 
 ```js
 function useCalc(calc, keys) {
-  var keyMappings = {
-    "+": "plus",
-    "-": "minus",
-    "*": "mult",
-    "/": "div",
-    "=": "eq",
-  };
+    var keyMappings = {
+        "+": "plus",
+        "-": "minus",
+        "*": "mult",
+        "/": "div",
+        "=": "eq",
+    };
 
-  return [...keys].reduce(function showDisplay(display, key) {
-    var fn = keyMappings[key] || "number";
-    var ret = String(calc[fn](key));
-    return display + (ret != "" && key == "=" ? "=" : "") + ret;
-  }, "");
+    return [...keys].reduce(function showDisplay(display, key) {
+        var fn = keyMappings[key] || "number";
+        var ret = String(calc[fn](key));
+        return display + (ret != "" && key == "=" ? "=" : "") + ret;
+    }, "");
 }
 
 useCalc(calc, "4+3="); // 4+3=7
@@ -333,33 +333,33 @@ const howMany = 100;
 
 // 埃拉托斯特尼筛法
 function findPrimes(howMany) {
-  // 蓝色(2)
-  var sieve = Array(howMany).fill(true);
-  var max = Math.sqrt(howMany);
+    // 蓝色(2)
+    var sieve = Array(howMany).fill(true);
+    var max = Math.sqrt(howMany);
 
-  for (let i = 2; i < max; i++) {
-    // 绿色(3)
-    if (sieve[i]) {
-      // 橙色(4)
-      let j = Math.pow(i, 2);
-      for (let k = j; k < howMany; k += i) {
-        // 紫色(5)
-        sieve[k] = false;
-      }
+    for (let i = 2; i < max; i++) {
+        // 绿色(3)
+        if (sieve[i]) {
+            // 橙色(4)
+            let j = Math.pow(i, 2);
+            for (let k = j; k < howMany; k += i) {
+                // 紫色(5)
+                sieve[k] = false;
+            }
+        }
     }
-  }
 
-  return sieve
-    .map(function getPrime(flag, prime) {
-      // 粉色(6)
-      if (flag) return prime;
-      return flag;
-    })
-    .filter(function onlyPrimes(v) {
-      // 黄色(7)
-      return !!v;
-    })
-    .slice(1);
+    return sieve
+        .map(function getPrime(flag, prime) {
+            // 粉色(6)
+            if (flag) return prime;
+            return flag;
+        })
+        .filter(function onlyPrimes(v) {
+            // 黄色(7)
+            return !!v;
+        })
+        .slice(1);
 }
 
 findPrimes(howMany);
@@ -377,44 +377,44 @@ findPrimes(howMany);
 
 ```js
 var isPrime = (function isPrime(v) {
-  var primes = {};
+    var primes = {};
 
-  return function isPrime(v) {
-    if (v in primes) {
-      return primes[v];
-    }
-    if (v <= 3) {
-      return (primes[v] = v > 1);
-    }
-    if (v % 2 == 0 || v % 3 == 0) {
-      return (primes[v] = false);
-    }
-    let vSqrt = Math.sqrt(v);
-    for (let i = 5; i <= vSqrt; i += 6) {
-      if (v % i == 0 || v % (i + 2) == 0) {
-        return (primes[v] = false);
-      }
-    }
-    return (primes[v] = true);
-  };
+    return function isPrime(v) {
+        if (v in primes) {
+            return primes[v];
+        }
+        if (v <= 3) {
+            return (primes[v] = v > 1);
+        }
+        if (v % 2 == 0 || v % 3 == 0) {
+            return (primes[v] = false);
+        }
+        let vSqrt = Math.sqrt(v);
+        for (let i = 5; i <= vSqrt; i += 6) {
+            if (v % i == 0 || v % (i + 2) == 0) {
+                return (primes[v] = false);
+            }
+        }
+        return (primes[v] = true);
+    };
 })();
 
 var factorize = (function factorize(v) {
-  var factors = {};
+    var factors = {};
 
-  return function findFactors(v) {
-    if (v in factors) {
-      return factors[v];
-    }
-    if (!isPrime(v)) {
-      let i = Math.floor(Math.sqrt(v));
-      while (v % i != 0) {
-        i--;
-      }
-      return (factors[v] = [...findFactors(i), ...findFactors(v / i)]);
-    }
-    return (factors[v] = [v]);
-  };
+    return function findFactors(v) {
+        if (v in factors) {
+            return factors[v];
+        }
+        if (!isPrime(v)) {
+            let i = Math.floor(Math.sqrt(v));
+            while (v % i != 0) {
+                i--;
+            }
+            return (factors[v] = [...findFactors(i), ...findFactors(v / i)]);
+        }
+        return (factors[v] = [v]);
+    };
 })();
 ```
 
@@ -432,18 +432,18 @@ var factorize = (function factorize(v) {
 
 ```js
 function toggle(...vals) {
-  var unset = {};
-  var cur = unset;
+    var unset = {};
+    var cur = unset;
 
-  return function next() {
-    // 将前一个值保存回
-    // 列表末尾
-    if (cur != unset) {
-      vals.push(cur);
-    }
-    cur = vals.shift();
-    return cur;
-  };
+    return function next() {
+        // 将前一个值保存回
+        // 列表末尾
+        if (cur != unset) {
+            vals.push(cur);
+        }
+        cur = vals.shift();
+        return cur;
+    };
 }
 
 var hello = toggle("hello");
@@ -474,54 +474,54 @@ speed(); // "slow"
 // function formatTotal(..) { .. }
 
 function calculator() {
-  var currentTotal = 0;
-  var currentVal = "";
-  var currentOper = "=";
+    var currentTotal = 0;
+    var currentVal = "";
+    var currentOper = "=";
 
-  return pressKey;
+    return pressKey;
 
-  // ********************
+    // ********************
 
-  function pressKey(key) {
-    //  数字键？
-    if (/\d/.test(key)) {
-      currentVal += key;
-      return key;
+    function pressKey(key) {
+        //  数字键？
+        if (/\d/.test(key)) {
+            currentVal += key;
+            return key;
+        }
+        // 操作键？
+        else if (/[+*/-]/.test(key)) {
+            // 在一个系列中进行多个操作？
+            if (currentOper != "=" && currentVal != "") {
+                // 隐含 '=' 键
+                pressKey("=");
+            } else if (currentVal != "") {
+                currentTotal = Number(currentVal);
+            }
+            currentOper = key;
+            currentVal = "";
+            return key;
+        }
+        // = 键？
+        else if (key == "=" && currentOper != "=") {
+            currentTotal = op(currentTotal, currentOper, Number(currentVal));
+            currentOper = "=";
+            currentVal = "";
+            return formatTotal(currentTotal);
+        }
+        return "";
     }
-    // 操作键？
-    else if (/[+*/-]/.test(key)) {
-      // 在一个系列中进行多个操作？
-      if (currentOper != "=" && currentVal != "") {
-        // 隐含 '=' 键
-        pressKey("=");
-      } else if (currentVal != "") {
-        currentTotal = Number(currentVal);
-      }
-      currentOper = key;
-      currentVal = "";
-      return key;
-    }
-    // = 键？
-    else if (key == "=" && currentOper != "=") {
-      currentTotal = op(currentTotal, currentOper, Number(currentVal));
-      currentOper = "=";
-      currentVal = "";
-      return formatTotal(currentTotal);
-    }
-    return "";
-  }
 
-  function op(val1, oper, val2) {
-    var ops = {
-      // 注意：书中使用箭头功能
-      // 只是为了简洁明了
-      "+": (v1, v2) => v1 + v2,
-      "-": (v1, v2) => v1 - v2,
-      "*": (v1, v2) => v1 * v2,
-      "/": (v1, v2) => v1 / v2,
-    };
-    return ops[oper](val1, val2);
-  }
+    function op(val1, oper, val2) {
+        var ops = {
+            // 注意：书中使用箭头功能
+            // 只是为了简洁明了
+            "+": (v1, v2) => v1 + v2,
+            "-": (v1, v2) => v1 - v2,
+            "*": (v1, v2) => v1 * v2,
+            "/": (v1, v2) => v1 / v2,
+        };
+        return ops[oper](val1, val2);
+    }
 }
 
 var calc = calculator();
@@ -550,74 +550,74 @@ useCalc(calc, "51="); // 51
 // function formatTotal(..) { .. }
 
 function calculator() {
-  var currentTotal = 0;
-  var currentVal = "";
-  var currentOper = "=";
+    var currentTotal = 0;
+    var currentVal = "";
+    var currentOper = "=";
 
-  var publicAPI = {
-    number,
-    eq,
-    plus() {
-      return operator("+");
-    },
-    minus() {
-      return operator("-");
-    },
-    mult() {
-      return operator("*");
-    },
-    div() {
-      return operator("/");
-    },
-  };
-
-  return publicAPI;
-
-  // ********************
-
-  function number(key) {
-    // number key?
-    if (/\d/.test(key)) {
-      currentVal += key;
-      return key;
-    }
-  }
-
-  function eq() {
-    // = 键？
-    if (currentOper != "=") {
-      currentTotal = op(currentTotal, currentOper, Number(currentVal));
-      currentOper = "=";
-      currentVal = "";
-      return formatTotal(currentTotal);
-    }
-    return "";
-  }
-
-  function operator(key) {
-    // 在一个系列中进行多个操作？
-    if (currentOper != "=" && currentVal != "") {
-      // 隐含 '=' 键
-      eq();
-    } else if (currentVal != "") {
-      currentTotal = Number(currentVal);
-    }
-    currentOper = key;
-    currentVal = "";
-    return key;
-  }
-
-  function op(val1, oper, val2) {
-    var ops = {
-      // 注意：书中使用箭头功能
-      // 只是为了简洁明了
-      "+": (v1, v2) => v1 + v2,
-      "-": (v1, v2) => v1 - v2,
-      "*": (v1, v2) => v1 * v2,
-      "/": (v1, v2) => v1 / v2,
+    var publicAPI = {
+        number,
+        eq,
+        plus() {
+            return operator("+");
+        },
+        minus() {
+            return operator("-");
+        },
+        mult() {
+            return operator("*");
+        },
+        div() {
+            return operator("/");
+        },
     };
-    return ops[oper](val1, val2);
-  }
+
+    return publicAPI;
+
+    // ********************
+
+    function number(key) {
+        // number key?
+        if (/\d/.test(key)) {
+            currentVal += key;
+            return key;
+        }
+    }
+
+    function eq() {
+        // = 键？
+        if (currentOper != "=") {
+            currentTotal = op(currentTotal, currentOper, Number(currentVal));
+            currentOper = "=";
+            currentVal = "";
+            return formatTotal(currentTotal);
+        }
+        return "";
+    }
+
+    function operator(key) {
+        // 在一个系列中进行多个操作？
+        if (currentOper != "=" && currentVal != "") {
+            // 隐含 '=' 键
+            eq();
+        } else if (currentVal != "") {
+            currentTotal = Number(currentVal);
+        }
+        currentOper = key;
+        currentVal = "";
+        return key;
+    }
+
+    function op(val1, oper, val2) {
+        var ops = {
+            // 注意：书中使用箭头功能
+            // 只是为了简洁明了
+            "+": (v1, v2) => v1 + v2,
+            "-": (v1, v2) => v1 - v2,
+            "*": (v1, v2) => v1 * v2,
+            "/": (v1, v2) => v1 / v2,
+        };
+        return ops[oper](val1, val2);
+    }
 }
 
 var calc = calculator();
