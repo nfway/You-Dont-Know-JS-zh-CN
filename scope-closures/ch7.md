@@ -32,22 +32,22 @@
 // 外部/全局作用域：红色(1)
 
 function lookupStudent(studentID) {
-  // 函数作用域：蓝色(2)
+    // 函数作用域：蓝色(2)
 
-  var students = [
-    { id: 14, name: "Kyle" },
-    { id: 73, name: "Suzy" },
-    { id: 112, name: "Frank" },
-    { id: 6, name: "Sarah" },
-  ];
+    var students = [
+        { id: 14, name: "Kyle" },
+        { id: 73, name: "Suzy" },
+        { id: 112, name: "Frank" },
+        { id: 6, name: "Sarah" },
+    ];
 
-  return function greetStudent(greeting) {
-    // 函数作用域：绿色(3)
+    return function greetStudent(greeting) {
+        // 函数作用域：绿色(3)
 
-    var student = students.find((student) => student.id == studentID);
+        var student = students.find((student) => student.id == studentID);
 
-    return `${greeting}, ${student.name}!`;
-  };
+        return `${greeting}, ${student.name}!`;
+    };
 }
 
 var chosenStudents = [lookupStudent(6), lookupStudent(112)];
@@ -91,9 +91,9 @@ chosenStudents[1]("Howdy");
 
 ```js
 var student = students.find(
-  (student) =>
-    // 函数作用域：橙色(4)
-    student.id == studentID,
+    (student) =>
+        // 函数作用域：橙色(4)
+        student.id == studentID,
 );
 ```
 
@@ -107,9 +107,9 @@ var student = students.find(
 
 ```js
 function adder(num1) {
-  return function addTo(num2) {
-    return num1 + num2;
-  };
+    return function addTo(num2) {
+        return num1 + num2;
+    };
 }
 
 var add10To = adder(10);
@@ -147,12 +147,12 @@ add42To(9); // 51
 
 ```js
 function makeCounter() {
-  var count = 0;
+    var count = 0;
 
-  return function getCurrent() {
-    count = count + 1;
-    return count;
-  };
+    return function getCurrent() {
+        count = count + 1;
+        return count;
+    };
 }
 
 var hits = makeCounter();
@@ -174,12 +174,12 @@ hits(); // 3
 ```js
 var hits;
 {
-  // 外层作用域（但不是函数）
-  let count = 0;
-  hits = function getCurrent() {
-    count = count + 1;
-    return count;
-  };
+    // 外层作用域（但不是函数）
+    let count = 0;
+    hits = function getCurrent() {
+        count = count + 1;
+        return count;
+    };
 }
 hits(); // 1
 hits(); // 2
@@ -196,9 +196,9 @@ hits(); // 3
 var studentName = "Frank";
 
 var greeting = function hello() {
-  // 我们正在封闭 `studentName`，
-  // 而不是 "Frank"
-  console.log(`Hello, ${studentName}!`);
+    // 我们正在封闭 `studentName`，
+    // 而不是 "Frank"
+    console.log(`Hello, ${studentName}!`);
 };
 
 // later
@@ -219,10 +219,10 @@ greeting();
 var keeps = [];
 
 for (var i = 0; i < 3; i++) {
-  keeps[i] = function keepI() {
-    // 封闭 `i`
-    return i;
-  };
+    keeps[i] = function keepI() {
+        // 封闭 `i`
+        return i;
+    };
 }
 
 keeps[0](); // 3 -- 为什么！？
@@ -248,17 +248,17 @@ keeps[2](); // 3
 var keeps = [];
 
 for (var i = 0; i < 3; i++) {
-  // 每次迭代都会创建新的 `j`，
-  // 获取此刻 `i` 值的副本
-  let j = i;
+    // 每次迭代都会创建新的 `j`，
+    // 获取此刻 `i` 值的副本
+    let j = i;
 
-  // 这里的 `i` 没有被封闭，
-  // 所以在每个循环迭代中
-  // 立即使用它的当前值就可以了
-  keeps[i] = function keepEachJ() {
-    // 封闭了 `j`，而不是 `i`！
-    return j;
-  };
+    // 这里的 `i` 没有被封闭，
+    // 所以在每个循环迭代中
+    // 立即使用它的当前值就可以了
+    keeps[i] = function keepEachJ() {
+        // 封闭了 `j`，而不是 `i`！
+        return j;
+    };
 }
 keeps[0](); // 0
 keeps[1](); // 1
@@ -275,11 +275,11 @@ keeps[2](); // 2
 var keeps = [];
 
 for (let i = 0; i < 3; i++) {
-  // `let i` 会自动为每次迭代
-  // 提供一个新的 "i"！
-  keeps[i] = function keepEachI() {
-    return i;
-  };
+    // `let i` 会自动为每次迭代
+    // 提供一个新的 "i"！
+    keeps[i] = function keepEachI() {
+        return i;
+    };
 }
 keeps[0](); // 0
 keeps[1](); // 1
@@ -294,9 +294,9 @@ keeps[2](); // 2
 
 ```js
 function lookupStudentRecord(studentID) {
-  ajax(`https://some.api/student/${studentID}`, function onRecord(record) {
-    console.log(`${record.name} (${studentID})`);
-  });
+    ajax(`https://some.api/student/${studentID}`, function onRecord(record) {
+        console.log(`${record.name} (${studentID})`);
+    });
 }
 
 lookupStudentRecord(114);
@@ -311,9 +311,9 @@ lookupStudentRecord(114);
 
 ```js
 function listenForClicks(btn, label) {
-  btn.addEventListener("click", function onClick() {
-    console.log(`The ${label} button was clicked!`);
-  });
+    btn.addEventListener("click", function onClick() {
+        console.log(`The ${label} button was clicked!`);
+    });
 }
 
 var submitBtn = document.getElementById("submit-btn");
@@ -339,12 +339,12 @@ listenForClicks(submitBtn, "Checkout");
 
 ```js
 function say(myName) {
-  var greeting = "Hello";
-  output();
+    var greeting = "Hello";
+    output();
 
-  function output() {
-    console.log(`${greeting}, ${myName}!`);
-  }
+    function output() {
+        console.log(`${greeting}, ${myName}!`);
+    }
 }
 
 say("Kyle");
@@ -361,16 +361,16 @@ say("Kyle");
 
 ```js
 var students = [
-  { id: 14, name: "Kyle" },
-  { id: 73, name: "Suzy" },
-  { id: 112, name: "Frank" },
-  { id: 6, name: "Sarah" },
+    { id: 14, name: "Kyle" },
+    { id: 73, name: "Suzy" },
+    { id: 112, name: "Frank" },
+    { id: 6, name: "Sarah" },
 ];
 
 function getFirstStudent() {
-  return function firstStudent() {
-    return students[0].name;
-  };
+    return function firstStudent() {
+        return students[0].name;
+    };
 }
 
 var student = getFirstStudent();
@@ -387,10 +387,10 @@ student();
 
 ```js
 function lookupStudent(studentID) {
-  return function nobody() {
-    var msg = "Nobody's here yet.";
-    console.log(msg);
-  };
+    return function nobody() {
+        var msg = "Nobody's here yet.";
+        console.log(msg);
+    };
 }
 
 var student = lookupStudent(112);
@@ -407,9 +407,9 @@ student();
 
 ```js
 function greetStudent(studentName) {
-  return function greeting() {
-    console.log(`Hello, ${studentName}!`);
-  };
+    return function greeting() {
+        console.log(`Hello, ${studentName}!`);
+    };
 }
 
 greetStudent("Kyle");
@@ -429,9 +429,9 @@ greetStudent("Kyle");
 
 这一定义的关键部分是：
 
-- 必须涉及一个函数
-- 必须引用至少一个外部作用域变量
-- 必须在不同于变量的作用域链分支中调用
+-   必须涉及一个函数
+-   必须引用至少一个外部作用域变量
+-   必须在不同于变量的作用域链分支中调用
 
 这种以观测为导向的定义意味着，我们不应将闭包视为一些间接的学术琐事。相反，我们应该关注并计划闭包对程序行为产生的直接、具体的影响。
 
@@ -447,37 +447,37 @@ greetStudent("Kyle");
 
 ```js
 function manageBtnClickEvents(btn) {
-  var clickHandlers = [];
+    var clickHandlers = [];
 
-  return function listener(cb) {
-    if (cb) {
-      let clickHandler = function onClick(evt) {
-        console.log("clicked!");
-        cb(evt);
-      };
-      clickHandlers.push(clickHandler);
-      btn.addEventListener("click", clickHandler);
-    } else {
-      // 不传递回调将取消订阅
-      // 所有点击处理程序
-      for (let handler of clickHandlers) {
-        btn.removeEventListener("click", handler);
-      }
+    return function listener(cb) {
+        if (cb) {
+            let clickHandler = function onClick(evt) {
+                console.log("clicked!");
+                cb(evt);
+            };
+            clickHandlers.push(clickHandler);
+            btn.addEventListener("click", clickHandler);
+        } else {
+            // 不传递回调将取消订阅
+            // 所有点击处理程序
+            for (let handler of clickHandlers) {
+                btn.removeEventListener("click", handler);
+            }
 
-      clickHandlers = [];
-    }
-  };
+            clickHandlers = [];
+        }
+    };
 }
 
 // var mySubmitBtn = ..
 var onSubmit = manageBtnClickEvents(mySubmitBtn);
 
 onSubmit(function checkout(evt) {
-  // 办理结账
+    // 办理结账
 });
 
 onSubmit(function trackAction(evt) {
-  // 记录日志和分析
+    // 记录日志和分析
 });
 
 // 之后，取消订阅所有处理程序：
@@ -504,39 +504,39 @@ onSubmit();
 
 ```js
 function manageStudentGrades(studentRecords) {
-  var grades = studentRecords.map(getGrade);
+    var grades = studentRecords.map(getGrade);
 
-  return addGrade;
+    return addGrade;
 
-  // ************************
+    // ************************
 
-  function getGrade(record) {
-    return record.grade;
-  }
+    function getGrade(record) {
+        return record.grade;
+    }
 
-  function sortAndTrimGradesList() {
-    // 按成绩降序排序
-    grades.sort(function desc(g1, g2) {
-      return g2 - g1;
-    });
+    function sortAndTrimGradesList() {
+        // 按成绩降序排序
+        grades.sort(function desc(g1, g2) {
+            return g2 - g1;
+        });
 
-    // 只保留前 10 名
-    grades = grades.slice(0, 10);
-  }
+        // 只保留前 10 名
+        grades = grades.slice(0, 10);
+    }
 
-  function addGrade(newGrade) {
-    grades.push(newGrade);
-    sortAndTrimGradesList();
-    return grades;
-  }
+    function addGrade(newGrade) {
+        grades.push(newGrade);
+        sortAndTrimGradesList();
+        return grades;
+    }
 }
 
 var addNextGrade = manageStudentGrades([
-  { id: 14, name: "Kyle", grade: 86 },
-  { id: 73, name: "Suzy", grade: 87 },
-  { id: 112, name: "Frank", grade: 75 },
-  // ..many more records..
-  { id: 6, name: "Sarah", grade: 91 },
+    { id: 14, name: "Kyle", grade: 86 },
+    { id: 73, name: "Suzy", grade: 87 },
+    { id: 112, name: "Frank", grade: 75 },
+    // ..many more records..
+    { id: 6, name: "Sarah", grade: 91 },
 ]);
 
 // 然后
@@ -568,12 +568,12 @@ addNextGrade(68);
 
 ```js
 function storeStudentInfo(id, name, grade) {
-  return function getInfo(whichValue) {
-    // 警告：
-    //   使用 `eval(..)` 是个坏主意！
-    var val = eval(whichValue);
-    return val;
-  };
+    return function getInfo(whichValue) {
+        // 警告：
+        //   使用 `eval(..)` 是个坏主意！
+        var val = eval(whichValue);
+        return val;
+    };
 }
 
 var info = storeStudentInfo(73, "Suzy", 87);
@@ -601,14 +601,14 @@ info("grade");
 
 ```js
 function manageStudentGrades(studentRecords) {
-  var grades = studentRecords.map(getGrade);
+    var grades = studentRecords.map(getGrade);
 
-  // 取消设置 `studentRecords` 以防止
-  // 在闭包中保留不必要的内存
-  studentRecords = null;
+    // 取消设置 `studentRecords` 以防止
+    // 在闭包中保留不必要的内存
+    studentRecords = null;
 
-  return addGrade;
-  // ..
+    return addGrade;
+    // ..
 }
 ```
 
@@ -630,13 +630,13 @@ function manageStudentGrades(studentRecords) {
 // 外部/全局作用域：红色(1)
 
 function adder(num1) {
-  // 函数作用域：蓝色(2)
+    // 函数作用域：蓝色(2)
 
-  return function addTo(num2) {
-    // 函数作用域：绿色(3)
+    return function addTo(num2) {
+        // 函数作用域：绿色(3)
 
-    return num1 + num2;
-  };
+        return num1 + num2;
+    };
 }
 
 var add10To = adder(10);
@@ -694,19 +694,19 @@ add42To(9); // 51
 
 ```js
 var APIendpoints = {
-  studentIDs: "https://some.api/register-students",
-  // ..
+    studentIDs: "https://some.api/register-students",
+    // ..
 };
 
 var data = {
-  studentIDs: [14, 73, 112, 6],
-  // ..
+    studentIDs: [14, 73, 112, 6],
+    // ..
 };
 
 function makeRequest(evt) {
-  var btn = evt.target;
-  var recordKind = btn.dataset.kind;
-  ajax(APIendpoints[recordKind], data[recordKind]);
+    var btn = evt.target;
+    var recordKind = btn.dataset.kind;
+    ajax(APIendpoints[recordKind], data[recordKind]);
 }
 
 // <button data-kind="studentIDs">
@@ -721,21 +721,21 @@ btn.addEventListener("click", makeRequest);
 
 ```js
 var APIendpoints = {
-  studentIDs: "https://some.api/register-students",
-  // ..
+    studentIDs: "https://some.api/register-students",
+    // ..
 };
 
 var data = {
-  studentIDs: [14, 73, 112, 6],
-  // ..
+    studentIDs: [14, 73, 112, 6],
+    // ..
 };
 
 function setupButtonHandler(btn) {
-  var recordKind = btn.dataset.kind;
+    var recordKind = btn.dataset.kind;
 
-  btn.addEventListener("click", function makeRequest(evt) {
-    ajax(APIendpoints[recordKind], data[recordKind]);
-  });
+    btn.addEventListener("click", function makeRequest(evt) {
+        ajax(APIendpoints[recordKind], data[recordKind]);
+    });
 }
 
 // <button data-kind="studentIDs">
@@ -757,13 +757,13 @@ setupButtonHandler(btn);
 
 ```js
 function setupButtonHandler(btn) {
-  var recordKind = btn.dataset.kind;
-  var requestURL = APIendpoints[recordKind];
-  var requestData = data[recordKind];
+    var recordKind = btn.dataset.kind;
+    var requestURL = APIendpoints[recordKind];
+    var requestData = data[recordKind];
 
-  btn.addEventListener("click", function makeRequest(evt) {
-    ajax(requestURL, requestData);
-  });
+    btn.addEventListener("click", function makeRequest(evt) {
+        ajax(requestURL, requestData);
+    });
 }
 ```
 
@@ -777,15 +777,15 @@ Adapting partial application, we can further improve the preceding code:
 
 ```js
 function defineHandler(requestURL, requestData) {
-  return function makeRequest(evt) {
-    ajax(requestURL, requestData);
-  };
+    return function makeRequest(evt) {
+        ajax(requestURL, requestData);
+    };
 }
 
 function setupButtonHandler(btn) {
-  var recordKind = btn.dataset.kind;
-  var handler = defineHandler(APIendpoints[recordKind], data[recordKind]);
-  btn.addEventListener("click", handler);
+    var recordKind = btn.dataset.kind;
+    var handler = defineHandler(APIendpoints[recordKind], data[recordKind]);
+    btn.addEventListener("click", handler);
 }
 ```
 
@@ -799,13 +799,13 @@ function setupButtonHandler(btn) {
 
 我们探讨了从思想上解决闭包问题的两种模式：
 
-- 观测：闭包是一个函数实例，即使该函数被传递到其他作用域并在其他作用域中**被调用**，它也会记住其外部变量。
-- 实现：闭包是一个函数实例，它的作用域环境就地保留，而对它的任何引用都被传递并**从**其他作用域**调用**。
+-   观测：闭包是一个函数实例，即使该函数被传递到其他作用域并在其他作用域中**被调用**，它也会记住其外部变量。
+-   实现：闭包是一个函数实例，它的作用域环境就地保留，而对它的任何引用都被传递并**从**其他作用域**调用**。
 
 总结一下我们程序的优势：
 
-- 闭包可以让函数实例记住先前确定的信息，而不必每次都进行计算，从而提高效率。
-- 闭包可以提高代码的可读性，通过将变量封装在函数实例中来限制范围的暴露，同时还能确保这些变量中的信息可供将来使用。由此产生的更小、更专业的函数实例，由于无需在每次调用时都传递所保留的信息，因此交互起来更简洁。
+-   闭包可以让函数实例记住先前确定的信息，而不必每次都进行计算，从而提高效率。
+-   闭包可以提高代码的可读性，通过将变量封装在函数实例中来限制范围的暴露，同时还能确保这些变量中的信息可供将来使用。由此产生的更小、更专业的函数实例，由于无需在每次调用时都传递所保留的信息，因此交互起来更简洁。
 
 在继续学习之前，请花一些时间*用自己的话*重述一下这个总结，解释一下什么是闭包，为什么它对你的程序有帮助。本书正文的最后一章将在闭包的基础上使用模块模式。
 

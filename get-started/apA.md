@@ -44,9 +44,9 @@ console.log(yourName);
 
 ```js
 var myAddress = {
-  street: "123 JS Blvd",
-  city: "Austin",
-  state: "TX",
+    street: "123 JS Blvd",
+    city: "Austin",
+    state: "TX",
 };
 
 var yourAddress = myAddress;
@@ -68,8 +68,8 @@ console.log(yourAddress.street);
 
 ```js
 var awesomeFunction = function (coolThings) {
-  // ..
-  return amazingStuff;
+    // ..
+    return amazingStuff;
 };
 ```
 
@@ -92,8 +92,8 @@ awesomeFunction.name;
 // let awesomeFunction = ..
 // const awesomeFunction = ..
 var awesomeFunction = function someName(coolThings) {
-  // ..
-  return amazingStuff;
+    // ..
+    return amazingStuff;
 };
 
 awesomeFunction.name;
@@ -194,12 +194,12 @@ var EntirelyDifferent = {
 var x = 1;
 
 if (x) {
-  // 会运行！
+    // 会运行！
 }
 
 while (x) {
-  // 只会运行一次！
-  x = false;
+    // 只会运行一次！
+    x = false;
 }
 ```
 
@@ -209,12 +209,12 @@ while (x) {
 var x = 1;
 
 if (x == true) {
-  // 会运行！
+    // 会运行！
 }
 
 while (x == true) {
-  // 只会运行一次！
-  x = false;
+    // 只会运行一次！
+    x = false;
 }
 ```
 
@@ -224,11 +224,11 @@ while (x == true) {
 var x = "hello";
 
 if (x) {
-  // 会运行！
+    // 会运行！
 }
 
 if (x == true) {
-  // 不会运行 :(
+    // 不会运行 :(
 }
 ```
 
@@ -238,13 +238,13 @@ if (x == true) {
 var x = "hello";
 
 if (Boolean(x) == true) {
-  // 会运行！
+    // 会运行！
 }
 
 // 这与以下情况相同：
 
 if (Boolean(x) === true) {
-  // 会运行！
+    // 会运行！
 }
 ```
 
@@ -266,9 +266,9 @@ if (Boolean(x) === true) {
 
 ```js
 var Classroom = {
-  welcome() {
-    console.log("Welcome, students!");
-  },
+    welcome() {
+        console.log("Welcome, students!");
+    },
 };
 
 var mathClass = Object.create(Classroom);
@@ -283,11 +283,11 @@ mathClass.welcome();
 
 ```js
 function Classroom() {
-  // ..
+    // ..
 }
 
 Classroom.prototype.welcome = function hello() {
-  console.log("Welcome, students!");
+    console.log("Welcome, students!");
 };
 
 var mathClass = new Classroom();
@@ -308,13 +308,13 @@ mathClass.welcome();
 
 ```js
 class Classroom {
-  constructor() {
-    // ..
-  }
+    constructor() {
+        // ..
+    }
 
-  welcome() {
-    console.log("Welcome, students!");
-  }
+    welcome() {
+        console.log("Welcome, students!");
+    }
 }
 
 var mathClass = new Classroom();

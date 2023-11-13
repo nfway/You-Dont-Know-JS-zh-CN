@@ -24,19 +24,19 @@ JS 程序的全局作用域是一个内容丰富的话题，其实用性和细�
 
 ```js
 (function wrappingOuterScope() {
-  var moduleOne = (function one() {
-    // ..
-  })();
+    var moduleOne = (function one() {
+        // ..
+    })();
 
-  var moduleTwo = (function two() {
-    // ..
+    var moduleTwo = (function two() {
+        // ..
 
-    function callModuleOne() {
-      moduleOne.someMethod();
-    }
+        function callModuleOne() {
+            moduleOne.someMethod();
+        }
 
-    // ..
-  })();
+        // ..
+    })();
 })();
 ```
 
@@ -50,16 +50,16 @@ JS 程序的全局作用域是一个内容丰富的话题，其实用性和细�
 
 ```js
 var moduleOne = (function one() {
-  // ..
+    // ..
 })();
 var moduleTwo = (function two() {
-  // ..
+    // ..
 
-  function callModuleOne() {
-    moduleOne.someMethod();
-  }
+    function callModuleOne() {
+        moduleOne.someMethod();
+    }
 
-  // ..
+    // ..
 })();
 ```
 
@@ -69,7 +69,7 @@ module1.js:
 
 ```js
 var moduleOne = (function one() {
-  // ..
+    // ..
 })();
 ```
 
@@ -77,13 +77,13 @@ module2.js:
 
 ```js
 var moduleTwo = (function two() {
-  // ..
+    // ..
 
-  function callModuleOne() {
-    moduleOne.someMethod();
-  }
+    function callModuleOne() {
+        moduleOne.someMethod();
+    }
 
-  // ..
+    // ..
 })();
 ```
 
@@ -91,20 +91,20 @@ var moduleTwo = (function two() {
 
 除了（有可能）说明运行时应用程序的代码所在位置，以及每个部分如何访问其他部分以进行合作外，全局作用域也是一个重要因素：
 
-- JS 提供的内置组件:
+-   JS 提供的内置组件:
 
-  - 原始值： `undefined`, `null`, `Infinity`, `NaN`
-  - 内置： `Date()`, `Object()`, `String()`, 等等。
-  - 全局函数：`eval()`, `parseInt()`, 等等。
-  - 命名空间：`Math`, `Atomics`, `JSON`
-  - JS 的朋友们：`Intl`, `WebAssembly`
+    -   原始值： `undefined`, `null`, `Infinity`, `NaN`
+    -   内置： `Date()`, `Object()`, `String()`, 等等。
+    -   全局函数：`eval()`, `parseInt()`, 等等。
+    -   命名空间：`Math`, `Atomics`, `JSON`
+    -   JS 的朋友们：`Intl`, `WebAssembly`
 
-- 托管 JS 引擎的环境提供的内置功能：
+-   托管 JS 引擎的环境提供的内置功能：
 
-  - `console` (以及它的函数)
-  - DOM (`window`, `document`, 等等)
-  - timers (`setTimeout(..)`, 等等)
-  - web 平台 API: `navigator`, `history`, geolocation, WebRTC, 等等。
+    -   `console` (以及它的函数)
+    -   DOM (`window`, `document`, 等等)
+    -   timers (`setTimeout(..)`, 等等)
+    -   web 平台 API: `navigator`, `history`, geolocation, WebRTC, 等等。
 
 这些只是您的程序将与之交互的众多 _globals_ 中的一部分。
 
@@ -130,7 +130,7 @@ var moduleTwo = (function two() {
 var studentName = "Kyle";
 
 function hello() {
-  console.log(`Hello, ${studentName}!`);
+    console.log(`Hello, ${studentName}!`);
 }
 
 hello();
@@ -145,7 +145,7 @@ hello();
 var studentName = "Kyle";
 
 function hello() {
-  console.log(`Hello, ${window.studentName}!`);
+    console.log(`Hello, ${window.studentName}!`);
 }
 
 window.hello();
@@ -243,7 +243,7 @@ var studentName = "Kyle";
 let studentID = 42;
 
 function hello() {
-  console.log(`Hello, ${self.studentName}!`);
+    console.log(`Hello, ${self.studentName}!`);
 }
 
 self.hello();
@@ -265,11 +265,11 @@ self.studentID;
 
 就我们在这里讨论的作用域言，这种可观察到的行为差异可能包括：
 
-- 全局作用域的行为
+-   全局作用域的行为
 
-- 提升 (见第 5 章)
+-   提升 (见第 5 章)
 
-- 在最外层作用域使用 Block-scoping 声明符时(`let` / `const`, 见第 6 章)
+-   在最外层作用域使用 Block-scoping 声明符时(`let` / `const`, 见第 6 章)
 
 虽然在使用控制台/REPL 时，在最外层作用域输入的语句似乎是在真正的全局作用域中处理的，但这并不十分准确。这类工具通常会在一定程度上模拟全局作用域的位置；这只是模拟，而不是严格遵守。这些工具环境优先考虑的是开发人员的便利性，这意味着有时（比如我们当前关于作用域的讨论），观察到的行为可能会偏离 JS 规范。
 
@@ -316,7 +316,7 @@ Node 的一个方面常常让 JS 开发人员措手不及，那就是 Node 将�
 var studentName = "Kyle";
 
 function hello() {
-  console.log(`Hello, ${studentName}!`);
+    console.log(`Hello, ${studentName}!`);
 }
 
 hello();
@@ -356,7 +356,7 @@ function Module(module,require,__dirname,...) {
 global.studentName = "Kyle";
 
 function hello() {
-  console.log(`Hello, ${studentName}!`);
+    console.log(`Hello, ${studentName}!`);
 }
 
 hello();
@@ -373,9 +373,9 @@ module.exports.hello = hello;
 
 回顾我们迄今为止所看到的 JS 环境，程序可能有，也可能没有：
 
-- 在顶层作用域中使用 `var` 或 `function` 声明或 `let`, `const` 和 `class` 声明全局变量。
-- 如果使用了 `var` 或 `function` 声明，还可将全局变量声明添加为全局作用域对象的属性。
-- 使用 `window`、`self` 或 `global` 引用全局作用域对象（用于添加或检索全局变量或者作为属性）。
+-   在顶层作用域中使用 `var` 或 `function` 声明或 `let`, `const` 和 `class` 声明全局变量。
+-   如果使用了 `var` 或 `function` 声明，还可将全局变量声明添加为全局作用域对象的属性。
+-   使用 `window`、`self` 或 `global` 引用全局作用域对象（用于添加或检索全局变量或者作为属性）。
 
 我认为可以这样说，全局作用域的访问和行为比大多数开发人员想象的要复杂得多，前面的章节已经说明了这一点。但是，这种复杂性在试图确定对全局作用域对象的通用引用时表现得最为明显。
 
@@ -399,15 +399,15 @@ const theGlobalScopeObject = new Function("return this")();
 
 ```js
 const theGlobalScopeObject =
-  typeof globalThis != "undefined"
-    ? globalThis
-    : typeof global != "undefined"
-    ? global
-    : typeof window != "undefined"
-    ? window
-    : typeof self != "undefined"
-    ? self
-    : new Function("return this")();
+    typeof globalThis != "undefined"
+        ? globalThis
+        : typeof global != "undefined"
+          ? global
+          : typeof window != "undefined"
+            ? window
+            : typeof self != "undefined"
+              ? self
+              : new Function("return this")();
 ```
 
 呼！这当然不是最理想的，但如果你需要一个可靠的全局作用域参考，它还是有用的。

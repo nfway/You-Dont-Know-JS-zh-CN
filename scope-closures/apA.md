@@ -14,8 +14,8 @@
 
 作用域有时会在不显眼的地方创建。实际上，这些隐式作用域并不总会影响程序的运行，但知道它们的存在还是很有用的。请留意以下令人惊讶的作用域：
 
-- 参数作用域
-- 函数名的作用域
+-   参数作用域
+-   函数名的作用域
 
 ### 参数作用域
 
@@ -27,8 +27,8 @@
 // 外部/全局作用域：红色(1)
 
 function getStudentName(studentID) {
-  // 函数作用域：蓝色(2)
-  // ..
+    // 函数作用域：蓝色(2)
+    // ..
 }
 ```
 
@@ -40,8 +40,8 @@ function getStudentName(studentID) {
 // 外部/全局作用域：红色(1)
 
 function getStudentName(/*蓝色(2)*/ studentID = 0) {
-  // 函数作用域：绿色(3)
-  // ..
+    // 函数作用域：绿色(3)
+    // ..
 }
 ```
 
@@ -53,7 +53,7 @@ function getStudentName(/*蓝色(2)*/ studentID = 0) {
 
 ```js
 function getStudentName(studentID = maxID, maxID) {
-  // ..
+    // ..
 }
 ```
 
@@ -61,7 +61,7 @@ function getStudentName(studentID = maxID, maxID) {
 
 ```js
 function getStudentName(maxID, studentID = maxID) {
-  // ..
+    // ..
 }
 ```
 
@@ -69,8 +69,8 @@ function getStudentName(maxID, studentID = maxID) {
 
 ```js
 function whatsTheDealHere(id, defaultID = () => id) {
-  id = 5;
-  console.log(defaultID());
+    id = 5;
+    console.log(defaultID());
 }
 
 whatsTheDealHere(3);
@@ -81,8 +81,8 @@ whatsTheDealHere(3);
 
 ```js
 function whatsTheDealHere(id, defaultID = () => id) {
-  var id = 5;
-  console.log(defaultID());
+    var id = 5;
+    console.log(defaultID());
 }
 
 whatsTheDealHere(3);
@@ -95,16 +95,16 @@ whatsTheDealHere(3);
 
 ```js
 function whatsTheDealHere(id, defaultID = () => id) {
-  var id;
+    var id;
 
-  console.log(`local variable 'id': ${id}`);
-  console.log(`parameter 'id' (closure): ${defaultID()}`);
+    console.log(`local variable 'id': ${id}`);
+    console.log(`parameter 'id' (closure): ${defaultID()}`);
 
-  console.log("reassigning 'id' to 5");
-  id = 5;
+    console.log("reassigning 'id' to 5");
+    id = 5;
 
-  console.log(`local variable 'id': ${id}`);
-  console.log(`parameter 'id' (closure): ${defaultID()}`);
+    console.log(`local variable 'id': ${id}`);
+    console.log(`parameter 'id' (closure): ${defaultID()}`);
 }
 
 whatsTheDealHere(3);
@@ -123,8 +123,8 @@ whatsTheDealHere(3);
 
 我的建议是，避免被这些奇怪的细微差别所困扰：
 
-- 切勿使用本地变量作为参数的遮蔽
-- 避免使用封闭任何参数的默认参数函数
+-   切勿使用本地变量作为参数的遮蔽
+-   避免使用封闭任何参数的默认参数函数
 
 至少你现在已经意识到，如果有任何参数是非简单参数，那么参数列表就是它自己的作用域。
 
@@ -134,7 +134,7 @@ whatsTheDealHere(3);
 
 ```js
 var askQuestion = function ofTheTeacher() {
-  // ..
+    // ..
 };
 ```
 
@@ -146,8 +146,8 @@ var askQuestion = function ofTheTeacher() {
 
 ```js
 var askQuestion = function ofTheTeacher() {
-  // 为什么这不是重复声明错误？
-  let ofTheTeacher = "Confused, yet?";
+    // 为什么这不是重复声明错误？
+    let ofTheTeacher = "Confused, yet?";
 };
 ```
 
@@ -161,11 +161,11 @@ var askQuestion = function ofTheTeacher() {
 
 在考虑为您的函数命名时，请考虑一下：
 
-- 命名推断不完整
-- 词法命名允许自我引用
-- 命名是有用的描述
-- 箭头函数没有词法命名
-- IIFE 也需要命名
+-   命名推断不完整
+-   词法命名允许自我引用
+-   命名是有用的描述
+-   箭头函数没有词法命名
+-   IIFE 也需要命名
 
 ### 显示命名还是推断命名？
 
@@ -177,11 +177,11 @@ var askQuestion = function ofTheTeacher() {
 
 ```js
 btn.addEventListener("click", function () {
-  setTimeout(function () {
-    ["a", 42].map(function (v) {
-      console.log(v.toUpperCase());
-    });
-  }, 100);
+    setTimeout(function () {
+        ["a", 42].map(function (v) {
+            console.log(v.toUpperCase());
+        });
+    }, 100);
 });
 // Uncaught TypeError: v.toUpperCase is not a function
 //     at myProgram.js:4
@@ -193,11 +193,11 @@ btn.addEventListener("click", function () {
 
 ```js
 btn.addEventListener("click", function onClick() {
-  setTimeout(function waitAMoment() {
-    ["a", 42].map(function allUpper(v) {
-      console.log(v.toUpperCase());
-    });
-  }, 100);
+    setTimeout(function waitAMoment() {
+        ["a", 42].map(function allUpper(v) {
+            console.log(v.toUpperCase());
+        });
+    }, 100);
 });
 // Uncaught TypeError: v.toUpperCase is not a function
 //     at allUpper (myProgram.js:4)
@@ -215,26 +215,26 @@ btn.addEventListener("click", function onClick() {
 
 ```js
 function thisIsNamed() {
-  // ..
+    // ..
 }
 
 ajax("some.url", function thisIsAlsoNamed() {
-  // ..
+    // ..
 });
 
 var notNamed = function () {
-  // ..
+    // ..
 };
 
 makeRequest({
-  data: 42,
-  cb /* 也不是命名 */: function () {
-    // ..
-  },
+    data: 42,
+    cb /* 也不是命名 */: function () {
+        // ..
+    },
 });
 
 var stillNotNamed = function butThisIs() {
-  // ..
+    // ..
 };
 ```
 
@@ -242,13 +242,13 @@ var stillNotNamed = function butThisIs() {
 
 ```js
 var notNamed = function () {
-  // ..
+    // ..
 };
 
 var config = {
-  cb: function () {
-    // ..
-  },
+    cb: function () {
+        // ..
+    },
 };
 
 notNamed.name;
@@ -266,11 +266,11 @@ config.cb.name;
 
 ```js
 function ajax(url, cb) {
-  console.log(cb.name);
+    console.log(cb.name);
 }
 
 ajax("some.url", function () {
-  // ..
+    // ..
 });
 // ""
 ```
@@ -283,7 +283,7 @@ ajax("some.url", function () {
 var config = {};
 
 config.cb = function () {
-  // ..
+    // ..
 };
 
 config.cb.name;
@@ -307,14 +307,14 @@ noName.name;
 ```js
 // broken
 runOperation(function (num) {
-  if (num <= 1) return 1;
-  return num * oopsNoNameToCall(num - 1);
+    if (num <= 1) return 1;
+    return num * oopsNoNameToCall(num - 1);
 });
 
 // 同样 broken
 btn.addEventListener("click", function () {
-  console.log("should only respond to one click!");
-  btn.removeEventListener("click", oopsNoNameHere);
+    console.log("should only respond to one click!");
+    btn.removeEventListener("click", oopsNoNameHere);
 });
 ```
 
@@ -328,12 +328,12 @@ btn.addEventListener("click", function () {
 
 ```js
 [1, 2, 3, 4, 5].filter(function (v) {
-  return v % 2 == 1;
+    return v % 2 == 1;
 });
 // [ 1, 3, 5 ]
 
 [1, 2, 3, 4, 5].filter(function keepOnlyOdds(v) {
-  return v % 2 == 1;
+    return v % 2 == 1;
 });
 // [ 1, 3, 5 ]
 ```
@@ -350,10 +350,10 @@ JS 引擎并不关心命名。但阅读代码的人类读者绝对会关心。
 
 ```js
 lookupTheRecords(someData)
-  .then(function extractSalesRecords(resp) {
-    return resp.allSales;
-  })
-  .then(storeRecords);
+    .then(function extractSalesRecords(resp) {
+        return resp.allSales;
+    })
+    .then(storeRecords);
 ```
 
 `extractSalesRecords` （提取销售记录）这个名称告诉读者这个 `then(..)` 处理程序的目的，比仅仅从精神上执行 `return resp.allSales` 来推断要好。
@@ -386,11 +386,11 @@ lookupTheRecords(someData)
 
 ```js
 (function () {
-  // 不要这么做！
+    // 不要这么做！
 })();
 
 (function doThisInstead() {
-  // ..
+    // ..
 })();
 ```
 
@@ -398,11 +398,11 @@ lookupTheRecords(someData)
 
 ```js
 var getStudents = (function StoreStudentRecords() {
-  var studentRecords = [];
+    var studentRecords = [];
 
-  return function getStudents() {
-    // ..
-  };
+    return function getStudents() {
+        // ..
+    };
 })();
 ```
 
@@ -412,15 +412,15 @@ IIFE 通常是通过在 `function` 表达式周围放置 `( .. )` 来定义的�
 
 ```js
 !(function thisIsAnIIFE() {
-  // ..
+    // ..
 })();
 
 +(function soIsThisOne() {
-  // ..
+    // ..
 })();
 
 ~(function andThisOneToo() {
-  // ..
+    // ..
 })();
 ```
 
@@ -430,7 +430,7 @@ IIFE 通常是通过在 `function` 表达式周围放置 `( .. )` 来定义的�
 
 ```js
 void (function yepItsAnIIFE() {
-  // ..
+    // ..
 })();
 ```
 
@@ -444,8 +444,8 @@ void (function yepItsAnIIFE() {
 
 通过思考以下方面的优点，对提升进行更深层次的理解：
 
-- 可执行代码在前，函数声明在后
-- 变量声明的语义位置
+-   可执行代码在前，函数声明在后
+-   变量声明的语义位置
 
 ### 函数提升
 
@@ -457,7 +457,7 @@ getStudents();
 // ..
 
 function getStudents() {
-  // ..
+    // ..
 }
 ```
 
@@ -473,17 +473,17 @@ getStudents();
 // *************
 
 function getStudents() {
-  var whatever = doSomething();
+    var whatever = doSomething();
 
-  // 其他内容
+    // 其他内容
 
-  return whatever;
+    return whatever;
 
-  // *************
+    // *************
 
-  function doSomething() {
-    // ..
-  }
+    function doSomething() {
+        // ..
+    }
 }
 ```
 
@@ -517,9 +517,9 @@ var anotherModule = require("kinda-helpful");
 
 // 公共 API
 var publicAPI = Object.assign(module.exports, {
-  getStudents,
-  addStudents,
-  // ..
+    getStudents,
+    addStudents,
+    // ..
 });
 
 // ********************************
@@ -529,11 +529,11 @@ var cache = {};
 var otherData = [];
 
 function getStudents() {
-  // ..
+    // ..
 }
 
 function addStudents() {
-  // ..
+    // ..
 }
 ```
 
@@ -544,9 +544,9 @@ function addStudents() {
 ```js
 // 公共 API
 var publicAPI = Object.assign(module.exports, {
-  getStudents,
-  addStudents,
-  refreshData: refreshData.bind(null, cache),
+    getStudents,
+    addStudents,
+    refreshData: refreshData.bind(null, cache),
 });
 ```
 
@@ -559,9 +559,9 @@ cache = {}; // 此处使用，但在下面声明
 
 // 公共 API
 var publicAPI = Object.assign(module.exports, {
-  getStudents,
-  addStudents,
-  refreshData: refreshData.bind(null, cache),
+    getStudents,
+    addStudents,
+    refreshData: refreshData.bind(null, cache),
 });
 
 // ********************************
@@ -580,10 +580,10 @@ var cache /* = {}*/;
 
 当我陈述案例时，千万不要错过：
 
-- `var` 从未被弃用
-- `let` 你的朋友
-- `const` 效用有限
-- 两全其美：`var` _和_ `let`
+-   `var` 从未被弃用
+-   `let` 你的朋友
+-   `const` 效用有限
+-   两全其美：`var` _和_ `let`
 
 ### 不要扔掉 `var`
 
@@ -661,10 +661,10 @@ function getStudents(data) {
 
 ```js
 function commitAction() {
-  do {
-    let result = commit();
-    var done = result && result.code == 1;
-  } while (!done);
+    do {
+        let result = commit();
+        var done = result && result.code == 1;
+    } while (!done);
 }
 ```
 
@@ -676,14 +676,14 @@ function commitAction() {
 
 ```js
 function getStudents() {
-  try {
-    // 不是块作用域
-    var records = fromCache("students");
-  } catch (err) {
-    // 哎呀，退回到默认值
-    var records = [];
-  }
-  // ..
+    try {
+        // 不是块作用域
+        var records = fromCache("students");
+    } catch (err) {
+        // 哎呀，退回到默认值
+        var records = [];
+    }
+    // ..
 }
 ```
 
@@ -699,16 +699,16 @@ function getStudents() {
 
 ```js
 function getStudents() {
-  var data = [];
+    var data = [];
 
-  // 用数据做点什么
-  // .. 50 多行代码 ..
+    // 用数据做点什么
+    // .. 50 多行代码 ..
 
-  // 纯粹是一个注释来提醒我们
-  var data;
+    // 纯粹是一个注释来提醒我们
+    var data;
 
-  // 再次使用数据
-  // ..
+    // 再次使用数据
+    // ..
 }
 ```
 
@@ -728,9 +728,9 @@ function getStudents() {
 
 TDZ 起源故事中的一些线索：
 
-- `const` 不应改变
-- 一切都与时间有关
-- `let` 的行为应该更像 `const` 还是 `var`？
+-   `const` 不应改变
+-   一切都与时间有关
+-   `let` 的行为应该更像 `const` 还是 `var`？
 
 ### 一切从何开始
 
@@ -742,15 +742,15 @@ TDZ 起源故事中的一些线索：
 let greeting = "Hi!";
 
 {
-  // 这里应该打印什么?
-  console.log(greeting);
+    // 这里应该打印什么?
+    console.log(greeting);
 
-  // .. 几行代码 ..
+    // .. 几行代码 ..
 
-  // 现在对 `greeting` 变量进行遮蔽处理
-  let greeting = "Hello, friends!";
+    // 现在对 `greeting` 变量进行遮蔽处理
+    let greeting = "Hello, friends!";
 
-  // ..
+    // ..
 }
 ```
 
@@ -760,14 +760,14 @@ let greeting = "Hi!";
 
 ```js
 {
-  // 这里应该打印什么?
-  console.log(studentName);
+    // 这里应该打印什么?
+    console.log(studentName);
 
-  // 然后
+    // 然后
 
-  const studentName = "Frank";
+    const studentName = "Frank";
 
-  // ..
+    // ..
 }
 ```
 
@@ -795,17 +795,17 @@ TC39 做出了这样的决定：既然 `const` 需要一个 TDZ，那么 `let` �
 
 第 7 章介绍了两种不同的闭包模式：
 
-- 闭包是一个函数实例，它会记住其外部变量，即使该函数在其他作用域中被传递和**调用**。
-- 闭包是一个函数实例，它的作用域环境被就地保留，而对它的任何引用都会被传递并从其他作用域中**调用**。
+-   闭包是一个函数实例，它会记住其外部变量，即使该函数在其他作用域中被传递和**调用**。
+-   闭包是一个函数实例，它的作用域环境被就地保留，而对它的任何引用都会被传递并从其他作用域中**调用**。
 
 这些模式并没有天壤之别，但它们确实从不同的角度切入。而这种不同的视角改变了我们对闭包的认定。
 
 不要在闭包和回调中迷失方向：
 
-- 回调到什么（或哪里）？
-- 也许"同步回调"不是最好的标签
-- 如果 **_IIF_** 函数不能移动，为什么需要闭包？
-- 随着时间的推移而推迟是闭包的关键
+-   回调到什么（或哪里）？
+-   也许"同步回调"不是最好的标签
+-   如果 **_IIF_** 函数不能移动，为什么需要闭包？
+-   随着时间的推移而推迟是闭包的关键
 
 ### 什么是回调？
 
@@ -817,8 +817,8 @@ TC39 做出了这样的决定：既然 `const` 需要一个 TDZ，那么 `let` �
 
 ```js
 setTimeout(function waitForASecond() {
-  // 当计时器计时结束时
-  // JS 应调用
+    // 当计时器计时结束时
+    // JS 应调用
 }, 1000);
 
 // 这是当前程序结束
@@ -833,9 +833,9 @@ setTimeout(function waitForASecond() {
 
 ```js
 function getLabels(studentIDs) {
-  return studentIDs.map(function formatIDLabel(id) {
-    return `Student ID: ${String(id).padStart(6)}`;
-  });
+    return studentIDs.map(function formatIDLabel(id) {
+        return `Student ID: ${String(id).padStart(6)}`;
+    });
 }
 
 getLabels([14, 73, 112, 6]);
@@ -873,20 +873,20 @@ IoC 是一个非常相似的相关概念。控制反转的意思是，不要让�
 
 ```js
 function printLabels(labels) {
-  var list = document.getElementById("labelsList");
+    var list = document.getElementById("labelsList");
 
-  labels.forEach(function renderLabel(label) {
-    var li = document.createElement("li");
-    li.innerText = label;
-    list.appendChild(li);
-  });
+    labels.forEach(function renderLabel(label) {
+        var li = document.createElement("li");
+        li.innerText = label;
+        list.appendChild(li);
+    });
 }
 ```
 
 内部的 `renderLabel(..)` IIF 引用了外层作用域中的 `list`，因此它是一个*可以*有闭包的 IIF。但这里我们为闭包选择的定义/模型很重要：
 
-- 如果`renderLabel(..)` 是一个**函数，它被传递到其他地方**，然后调用该函数，那么是的，`renderLabel(..)` 确实是闭包，因为闭包保留了对其原始作用域链的访问。
-- 但是，如果像第 7 章中的另一种概念模型那样，`renderLabel(..)` 保留在原处，只把对它的引用传递给`forEach(..)`，那么当`renderLabel(..)` 在自己的作用域内同步执行时，还需要闭包来保留`renderLabel(..)` 的作用域链吗？
+-   如果`renderLabel(..)` 是一个**函数，它被传递到其他地方**，然后调用该函数，那么是的，`renderLabel(..)` 确实是闭包，因为闭包保留了对其原始作用域链的访问。
+-   但是，如果像第 7 章中的另一种概念模型那样，`renderLabel(..)` 保留在原处，只把对它的引用传递给`forEach(..)`，那么当`renderLabel(..)` 在自己的作用域内同步执行时，还需要闭包来保留`renderLabel(..)` 的作用域链吗？
 
 不，这只是正常的词法作用域。
 
@@ -894,21 +894,21 @@ function printLabels(labels) {
 
 ```js
 function printLabels(labels) {
-  var list = document.getElementById("labelsList");
+    var list = document.getElementById("labelsList");
 
-  for (let label of labels) {
-    // 只是在它自己的作用域中的一个普通函数调用，对吗？
-    // 这并不是真正的闭包！
-    renderLabel(label);
-  }
+    for (let label of labels) {
+        // 只是在它自己的作用域中的一个普通函数调用，对吗？
+        // 这并不是真正的闭包！
+        renderLabel(label);
+    }
 
-  // **************
+    // **************
 
-  function renderLabel(label) {
-    var li = document.createElement("li");
-    li.innerText = label;
-    list.appendChild(li);
-  }
+    function renderLabel(label) {
+        var li = document.createElement("li");
+        li.innerText = label;
+        list.appendChild(li);
+    }
 }
 ```
 
@@ -922,21 +922,21 @@ function printLabels(labels) {
 
 ```js
 function printLabels(labels) {
-  var list = document.getElementById("labelsList");
-  var renderLabel = renderTo(list);
+    var list = document.getElementById("labelsList");
+    var renderLabel = renderTo(list);
 
-  // 这次绝对是闭包!
-  labels.forEach(renderLabel);
+    // 这次绝对是闭包!
+    labels.forEach(renderLabel);
 
-  // **************
+    // **************
 
-  function renderTo(list) {
-    return function createLabel(label) {
-      var li = document.createElement("li");
-      li.innerText = label;
-      list.appendChild(li);
-    };
-  }
+    function renderTo(list) {
+        return function createLabel(label) {
+            var li = document.createElement("li");
+            li.innerText = label;
+            list.appendChild(li);
+        };
+    }
 }
 ```
 
@@ -950,23 +950,23 @@ function printLabels(labels) {
 
 ```js
 var StudentList = (function defineModule(Student) {
-  var elems = [];
+    var elems = [];
 
-  var publicAPI = {
-    renderList() {
-      // ..
-    },
-  };
+    var publicAPI = {
+        renderList() {
+            // ..
+        },
+    };
 
-  return publicAPI;
+    return publicAPI;
 })(Student);
 ```
 
 请注意，我们将 `Student`（另一个模块实例）作为依赖关系传入。但是，你可能会遇到这种模块形式的许多有用的变化。以下是一些识别这些变化的提示：
 
-- 模块知道自己的 API 吗？
-- 即使我们使用花哨的模块加载器，它也只是一个传统的模块
-- 有些模块需要通用
+-   模块知道自己的 API 吗？
+-   即使我们使用花哨的模块加载器，它也只是一个传统的模块
+-   有些模块需要通用
 
 ### 我的 API 在哪里？
 
@@ -974,13 +974,13 @@ var StudentList = (function defineModule(Student) {
 
 ```js
 var StudentList = (function defineModule(Student) {
-  var elems = [];
+    var elems = [];
 
-  return {
-    renderList() {
-      // ..
-    },
-  };
+    return {
+        renderList() {
+            // ..
+        },
+    };
 })(Student);
 ```
 
@@ -988,13 +988,13 @@ var StudentList = (function defineModule(Student) {
 
 但我非常喜欢并一直使用前一种 `publicAPI` 形式。理由有两个：
 
-- `publicAPI` 是一个语义描述符，通过使对象的目的更加明显来提高可读性。
+-   `publicAPI` 是一个语义描述符，通过使对象的目的更加明显来提高可读性。
 
-- 如果需要在模块生命周期内访问或修改 API，存储一个内部的 `publicAPI` 变量，引用返回的相同外部公共 API 对象，会非常有用。
+-   如果需要在模块生命周期内访问或修改 API，存储一个内部的 `publicAPI` 变量，引用返回的相同外部公共 API 对象，会非常有用。
 
-  例如，您可能想从模块内部调用一个公开暴露的函数。或者，您可能想根据某些条件添加或删除方法，或者更新公开属性的值。
+    例如，您可能想从模块内部调用一个公开暴露的函数。或者，您可能想根据某些条件添加或删除方法，或者更新公开属性的值。
 
-  无论如何，在我看来，*不*维护一个引用来访问我们自己的应用程序接口是非常愚蠢的。对吗？
+    无论如何，在我看来，*不*维护一个引用来访问我们自己的应用程序接口是非常愚蠢的。对吗？
 
 ### 异步模块定义 (AMD)
 
@@ -1002,13 +1002,13 @@ var StudentList = (function defineModule(Student) {
 
 ```js
 define(["./Student"], function StudentList(Student) {
-  var elems = [];
+    var elems = [];
 
-  return {
-    renderList() {
-      // ..
-    },
-  };
+    return {
+        renderList() {
+            // ..
+        },
+    };
 });
 ```
 
@@ -1024,26 +1024,26 @@ define(["./Student"], function StudentList(Student) {
 
 ```js
 (function UMD(name, context, definition) {
-  // 由 AMD 风格的加载器 (loader) 加载?
-  if (typeof define === "function" && define.amd) {
-    define(definition);
-  }
-  // 在 Node 里？
-  else if (typeof module !== "undefined" && module.exports) {
-    module.exports = definition(name, context);
-  }
-  // 假设浏览器的独立脚本
-  else {
-    context[name] = definition(name, context);
-  }
+    // 由 AMD 风格的加载器 (loader) 加载?
+    if (typeof define === "function" && define.amd) {
+        define(definition);
+    }
+    // 在 Node 里？
+    else if (typeof module !== "undefined" && module.exports) {
+        module.exports = definition(name, context);
+    }
+    // 假设浏览器的独立脚本
+    else {
+        context[name] = definition(name, context);
+    }
 })("StudentList", this, function DEF(name, context) {
-  var elems = [];
+    var elems = [];
 
-  return {
-    renderList() {
-      // ..
-    },
-  };
+    return {
+        renderList() {
+            // ..
+        },
+    };
 });
 ```
 

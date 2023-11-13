@@ -64,8 +64,8 @@
 var studentName = "Suzy";
 
 function printStudent(studentName) {
-  studentName = studentName.toUpperCase();
-  console.log(studentName);
+    studentName = studentName.toUpperCase();
+    console.log(studentName);
 }
 
 printStudent("Frank");
@@ -108,8 +108,8 @@ console.log(studentName);
 var studentName = "Suzy";
 
 function printStudent(studentName) {
-  console.log(studentName);
-  console.log(window.studentName);
+    console.log(studentName);
+    console.log(window.studentName);
 }
 
 printStudent("Frank");
@@ -147,17 +147,17 @@ console.log(window.notThree); // undefined
 var special = 42;
 
 function lookingFor(special) {
-  // The identifier `special` (parameter) in this
-  // scope is shadowed inside keepLooking(), and
-  // is thus inaccessible from that scope.
+    // The identifier `special` (parameter) in this
+    // scope is shadowed inside keepLooking(), and
+    // is thus inaccessible from that scope.
 
-  function keepLooking() {
-    var special = 3.141592;
-    console.log(special);
-    console.log(window.special);
-  }
+    function keepLooking() {
+        var special = 3.141592;
+        console.log(special);
+        console.log(window.special);
+    }
 
-  keepLooking();
+    keepLooking();
 }
 
 lookingFor(112358132134);
@@ -175,18 +175,18 @@ lookingFor(112358132134);
 var special = 42;
 
 function lookingFor(special) {
-  var another = {
-    special: special,
-  };
+    var another = {
+        special: special,
+    };
 
-  function keepLooking() {
-    var special = 3.141592;
-    console.log(special);
-    console.log(another.special); // Ooo, tricky!
-    console.log(window.special);
-  }
+    function keepLooking() {
+        var special = 3.141592;
+        console.log(special);
+        console.log(another.special); // Ooo, tricky!
+        console.log(window.special);
+    }
 
-  keepLooking();
+    keepLooking();
 }
 
 lookingFor(112358132134);
@@ -209,28 +209,28 @@ lookingFor(112358132134);
 
 ```js
 function something() {
-  var special = "JavaScript";
+    var special = "JavaScript";
 
-  {
-    let special = 42; // 完全 ok 的遮蔽
+    {
+        let special = 42; // 完全 ok 的遮蔽
 
-    // ..
-  }
+        // ..
+    }
 }
 
 function another() {
-  // ..
-
-  {
-    let special = "JavaScript";
+    // ..
 
     {
-      var special = "JavaScript";
-      // ^^^ Syntax Error
+        let special = "JavaScript";
 
-      // ..
+        {
+            var special = "JavaScript";
+            // ^^^ Syntax Error
+
+            // ..
+        }
     }
-  }
 }
 ```
 
@@ -244,18 +244,18 @@ function another() {
 
 ```js
 function another() {
-  // ..
+    // ..
 
-  {
-    let special = "JavaScript";
+    {
+        let special = "JavaScript";
 
-    ajax("https://some.url", function callback() {
-      // 完全 ok 的遮蔽
-      var special = "JavaScript";
+        ajax("https://some.url", function callback() {
+            // 完全 ok 的遮蔽
+            var special = "JavaScript";
 
-      // ..
-    });
-  }
+            // ..
+        });
+    }
 }
 ```
 
@@ -267,7 +267,7 @@ function another() {
 
 ```js
 function askQuestion() {
-  // ..
+    // ..
 }
 ```
 
@@ -277,7 +277,7 @@ function askQuestion() {
 
 ```js
 var askQuestion = function () {
-  // ..
+    // ..
 };
 ```
 
@@ -287,7 +287,7 @@ var askQuestion = function () {
 
 ```js
 var askQuestion = function ofTheTeacher() {
-  // ..
+    // ..
 };
 ```
 
@@ -295,7 +295,7 @@ var askQuestion = function ofTheTeacher() {
 
 ```js
 var askQuestion = function ofTheTeacher() {
-  console.log(ofTheTeacher);
+    console.log(ofTheTeacher);
 };
 
 askQuestion();
@@ -313,10 +313,10 @@ console.log(ofTheTeacher);
 
 ```js
 var askQuestion = function ofTheTeacher() {
-  "use strict";
-  ofTheTeacher = 42; // TypeError
+    "use strict";
+    ofTheTeacher = 42; // TypeError
 
-  //..
+    //..
 };
 
 askQuestion();
@@ -329,7 +329,7 @@ askQuestion();
 
 ```js
 var askQuestion = function () {
-  // ..
+    // ..
 };
 ```
 
@@ -345,7 +345,7 @@ ES6 在语言中添加了一种额外的函数表达式，称为"箭头函数"�
 
 ```js
 var askQuestion = () => {
-  // ..
+    // ..
 };
 ```
 
@@ -359,7 +359,7 @@ var askQuestion = () => {
 
 ```js
 var askQuestion = () => {
-  // ..
+    // ..
 };
 
 askQuestion.name; // askQuestion
@@ -375,7 +375,7 @@ askQuestion.name; // askQuestion
 (id, name) => ({ id, name });
 
 (...args) => {
-  return args[args.length - 1];
+    return args[args.length - 1];
 };
 ```
 

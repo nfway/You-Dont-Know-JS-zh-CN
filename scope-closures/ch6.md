@@ -20,19 +20,19 @@ POLP 表达了对软件架构的一种防御姿态：系统组件应设计为以
 
 你可以这样想：为什么不把程序中的所有变量都放在全局作用域中呢？这可能会让人立刻觉得这是个坏主意，但值得考虑一下为什么会这样。当程序的一部分使用的变量通过作用域暴露给程序的另一部分时，通常会产生三大危害：
 
-- **命名碰撞**：如果在程序的两个不同部分中使用了一个共同的、有用的变量/函数名，但标识符来自一个共享作用域（如全局作用域），那么就会发生命名碰撞，很可能会出现错误，因为一部分以另一部分意想不到的方式使用了该变量/函数。
+-   **命名碰撞**：如果在程序的两个不同部分中使用了一个共同的、有用的变量/函数名，但标识符来自一个共享作用域（如全局作用域），那么就会发生命名碰撞，很可能会出现错误，因为一部分以另一部分意想不到的方式使用了该变量/函数。
 
-  例如，试想一下，如果您的所有循环都使用了一个全局 `i` 索引变量，然后一个函数中的一个循环在另一个函数的循环迭代期间运行，现在共享的 `i` 变量得到了一个意想不到的值。
+    例如，试想一下，如果您的所有循环都使用了一个全局 `i` 索引变量，然后一个函数中的一个循环在另一个函数的循环迭代期间运行，现在共享的 `i` 变量得到了一个意想不到的值。
 
-- **意想不到的行为**：如果你将变量/函数的用途公开，而这些变量/函数的用途在程序中是*私有*的，那么其他开发人员就可以用你没有想到的方式使用它们，这可能会违反预期行为并导致错误。
+-   **意想不到的行为**：如果你将变量/函数的用途公开，而这些变量/函数的用途在程序中是*私有*的，那么其他开发人员就可以用你没有想到的方式使用它们，这可能会违反预期行为并导致错误。
 
-  例如，如果你的程序假定数组包含所有数字，但其他人的代码访问并修改了数组，使其包含布尔和字符串，那么你的代码可能会出现意想不到的错误行为。
+    例如，如果你的程序假定数组包含所有数字，但其他人的代码访问并修改了数组，使其包含布尔和字符串，那么你的代码可能会出现意想不到的错误行为。
 
-  更糟糕的是，暴露*隐私*细节会招致那些居心不良的人试图绕过你施加的限制，用你的那部分软件做一些不该做的事情。
+    更糟糕的是，暴露*隐私*细节会招致那些居心不良的人试图绕过你施加的限制，用你的那部分软件做一些不该做的事情。
 
-- **意外的依赖**：如果你不必要地暴露变量/函数，就会招致其他开发人员使用和依赖这些原本*私人*的部分。虽然这不会破坏你现在的程序，但会给将来的重构带来隐患，因为现在你不可能轻易地重构该变量或函数，而不会破坏软件中你无法控制的其他部分。[^1]
+-   **意外的依赖**：如果你不必要地暴露变量/函数，就会招致其他开发人员使用和依赖这些原本*私人*的部分。虽然这不会破坏你现在的程序，但会给将来的重构带来隐患，因为现在你不可能轻易地重构该变量或函数，而不会破坏软件中你无法控制的其他部分。[^1]
 
-  例如，如果您的代码依赖于数字数组，而您后来决定最好使用其他数据结构而不是数组，那么您现在就必须承担调整软件其他受影响部分的责任。
+    例如，如果您的代码依赖于数字数组，而您后来决定最好使用其他数据结构而不是数组，那么您现在就必须承担调整软件其他受影响部分的责任。
 
 POLE 应用于变量/函数的作用域时，主要是说，默认情况下只暴露必要的最低限度，其他一切尽可能保持私有。在尽可能小的深度嵌套作用域中声明变量，而不是把所有东西都放在全局（甚至外层函数）作用域中。
 
@@ -42,13 +42,13 @@ POLE 应用于变量/函数的作用域时，主要是说，默认情况下只�
 
 ```js
 function diff(x, y) {
-  if (x > y) {
-    let tmp = x;
-    x = y;
-    y = tmp;
-  }
+    if (x > y) {
+        let tmp = x;
+        x = y;
+        y = tmp;
+    }
 
-  return y - x;
+    return y - x;
 }
 
 diff(3, 7); // 4
@@ -75,11 +75,11 @@ diff(7, 5); // 2
 var cache = {};
 
 function factorial(x) {
-  if (x < 2) return 1;
-  if (!(x in cache)) {
-    cache[x] = x * factorial(x - 1);
-  }
-  return cache[x];
+    if (x < 2) return 1;
+    if (!(x in cache)) {
+        cache[x] = x * factorial(x - 1);
+    }
+    return cache[x];
 }
 
 factorial(6);
@@ -112,21 +112,21 @@ factorial(7);
 // 外层/全局作用域
 
 function hideTheCache() {
-  // "中间作用域"，在这里我们隐藏了 `cache`
-  var cache = {};
+    // "中间作用域"，在这里我们隐藏了 `cache`
+    var cache = {};
 
-  return factorial;
+    return factorial;
 
-  // **********************
+    // **********************
 
-  function factorial(x) {
-    // 内部作用域
-    if (x < 2) return 1;
-    if (!(x in cache)) {
-      cache[x] = x * factorial(x - 1);
+    function factorial(x) {
+        // 内部作用域
+        if (x < 2) return 1;
+        if (!(x in cache)) {
+            cache[x] = x * factorial(x - 1);
+        }
+        return cache[x];
     }
-    return cache[x];
-  }
 }
 
 var factorial = hideTheCache();
@@ -150,17 +150,17 @@ factorial(7);
 
 ```js
 var factorial = (function hideTheCache() {
-  var cache = {};
+    var cache = {};
 
-  function factorial(x) {
-    if (x < 2) return 1;
-    if (!(x in cache)) {
-      cache[x] = x * factorial(x - 1);
+    function factorial(x) {
+        if (x < 2) return 1;
+        if (!(x in cache)) {
+            cache[x] = x * factorial(x - 1);
+        }
+        return cache[x];
     }
-    return cache[x];
-  }
 
-  return factorial;
+    return factorial;
 })();
 
 factorial(6);
@@ -194,7 +194,7 @@ factorial(7);
 // 外层作用域
 
 (function () {
-  // 内部隐藏作用域
+    // 内部隐藏作用域
 })();
 
 // 更多外层作用域
@@ -224,31 +224,31 @@ factorial(7);
 
 ```js
 {
-  // 不一定是作用域（尚未）
+    // 不一定是作用域（尚未）
 
-  // ..
+    // ..
 
-  // 现在我们知道该区块需要是一个作用域
-  let thisIsNowAScope = true;
+    // 现在我们知道该区块需要是一个作用域
+    let thisIsNowAScope = true;
 
-  for (let i = 0; i < 5; i++) {
-    // 每次循环这也是一个作用域
-    // 迭代
-    if (i % 2 == 0) {
-      // 这只是一个块，不是作用域
-      console.log(i);
+    for (let i = 0; i < 5; i++) {
+        // 每次循环这也是一个作用域
+        // 迭代
+        if (i % 2 == 0) {
+            // 这只是一个块，不是作用域
+            console.log(i);
+        }
     }
-  }
 }
 // 0 2 4
 ```
 
 并非所有的 `{ .. }` 大括号都会创建块（因此有资格成为作用域）：
 
-- 对象字面使用 `{ .. }` 大括号对来分隔键值对，但这种对象值**不是**作用域。
-- `class` 在其主体定义周围使用了 `{ .. }` 大括号，但这不是一个块或作用域。
-- `function` 在其主体周围使用 `{ .. }` 围绕着它的主体，但从技术上讲，这并不是一个块—它是函数主体的单个语句。但它*是*一个（函数）作用域。
-- `switch` 语句上的一对 `{ .. }` 大括号（围绕 `case` 子句集）并不定义块/作用域。
+-   对象字面使用 `{ .. }` 大括号对来分隔键值对，但这种对象值**不是**作用域。
+-   `class` 在其主体定义周围使用了 `{ .. }` 大括号，但这不是一个块或作用域。
+-   `function` 在其主体周围使用 `{ .. }` 围绕着它的主体，但从技术上讲，这并不是一个块—它是函数主体的单个语句。但它*是*一个（函数）作用域。
+-   `switch` 语句上的一对 `{ .. }` 大括号（围绕 `case` 子句集）并不定义块/作用域。
 
 除了这些非代码块示例之外， `{ .. }` 大括号对可以定义一个附在语句（如 `if` 或 `for`）之后的块，也可以单独定义，见上一段中最外层的 `{ .. }` 括号对。对于这种显式块如果它没有声明，实际上就不是一个作用域，没有任何操作上的用途，尽管它作为语义信号仍然有用。
 
@@ -262,18 +262,18 @@ factorial(7);
 
 ```js
 if (somethingHappened) {
-  // 这是一个块但不是作用域
+    // 这是一个块但不是作用域
 
-  {
-    // 这既是一个块
-    // 也是一个显式作用域
-    let msg = somethingHappened.message();
-    notifyOthers(msg);
-  }
+    {
+        // 这既是一个块
+        // 也是一个显式作用域
+        let msg = somethingHappened.message();
+        notifyOthers(msg);
+    }
 
-  // ..
+    // ..
 
-  recoverFromSomething();
+    recoverFromSomething();
 }
 ```
 
@@ -289,19 +289,19 @@ if (somethingHappened) {
 
 ```js
 function getNextMonthStart(dateStr) {
-  var nextMonth, year;
+    var nextMonth, year;
 
-  {
-    let curMonth;
-    [, year, curMonth] = dateStr.match(/(\d{4})-(\d{2})-\d{2}/) || [];
-    nextMonth = (Number(curMonth) % 12) + 1;
-  }
+    {
+        let curMonth;
+        [, year, curMonth] = dateStr.match(/(\d{4})-(\d{2})-\d{2}/) || [];
+        nextMonth = (Number(curMonth) % 12) + 1;
+    }
 
-  if (nextMonth == 1) {
-    year++;
-  }
+    if (nextMonth == 1) {
+        year++;
+    }
 
-  return `${year}-${String(nextMonth).padStart(2, "0")}-01`;
+    return `${year}-${String(nextMonth).padStart(2, "0")}-01`;
 }
 getNextMonthStart("2019-12-25"); // 2020-01-01
 ```
@@ -320,31 +320,31 @@ getNextMonthStart("2019-12-25"); // 2020-01-01
 
 ```js
 function sortNamesByLength(names) {
-  var buckets = [];
+    var buckets = [];
 
-  for (let firstName of names) {
-    if (buckets[firstName.length] == null) {
-      buckets[firstName.length] = [];
-    }
-    buckets[firstName.length].push(firstName);
-  }
-
-  // 一个块，以缩小作用域
-  {
-    let sortedNames = [];
-
-    for (let bucket of buckets) {
-      if (bucket) {
-        // 按字母数字对每个桶进行排序
-        bucket.sort();
-
-        // 将排序后的名称添加到运行列表中
-        sortedNames = [...sortedNames, ...bucket];
-      }
+    for (let firstName of names) {
+        if (buckets[firstName.length] == null) {
+            buckets[firstName.length] = [];
+        }
+        buckets[firstName.length].push(firstName);
     }
 
-    return sortedNames;
-  }
+    // 一个块，以缩小作用域
+    {
+        let sortedNames = [];
+
+        for (let bucket of buckets) {
+            if (bucket) {
+                // 按字母数字对每个桶进行排序
+                bucket.sort();
+
+                // 将排序后的名称添加到运行列表中
+                sortedNames = [...sortedNames, ...bucket];
+            }
+        }
+
+        return sortedNames;
+    }
 }
 
 sortNamesByLength(["Sally", "Suzy", "Frank", "John", "Jennifer", "Scott"]);
@@ -372,13 +372,13 @@ sortNamesByLength(["Sally", "Suzy", "Frank", "John", "Jennifer", "Scott"]);
 
 ```js
 function diff(x, y) {
-  if (x > y) {
-    var tmp = x; // `tmp` 是函数作用域
-    x = y;
-    y = tmp;
-  }
+    if (x > y) {
+        var tmp = x; // `tmp` 是函数作用域
+        x = y;
+        y = tmp;
+    }
 
-  return y - x;
+    return y - x;
 }
 ```
 
@@ -410,15 +410,15 @@ POLE 已经为您的决策提供了指导，但我们还是要明确指出这一
 
 ```js
 function diff(x, y) {
-  var tmp;
+    var tmp;
 
-  if (x > y) {
-    tmp = x;
-    x = y;
-    y = tmp;
-  }
+    if (x > y) {
+        tmp = x;
+        x = y;
+        y = tmp;
+    }
 
-  return y - x;
+    return y - x;
 }
 ```
 
@@ -428,16 +428,16 @@ function diff(x, y) {
 
 ```js
 function diff(x, y) {
-  if (x > y) {
-    // `tmp` 仍然在函数作用域
-    // 但放置在这里
-    // 在语义上表示块作用域
-    var tmp = x;
-    x = y;
-    y = tmp;
-  }
+    if (x > y) {
+        // `tmp` 仍然在函数作用域
+        // 但放置在这里
+        // 在语义上表示块作用域
+        var tmp = x;
+        x = y;
+        y = tmp;
+    }
 
-  return y - x;
+    return y - x;
 }
 ```
 
@@ -449,7 +449,7 @@ function diff(x, y) {
 
 ```js
 for (var i = 0; i < 5; i++) {
-  // 做点什么
+    // 做点什么
 }
 ```
 
@@ -457,7 +457,7 @@ for (var i = 0; i < 5; i++) {
 
 ```js
 for (let i = 0; i < 5; i++) {
-  // 做点什么
+    // 做点什么
 }
 ```
 
@@ -465,13 +465,13 @@ for (let i = 0; i < 5; i++) {
 
 ```js
 for (var i = 0; i < 5; i++) {
-  if (checkValue(i)) {
-    break;
-  }
+    if (checkValue(i)) {
+        break;
+    }
 }
 
 if (i < 5) {
-  console.log("The loop stopped early!");
+    console.log("The loop stopped early!");
 }
 ```
 
@@ -481,14 +481,14 @@ if (i < 5) {
 var lastI;
 
 for (let i = 0; i < 5; i++) {
-  lastI = i;
-  if (checkValue(i)) {
-    break;
-  }
+    lastI = i;
+    if (checkValue(i)) {
+        break;
+    }
 }
 
 if (lastI < 5) {
-  console.log("The loop stopped early!");
+    console.log("The loop stopped early!");
 }
 ```
 
@@ -502,14 +502,14 @@ if (lastI < 5) {
 
 ```js
 try {
-  doesntExist();
+    doesntExist();
 } catch (err) {
-  console.log(err);
-  // ReferenceError: 'doesntExist' is not defined
-  // ^^^^ 从捕获的异常中打印的消息
+    console.log(err);
+    // ReferenceError: 'doesntExist' is not defined
+    // ^^^^ 从捕获的异常中打印的消息
 
-  let onlyHere = true;
-  var outerVariable = true;
+    let onlyHere = true;
+    var outerVariable = true;
 }
 
 console.log(outerVariable); // true
@@ -527,10 +527,10 @@ ES2019 （最近，在撰写本文时）更改了 `catch` 子句，使其声明�
 
 ```js
 try {
-  doOptionOne();
+    doOptionOne();
 } catch {
-  // 省略 catch 的声明
-  doOptionTwoInstead();
+    // 省略 catch 的声明
+    doOptionTwoInstead();
 }
 ```
 
@@ -546,9 +546,9 @@ try {
 
 ```js
 if (false) {
-  function ask() {
-    console.log("Does this run?");
-  }
+    function ask() {
+        console.log("Does this run?");
+    }
 }
 ask();
 ```
@@ -573,13 +573,13 @@ ask();
 
 ```js
 if (typeof Array.isArray != "undefined") {
-  function isArray(a) {
-    return Array.isArray(a);
-  }
+    function isArray(a) {
+        return Array.isArray(a);
+    }
 } else {
-  function isArray(a) {
-    return Object.prototype.toString.call(a) == "[object Array]";
-  }
+    function isArray(a) {
+        return Object.prototype.toString.call(a) == "[object Array]";
+    }
 }
 ```
 
@@ -593,27 +593,27 @@ if (typeof Array.isArray != "undefined") {
 
 ```js
 if (true) {
-  function ask() {
-    console.log("Am I called?");
-  }
+    function ask() {
+        console.log("Am I called?");
+    }
 }
 
 if (true) {
-  function ask() {
-    console.log("Or what about me?");
-  }
+    function ask() {
+        console.log("Or what about me?");
+    }
 }
 
 for (let i = 0; i < 5; i++) {
-  function ask() {
-    console.log("Or is it one of these?");
-  }
+    function ask() {
+        console.log("Or is it one of these?");
+    }
 }
 
 ask();
 
 function ask() {
-  console.log("Wait, maybe, it's this one?");
+    console.log("Wait, maybe, it's this one?");
 }
 ```
 
@@ -629,11 +629,11 @@ function ask() {
 
 ```js
 function isArray(a) {
-  if (typeof Array.isArray != "undefined") {
-    return Array.isArray(a);
-  } else {
-    return Object.prototype.toString.call(a) == "[object Array]";
-  }
+    if (typeof Array.isArray != "undefined") {
+        return Array.isArray(a);
+    } else {
+        return Object.prototype.toString.call(a) == "[object Array]";
+    }
 }
 ```
 
@@ -641,14 +641,14 @@ function isArray(a) {
 
 ```js
 var isArray = function isArray(a) {
-  return Array.isArray(a);
+    return Array.isArray(a);
 };
 
 // 如果必要的话，覆盖该定义
 if (typeof Array.isArray == "undefined") {
-  isArray = function isArray(a) {
-    return Object.prototype.toString.call(a) == "[object Array]";
-  };
+    isArray = function isArray(a) {
+        return Object.prototype.toString.call(a) == "[object Array]";
+    };
 }
 ```
 
