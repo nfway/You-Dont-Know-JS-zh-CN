@@ -1,14 +1,14 @@
 :root {
-  --vp-c-brand-1: #f7ba1e;
-  --vp-c-brand-2: #f9cc45;
-  --vp-c-brand-3: #fadc6d;
+    --vp-c-brand-1: #f7ba1e;
+    --vp-c-brand-2: #f9cc45;
+    --vp-c-brand-3: #fadc6d;
 }
 .vp-doc p {
-  text-indent: 2em;
+    text-indent: 2em;
 }
 .vp-doc :not(div) p {
-  text-indent: initial;
+    text-indent: initial;
 }
 .footnote-item p {
-  text-indent: initial;
+    text-indent: initial;
 }

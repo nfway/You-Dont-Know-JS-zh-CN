@@ -1,9 +1,9 @@
 @font-face {
-  font-family: AlibabaPuHuiTi-RegularL3;
-  src:
-    url(./AlibabaPuHuiTi-RegularL3.eot) format("embedded-opentype"),
-    url(./AlibabaPuHuiTi-RegularL3.otf) format("opentype"),
-    url(./AlibabaPuHuiTi-RegularL3.ttf) format("TrueType"),
-    url(./AlibabaPuHuiTi-RegularL3.woff) format("woff"),
-    url(./AlibabaPuHuiTi-RegularL3.woff2) format("woff2");
+    font-family: AlibabaPuHuiTi-RegularL3;
+    src:
+        url(./AlibabaPuHuiTi-RegularL3.eot) format("embedded-opentype"),
+        url(./AlibabaPuHuiTi-RegularL3.otf) format("opentype"),
+        url(./AlibabaPuHuiTi-RegularL3.ttf) format("TrueType"),
+        url(./AlibabaPuHuiTi-RegularL3.woff) format("woff"),
+        url(./AlibabaPuHuiTi-RegularL3.woff2) format("woff2");
 }
