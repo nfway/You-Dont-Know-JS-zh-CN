@@ -2,7 +2,7 @@
   "name": "you-dont-know-js-zh-cn",
   "version": "1.0.4-beta",
   "type": "module",
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@8.10.3",
   "private": true,
   "author": "liunian <liunian@2077tech.com> (https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN)",
   "repository": {
@@ -15,15 +15,20 @@
     "preview": "vitepress preview --port 4173",
     "generate-ol": "vitepress build",
     "generate-pdf": "node ./scripts/html2pdf.cjs",
-    "upgrade-dep": "taze -w -i"
+    "upgrade-dep": "taze -w"
   },
   "devDependencies": {
     "pdf-merger-js": "^4.3.0",
     "prettier": "3.0.3",
-    "puppeteer": "^21.5.0",
+    "puppeteer": "^21.5.1",
     "taze": "^0.12.0",
     "vitepress": "1.0.0-rc.25"
   },
-  "engines": { "pnpm": ">=8.6.11", "node": ">=18.0.0" },
-  "dependencies": { "markdown-it-footnote": "^3.0.3" }
+  "engines": {
+    "pnpm": ">=8.6.11",
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "markdown-it-footnote": "^3.0.3"
+  }
 }
