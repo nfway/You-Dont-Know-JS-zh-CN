@@ -2,7 +2,7 @@
 
 # 附录 B: 温故而知新
 
-在本附录中，我们将探讨一些练习和它们的建议解决方案。这些只是为了让你开始练习书中的概念。
+在本附录中，我们将探讨一些练习和它们的参考答案。这些只是为了让你开始练习书中的概念。
 
 ## 相等性练习
 
@@ -27,7 +27,7 @@ scheduleMeeting("17:30", 30); // false
 scheduleMeeting("18:00", 15); // false
 ```
 
-首先尝试自己解决这个问题。考虑关系比较运算符的用法，以及强制类型转换如何影响这段代码。一旦你有了可行的代码，请将你的解决方案与本附录末尾"建议的解决方案"中的代码进行比较。
+首先尝试自己解决这个问题。考虑关系比较运算符的用法，以及强制类型转换如何影响这段代码。一旦你有了可行的代码，请将你的解决方案与本附录末尾「参考答案」中的代码进行比较。
 
 ## 闭包练习
 
@@ -56,7 +56,7 @@ start4(6); // [4,5,6]
 
 首先尝试自己解决这个问题。
 
-一旦你有了可以使用的代码，请将你的解决方案与本附录末尾"建议的解决方案"中的代码进行比较。
+一旦你有了可以使用的代码，请将你的解决方案与本附录末尾「参考答案」中的代码进行比较。
 
 ## 原型练习
 
@@ -92,8 +92,8 @@ var reel = {
 
 var slotMachine = {
     reels: [
-        // this slot machine needs 3 separate reels
-        // hint: Object.create(..)
+        // 这台老虎机需要3个独立的转盘
+        // 提示：Object.create(..)
     ],
     spin() {
         this.reels.forEach(function spinReel(reel) {
@@ -126,13 +126,13 @@ slotMachine.display();
 -   使用 `Object.create(..)` 来创建一个对象并将其原型链接到另一个对象。一旦链接，对象在方法调用过程中共享 `this` 上下文。
 -   你可以使用另一个临时对象（再次使用 `Object.create(..)`），它有自己的 `position`，而不是直接修改 reel 对象来显示三个位置中的每一个。
 
-一旦你有了可以使用的代码，请将你的解决方案与本附录末尾"建议的解决方案"中的代码进行比较。
+一旦你有了可以使用的代码，请将你的解决方案与本附录末尾「参考答案」中的代码进行比较。
 
-## 建议的解决方案
+## 参考答案
 
-请记住，这些建议的解决方案仅仅是：建议。有许多不同的方法来解决这些习题。将你的方法与你在这里看到的进行比较，并考虑每种方法的优点和缺点。
+请记住，这些参考答案仅仅是：参考。有许多不同的方法来解决这些习题。将你的方法与你在这里看到的进行比较，并考虑每种方法的优点和缺点。
 
-对相等性练习实践的建议解决方案：
+对相等性练习实践的参考答案：
 
 ```js
 const dayStart = "07:30";
@@ -158,8 +158,8 @@ function scheduleMeeting(startTime, durationMinutes) {
             meetingEndMinutes = meetingEndMinutes - 60;
         }
 
-        // re-compose fully-qualified time strings
-        // (to make comparison easier)
+        // 重新组合完全限定的时间字符串
+        // （为了便于比较）
         let meetingStart = `${meetingStartHour.padStart(
             2,
             "0",
@@ -168,10 +168,9 @@ function scheduleMeeting(startTime, durationMinutes) {
             meetingEndMinutes,
         ).padStart(2, "0")}`;
 
-        // 注意： since expressions are all strings,
-        // comparisons here are alphabetic, but it's
-        // safe here since they're fully qualified
-        // time strings (ie, "07:15" < "07:30")
+        // 注意：由于表达式都是字符串，
+        // 这里的比较是按字母顺序进行的，但这么做是安全的，
+        // 因为它们是完全限定的时间字符串(例如，"07:15" < "07:30")。
         return meetingStart >= dayStart && meetingEnd <= dayEnd;
     }
 
@@ -189,7 +188,7 @@ scheduleMeeting("18:00", 15); // false
 
 ---
 
-对闭包练习实践的建议解决方案：
+对闭包练习实践的参考答案：
 
 ```js
 function range(start, end) {
@@ -231,7 +230,7 @@ start4(6); // [4,5,6]
 
 ---
 
-对原型练习实践的建议解决方案：
+对原型练习实践的参考答案：
 
 ```js
 function randMax(max) {
@@ -265,7 +264,7 @@ var slotMachine = {
     display() {
         var lines = [];
 
-        // display all 3 lines on the slot machine
+        // 在老虎机上显示所有行
         for (let linePos = -1; linePos <= 1; linePos++) {
             let line = this.reels.map(function getSlot(reel) {
                 var slot = Object.create(reel);
