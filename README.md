@@ -17,8 +17,8 @@
 
 我建议按照这个顺序阅读**第二版**书籍：
 
--   [入门（校对中）](get-started/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-get-started) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B084BNMN7T)
--   [作用域与闭包（等待校对）](scope-closures/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-scope-closures) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B08634PZ3N)
+-   [入门](get-started/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-get-started) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B084BNMN7T)
+-   [作用域与闭包（校对中）](scope-closures/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-scope-closures) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B08634PZ3N)
 -   [对象与类（等待翻译）](objects-classes/README.md) （稳定版草稿）
 -   [类型与语法（等待翻译）](types-grammar/README.md) （正在起草）
 -   同步与异步 （尚未开始）
