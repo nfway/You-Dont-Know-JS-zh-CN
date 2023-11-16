@@ -41,7 +41,10 @@ export default defineConfig({
                     { text: "第二章：JS 概观", link: "/get-started/ch2" },
                     { text: "第三章：寻根究底", link: "/get-started/ch3" },
                     { text: "第四章：大局观", link: "/get-started/ch4" },
-                    { text: "附录 A：进一步的探索", link: "/get-started/apA" },
+                    {
+                        text: "附录 A：欲穷千里目，更上一层楼",
+                        link: "/get-started/apA",
+                    },
                     {
                         text: "附录 B：温故而知新",
                         link: "/get-started/apB",
