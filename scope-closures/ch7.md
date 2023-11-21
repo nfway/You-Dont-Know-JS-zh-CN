@@ -809,7 +809,7 @@ function setupButtonHandler(btn) {
 
 在继续学习之前，请花一些时间*用自己的话*重述一下这个总结，解释一下什么是闭包，为什么它对你的程序有帮助。本书正文的最后一章将在闭包的基础上使用模块模式。
 
-[^假如一棵树在森林里倒下]: _假如一棵树在森林里倒下_， <https://zh.wikipedia.org/wiki/%E5%81%87%E5%A6%82%E4%B8%80%E6%A3%B5%E6%A8%B9%E5%9C%A8%E6%A3%AE%E6%9E%97%E8%A3%A1%E5%80%92%E4%B8%8B>， 2022 年 10 月 29 日。
-[^头等函数]: _头等函数_，<https://zh.wikipedia.org/wiki/%E5%A4%B4%E7%AD%89%E5%87%BD%E6%95%B0>，2023 年 8 月 21 日。
-[^偏函数]: _Partial application_，<https://en.wikipedia.org/wiki/Partial_application>， 2023 年 6 月 28 日。
-[^柯里化]: _柯里化_，<https://zh.wikipedia.org/zh-hans/%E6%9F%AF%E9%87%8C%E5%8C%96>， 2021 年 9 月 1 日。
+[^假如一棵树在森林里倒下]: _假如一棵树在森林里倒下_， <https://zh.wikipedia.org/wiki/%E5%81%87%E5%A6%82%E4%B8%80%E6%A3%B5%E6%A8%B9%E5%9C%A8%E6%A3%AE%E6%9E%97%E8%A3%A1%E5%80%92%E4%B8%8B>， 2022年10月29日。
+[^头等函数]: _头等函数_，<https://zh.wikipedia.org/wiki/%E5%A4%B4%E7%AD%89%E5%87%BD%E6%95%B0>，2023年8月21日。
+[^偏函数]: _Partial application_，<https://en.wikipedia.org/wiki/Partial_application>， 2023年6月28日。
+[^柯里化]: _柯里化_，<https://zh.wikipedia.org/zh-hans/%E6%9F%AF%E9%87%8C%E5%8C%96>， 2021年9月1日。

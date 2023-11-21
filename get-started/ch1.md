@@ -457,5 +457,5 @@ JS 是一种编译语言，意味着工具（包括 JS 引擎）在程序执行�
 
 现在我们的语言已经*定义*了，让我们开始了解它的内在和外在。
 
-[^specApB]: ECMAScript 2019 语言规范，附录 B：网络浏览器的附加 ECMAScript 功能，<https://www.ecma-international.org/ecma-262/10.0/#sec-additional-ecmascript-features-for-web-browsers> (截至本文撰写时 2020 年 1 月最新版)
-[^火腿和仓鼠]: 'Java is to JavaScript as ham is to hamster.' 英文使用的是火腿 (ham) 和仓鼠 (hamster) 来比喻的。
+[^specApB]: _ECMAScript 2019 语言规范，附录 B：网络浏览器的附加 ECMAScript 功能_，<https://www.ecma-international.org/ecma-262/10.0/#sec-additional-ecmascript-features-for-web-browsers> (截至本文撰写时 2020年1月最新版)
+[^火腿和仓鼠]: _'Java is to JavaScript as ham is to hamster.' 英文使用的是火腿 (ham) 和仓鼠 (hamster) 来比喻的。_

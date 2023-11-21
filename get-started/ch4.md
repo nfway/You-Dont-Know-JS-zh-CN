@@ -123,4 +123,4 @@ JS 的第三个重要组成部分是迄今为止 JS 特性中最被忽视的部�
 
 无论你选择如何阅读 YDKJSY，先看看这本书的附录，特别是练习附录 B「温故而知新」。 事不宜迟，没有什么比写代码更好的学习方法了。
 
-[^With-the-Grain]: 原文：With the Grain，一种语言比其他语言更自然地支持某些编程风格。您可以在 APL 中编写等价物，但当 APL 被设计为仅用于这种事情而没有显式迭代时，这将是浪费。，https://wiki.c2.com/?WithTheGrain.
+[^With-the-Grain]: _原文：With the Grain，一种语言比其他语言更自然地支持某些编程风格。您可以在 APL 中编写等价物，但当 APL 被设计为仅用于这种事情而没有显式迭代时，这将是浪费。_，https://wiki.c2.com/?WithTheGrain.
