@@ -1057,8 +1057,8 @@ define(["./Student"], function StudentList(Student) {
 
 毫无疑问，ESM（ES 模块）正在迅速流行和普及。但是，在过去 20 年里，有数百万个模块被编写出来，所有这些模块都使用了经典模块的 ESM 前变体，因此，当你遇到这些模块时，能够阅读和理解它们仍然非常重要。
 
-[^fowlerIOC]: _Inversion of Control_, Martin Fowler,<https://martinfowler.com/bliki/InversionOfControl.html>, 26 June 2005.
-[^箭头函数]: _箭头函数_，<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions>，2023 年 09 月 14 日。
-[^lint]: _lint_，<https://zh.wikipedia.org/zh-cn/Lint>，2021 年 10 月 07 日。
-[^DI]: _依赖注入_，<https://zh.wikipedia.org/wiki/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5>，2023 年 01 月 07 日。
-[^IoC]: _控制反转_，<https://zh.wikipedia.org/zh-hans/%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC>，2022 年 09 月 01 日。
+[^fowlerIOC]: _Inversion of Control_, Martin Fowler,<https://martinfowler.com/bliki/InversionOfControl.html>, 2005年6月26日。
+[^箭头函数]: _箭头函数_，<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions>，2023年9月14日。
+[^lint]: _lint_，<https://zh.wikipedia.org/zh-cn/Lint>，2021年10月07日。
+[^DI]: _依赖注入_，<https://zh.wikipedia.org/wiki/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5>，2023年1月7日。
+[^IoC]: _控制反转_，<https://zh.wikipedia.org/zh-hans/%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC>，2022年9月1日。

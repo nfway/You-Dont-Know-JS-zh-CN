@@ -666,9 +666,9 @@ FiB 不值得一试，应该避免它。
 
 希望到此为止，你对词法范围的理解已经有了更坚实的基础。在此基础上，下一章将进入闭包这一重要话题。
 
-[^POLP]: _最小权限原则_， <https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E6%9D%83%E9%99%90%E5%8E%9F%E5%88%99>， 2021 年 12 月 26 日。
-[^1]: _苹果底层开源代码被发现包含兼容微信的代码_，<https://www.oschina.net/news/127177/apple-libmalloc-compliance-with-wechat>， 2021 年 01 月 20 日。
-[^2]: _阶乘_， <https://zh.wikipedia.org/zh-cn/%E9%9A%8E%E4%B9%98>， 2023 年 8 月 23 日。
-[^3]: _Incremental Computation via Function Caching_， <https://dl.acm.org/doi/pdf/10.1145/75277.75305>， 1989 年。
-[^4]: _getify/Functional-Light-JS: Pragmatic, balanced FP in JavaScript_， <https://github.com/getify/Functional-Light-JS>， 2016 年 08 月 17 日。
-[^5]: _代码异味_， <https://zh.wikipedia.org/zh-cn/%E4%BB%A3%E7%A0%81%E5%BC%82%E5%91%B3>， 2021 年 12 月 16 日。
+[^POLP]: _最小权限原则_， <https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E6%9D%83%E9%99%90%E5%8E%9F%E5%88%99>， 2021年12月26日。
+[^1]: _苹果底层开源代码被发现包含兼容微信的代码_，<https://www.oschina.net/news/127177/apple-libmalloc-compliance-with-wechat>， 2021年1月20日。
+[^2]: _阶乘_， <https://zh.wikipedia.org/zh-cn/%E9%9A%8E%E4%B9%98>， 2023年8月23日。
+[^3]: _Incremental Computation via Function Caching_， <https://dl.acm.org/doi/pdf/10.1145/75277.75305>， 1989年。
+[^4]: _getify/Functional-Light-JS: Pragmatic, balanced FP in JavaScript_， <https://github.com/getify/Functional-Light-JS>， 2016年8月17日。
+[^5]: _代码异味_， <https://zh.wikipedia.org/zh-cn/%E4%BB%A3%E7%A0%81%E5%BC%82%E5%91%B3>， 2021年12月16日。
