@@ -304,7 +304,7 @@ export function getName(studentID) {
 }
 ```
 
-尽管 `export` 出现在这里的 `function` 关键字之前，但这个表单仍然是一个 `function` 声明，而且恰好也是导出的。也就是说，`getName`标识符是*函数提升*（参见第 5 章），因此它在整个模块范围内都可用。
+尽管 `export` 出现在这里的 `function` 关键字之前，但这个表单仍然是一个 `function` 声明，而且恰好也是导出的。也就是说，`getName`标识符是*函数提升*（参见第 5 章），因此它在整个模块作用域内都可用。
 
 另一种写法：
 
