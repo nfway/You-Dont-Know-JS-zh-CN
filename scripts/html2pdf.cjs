@@ -102,10 +102,11 @@ async function main() {
                         });
                         const blockquote = document.createElement("blockquote");
                         const p = document.createElement("p");
+                        p.style.whiteSpace = "pre-line";
                         p.innerText = `版本：v${version} 构建时间：${new Date().toLocaleString(
                             "zh-CN",
                             { timeZone },
-                        )} ${timeZone}`;
+                        )} ${timeZone}\n最新版地址：https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/releases/latest`;
                         blockquote.appendChild(p);
                         titleDom.parentElement.insertBefore(
                             blockquote,
