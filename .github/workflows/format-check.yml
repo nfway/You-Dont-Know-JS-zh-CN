@@ -1,7 +1,9 @@
 name: Format Check
 
 on:
-    pull_request:
+    pull_request_target:
+        branches:
+            - "2ed-zh-CN"
     push:
         branches:
             - "2ed-zh-CN"
