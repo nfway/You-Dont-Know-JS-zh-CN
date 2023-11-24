@@ -1,6 +1,8 @@
 # 你并不了解 JavaScript (丛书) - 第二版
 
 > 本仓库为《你不知道的 JavaScript (丛书) - 第二版》社区中文版，如果您有任何问题欢迎提交 [Issue](https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/issues) 给我。同时欢迎社区的 PR，不过在您行动之前，请确保查看了[如何贡献](#贡献)。
+>
+> 如果你觉得本项目对你有帮助，请给它一个 Star。
 
 这是一个深入研究 JavaScript 语言核心机制的系列图书。这是该系列图书的**第二版**：
 
@@ -18,9 +20,9 @@
 我建议按照这个顺序阅读**第二版**书籍：
 
 -   [入门](get-started/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-get-started) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B084BNMN7T)
--   [作用域与闭包（校对中）](scope-closures/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-scope-closures) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B08634PZ3N)
--   [对象与类（等待翻译）](objects-classes/README.md) （稳定版草稿）
--   [类型与语法（等待翻译）](types-grammar/README.md) （正在起草）
+-   [作用域与闭包](scope-closures/README.md) | [在 Leanpub 上购买（英文版）](https://leanpub.com/ydkjsy-scope-closures) | [在亚马逊上购买（英文版）](https://www.amazon.com/dp/B08634PZ3N)
+-   [对象与类（等待正式版后翻译）](objects-classes/README.md) （稳定版草稿）
+-   [类型与语法（等待正式版后翻译）](types-grammar/README.md) （正在起草）
 -   同步与异步 （尚未开始）
 -   ES.Next 和未来 （尚未开始）
 
@@ -40,11 +42,13 @@
 
 ### 赞助
 
-如果你想为**本书的中文社区或译者**提供资金支持，请考虑这些选项：
+如果你想为**本书的中文社区或译者**提供赞助，请考虑这些选项：
 
+-   给本项目一个 Star
 -   [爱发电](https://afdian.net/a/YDKJSY/plan)
 -   赞赏码
-<div>    
+
+<div>
     <img src="https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/wechat.jpg" title="微信" width="30%">
     <img src="https://github.com/liunnn1994/You-Dont-Know-JS-zh-CN/blob/main/funding-qrcodes/alipay.jpg" title="支付宝" width="30%">
 </div>
