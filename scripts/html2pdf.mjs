@@ -9,7 +9,6 @@ import {
 import { spawn } from "node:child_process";
 import puppeteer from "puppeteer";
 import PDFMerger from "pdf-merger-js";
-import { copySync } from "fs-extra/esm";
 import { createRequire } from "node:module";
 import generateAndSaveNewVersion from "./versions.mjs";
 
@@ -40,25 +39,7 @@ const pdfStyle = readFileSync(
 );
 
 async function main() {
-    copySync(
-        resolve(process.cwd(), "scripts/vitepress-theme"),
-        resolve(process.cwd(), ".vitepress/theme"),
-    );
     const version = await generateAndSaveNewVersion();
-    console.log(`正在生成 ${version}`);
-    const buildSpawn = spawn("node", [
-        resolve(process.cwd(), "./node_modules/vitepress/bin/vitepress.js"),
-        "build",
-    ]);
-    await new Promise((resolve) => {
-        buildSpawn.on("close", (code) => {
-            if (code === 0) {
-                resolve();
-            } else {
-                throw new Error("vitepress build error");
-            }
-        });
-    });
     const previewProcess = spawn("node", [
         resolve(process.cwd(), "./node_modules/vitepress/bin/vitepress.js"),
         "preview",

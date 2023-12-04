@@ -10,9 +10,6 @@ dependencies:
     version: 3.0.3
 
 devDependencies:
-  fs-extra:
-    specifier: ^11.2.0
-    version: 11.2.0
   pdf-merger-js:
     specifier: ^4.3.0
     version: 4.3.0
@@ -26,8 +23,8 @@ devDependencies:
     specifier: ^1.69.5
     version: 1.69.5
   taze:
-    specifier: ^0.12.0
-    version: 0.12.0
+    specifier: ^0.13.0
+    version: 0.13.0
   vitepress:
     specifier: 1.0.0-rc.25
     version: 1.0.0-rc.25(@algolia/client-search@4.20.0)(sass@1.69.5)(search-insights@2.8.3)
@@ -168,8 +165,8 @@ packages:
       '@algolia/requester-common': 4.20.0
     dev: true
 
-  /@antfu/ni@0.21.8:
-    resolution: {integrity: sha512-90X8pU2szlvw0AJo9EZMbYc2eQKkmO7mAdC4tD4r5co2Mm56MT37MIG8EyB7p4WRheuzGxuLDxJ63mF6+Zajiw==}
+  /@antfu/ni@0.21.12:
+    resolution: {integrity: sha512-2aDL3WUv8hMJb2L3r/PIQWsTLyq7RQr3v9xD16fiz6O8ys1xEyLhhTOv8gxtZvJiTzjTF5pHoArvRdesGL1DMQ==}
     hasBin: true
     dev: true
 
@@ -491,12 +488,12 @@ packages:
       - supports-color
     dev: true
 
-  /@npmcli/config@8.0.1:
-    resolution: {integrity: sha512-NKGmMYv/YTLwJr+qK9CvADSe82NTM9AFwFFpsZpVcPCT3XTdxvJBdXi8xvXWjHSCMb0Cb+7FtU/a5qqguCOhxA==}
+  /@npmcli/config@8.0.2:
+    resolution: {integrity: sha512-g+DAp7bUsiUDynRI4jTO0wPAXJpy3puhovHHg8S4iq54NF8zd00588GJOm5ARxDaDUdKCUYu9E5fNc+esYl5JA==}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
       '@npmcli/map-workspaces': 3.0.4
-      ci-info: 3.8.0
+      ci-info: 4.0.0
       ini: 4.1.1
       nopt: 7.2.0
       proc-log: 3.0.0
@@ -1143,8 +1140,8 @@ packages:
       urlpattern-polyfill: 9.0.0
     dev: true
 
-  /ci-info@3.8.0:
-    resolution: {integrity: sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==}
+  /ci-info@4.0.0:
+    resolution: {integrity: sha512-TdHqgGf9odd8SXNuxtUBVx8Nv+qZOejE6qyqiy5NtbYYQOeFa6zmHkxlPzmaLxWWHsU6nJmB7AETdVPi+2NBUg==}
     engines: {node: '>=8'}
     dev: true
 
@@ -1462,15 +1459,6 @@ packages:
     dependencies:
       cross-spawn: 7.0.3
       signal-exit: 4.1.0
-    dev: true
-
-  /fs-extra@11.2.0:
-    resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      graceful-fs: 4.2.11
-      jsonfile: 6.1.0
-      universalify: 2.0.1
     dev: true
 
   /fs-extra@8.1.0:
@@ -1831,14 +1819,6 @@ packages:
 
   /jsonfile@4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
-    optionalDependencies:
-      graceful-fs: 4.2.11
-    dev: true
-
-  /jsonfile@6.1.0:
-    resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
-    dependencies:
-      universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
     dev: true
@@ -2807,12 +2787,12 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /taze@0.12.0:
-    resolution: {integrity: sha512-ftDYS/dNF0EkiEpZZweJxJKQRVFPBFFDz3OPezFloVtOHoMmVwLiMxLM9KYLnA+30D8IFdnGgS15WiIaz2bOfA==}
+  /taze@0.13.0:
+    resolution: {integrity: sha512-o17Y6miF+44sDJ7haRHTqZefTlGOaBSdDHRwRcrt+s3WeGSPBUtPSG18XNwToIXN//eh58hyYnyDwTnpYLp4sg==}
     hasBin: true
     dependencies:
-      '@antfu/ni': 0.21.8
-      '@npmcli/config': 8.0.1
+      '@antfu/ni': 0.21.12
+      '@npmcli/config': 8.0.2
       cli-progress: 3.12.0
       deepmerge: 4.3.1
       detect-indent: 7.0.1
@@ -2904,11 +2884,6 @@ packages:
   /universalify@0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
-    dev: true
-
-  /universalify@2.0.1:
-    resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
-    engines: {node: '>= 10.0.0'}
     dev: true
 
   /urlpattern-polyfill@9.0.0:

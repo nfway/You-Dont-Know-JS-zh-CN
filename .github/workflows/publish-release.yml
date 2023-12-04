@@ -62,9 +62,14 @@ jobs:
             - name: Install dependencies
               run: pnpm i --frozen-lockfile
 
+            - name: Vitepress custom pdf theme
+              run: |
+                  cp -a scripts/vitepress-theme/* .vitepress/theme
+
             - name: Build
               id: build
               run: |
+                  pnpm run build
                   pnpm run generate-pdf
                   echo "VERSION=v$(node -p 'require("./package.json").version')" >> $GITHUB_OUTPUT
                   echo "PRERELEASE=$(node -p 'require("./package.json").version.indexOf("-")>-1')" >> $GITHUB_OUTPUT
