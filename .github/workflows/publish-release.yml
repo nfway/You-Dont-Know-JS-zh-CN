@@ -38,7 +38,7 @@ jobs:
             - name: Setup node
               uses: actions/setup-node@v3
               with:
-                  node-version: 18
+                  node-version: 20
 
             - name: Replace npmrc
               run: cp -f .npmrc.github .npmrc
@@ -61,10 +61,6 @@ jobs:
 
             - name: Install dependencies
               run: pnpm i --frozen-lockfile
-
-            - name: Vitepress custom theme
-              run: |
-                  cp -a scripts/vitepress-theme/* .vitepress/theme
 
             - name: Build
               id: build
