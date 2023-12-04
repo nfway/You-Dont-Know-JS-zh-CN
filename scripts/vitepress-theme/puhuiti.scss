@@ -1,0 +1,15 @@
+$weight: 100, 300, 400, 500, 600, 700, 800, 900, 950;
+
+@each $w in $weight {
+    @font-face {
+        font-family: "PuHuiTi";
+        src:
+            url("/fonts/AlibabaPuHuiTi-#{$w}.woff2") format("woff2"),
+            url("/fonts/AlibabaPuHuiTi-#{$w}.woff") format("woff"),
+            url("/fonts/AlibabaPuHuiTi-#{$w}.ttf") format("truetype"),
+            url("/fonts/AlibabaPuHuiTi-#{$w}.otf") format("opentype"),
+            url("/fonts/AlibabaPuHuiTi-#{$w}.eot") format("embedded-opentype");
+        font-weight: #{$w};
+        font-display: fallback;
+    }
+}
